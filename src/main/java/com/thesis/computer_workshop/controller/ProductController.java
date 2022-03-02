@@ -10,13 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 public class ProductController {
@@ -137,11 +135,14 @@ public class ProductController {
     }
 
     @PostMapping("/admin/notebook")
-    public String setAdminNotebook(Notebook notebook) {
-        System.out.println(notebook);
-        notebook.setDateTimeCreate(Timestamp.valueOf(new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime())));
+    public String setAdminNotebook(@RequestParam String name, Notebook notebook, Model model) {
+        System.out.println(name);
+        Date dt = new java.util.Date();
+        SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentTime = sdf.format(dt);
+        notebook.setDateTimeCreate(Timestamp.valueOf(currentTime));
         notebookRepository.save(notebook);
-        return "redirect:/admin/admin_products/notebook/edit_notebook/";
+        return "/admin/admin_products/notebook/edit_notebook";
     }
 
 }

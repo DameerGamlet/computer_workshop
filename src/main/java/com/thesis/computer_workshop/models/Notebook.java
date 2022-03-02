@@ -42,9 +42,26 @@ public class Notebook {
     private String batteryLife;         // время работы от батареи. Пример, "90 - 120" в минутах (конвертация в часы)
     private String osName;              // установленная система. Пример, "Windows 10 Pro X64 лицензия"
 
-    private double termOfUse;           // время использования. Пример, "36" в месяцах
+    private String termOfUse;           // время использования. Пример, "36" в месяцах
 
     private Timestamp dateTimeCreate;            // дата создания товара
+
+    public Notebook(String name, String brand, double price, String description, String status, boolean inStock, String display, String processorName, String videoCardName, int ramSize, String memoryDrives, String batteryLife, String osName, String termOfUse) {
+        this.name = name;
+        this.brand = brand;
+        this.price = price;
+        this.description = description;
+        this.status = status;
+        this.inStock = inStock;
+        this.display = display;
+        this.processorName = processorName;
+        this.videoCardName = videoCardName;
+        this.ramSize = ramSize;
+        this.memoryDrives = memoryDrives;
+        this.batteryLife = batteryLife;
+        this.osName = osName;
+        this.termOfUse = termOfUse;
+    }
 
     //  Информация об просмотрах
     //  private int counts_views;              // количество просмотров товара
