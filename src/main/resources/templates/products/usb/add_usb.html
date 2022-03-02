@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="blocks/libraries :: libraries"></div>
+
+</head>
+<body>
+<div>
+    <h2>Создать товар:</h2>
+    <form method="post" action="/usb/create">
+        <div class="col-md-8 order-md-1 cont">
+            <h4 class="mb-3">Добавление usb</h4>
+            <div class="mb-3"><label>Название                      </label> <input type="text" class="form-control" placeholder="Название" required="" name="name"></div>
+            <div class="mb-3"><label>Модель                        </label> <input type="text" class="form-control" placeholder="Модель" required="" name="model"></div>
+            <div class="mb-3"><label>Цена                          </label> <input type="number" class="form-control" placeholder="Цена" required="" name="price"></div>
+            <div class="mb-3"><label>Гарантия                      </label> <input type="number" class="form-control" placeholder="Гарантия" required="" name="warranty"></div>
+            <div class="mb-3"><label>Страна производства           </label> <input type="text" class="form-control" placeholder="Страна производства" required="" name="country_origin"></div>
+            <div class="mb-3"><label>Введите объём памяти          </label> <input type="number" class="form-control" placeholder="Объём памяти" required="" name="volume"></div>
+            <div class="mb-3"><label>Введите макс. величину чтения </label> <input type="number" class="form-control" placeholder="Макс величина чтения" required="" name="max_wr_speed"></div>
+            <div class="mb-3"><label>Введите макс. величину записи </label> <input type="number" class="form-control" placeholder="Макс величина записи" required="" name="max_rd_speed"></div>
+            <div class="mb-3"><label>Введите количество в наличии  </label> <input type="text" class="form-control" placeholder="Количество" required="" name="count"></div>
+            <div class="mb-3"><label>Введите описание товара       </label> <input type="text" class="form-control" placeholder="Описание" required="" name="description"></div>
+
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Добавить</button>
+        </div>
+
+        <!--        ____________________Введите название: <input class="form-control" width="300" type="text"   name="name"                         placeholder="название"> <br>-->
+        <!--        ______________________Введите модель: <input class="form-control" width="300" type="text"   name="model"                         placeholder="модель"> <br>-->
+        <!--        ________________________Введите цену: <input class="form-control" width="300" type="number" name="price"                             placeholder="цена"> <br>-->
+        <!--        ____________________Введите гарантию: <input class="form-control" width="300" type="number" name="warranty"                             placeholder="гарантия"> <br>-->
+        <!--        _________Введите страну производства: <input class="form-control" width="300" type="text"   name="country_origin"                           placeholder="страна производства"> <br>-->
+        <!--        ________________Введите объём памяти: <input class="form-control" width="300" type="number" name="volume"                        placeholder="объём памяти"> <br>-->
+        <!--        Введите максимальную величину чтения: <input class="form-control" width="300" type="number" name="maximum_write_speed"          placeholder="макс. величина чтения"> <br>-->
+        <!--        Введите максимальную величину записи: <input class="form-control" width="300" type="number" name="maximum_data_reading_speed"   placeholder="макс. величина записи"> <br>-->
+        <!--        ________Введите количество в наличии: <input class="form-control" width="300" type="number" name="count"                         placeholder="количество"> <br>-->
+        <!--        _____________Введите описание товара: <input class="form-control" width="900" type="text"   name="description"                  placeholder="описание"> <br>-->
+        <!--        <input class="btn btn-success" name="file" type="file" value="Добавить товар"/>-->
+        <!--        <br>-->
+        <!--        <button type="submit">Добавить</button>-->
+    </form>
+</div>
+
+Список товаров:
+<div th:each="item : ${products}">
+    <div>
+        <div>ID:</div>
+        <div th:text="${item.id}"></div>
+        <div>Название:</div>
+        <div th:text="${item.name}"></div>
+        <div>Цена:</div>
+        <div th:text="${item.price}"></div>
+    </div>
+    <br>
+</div>
+
+</body>
+</html>

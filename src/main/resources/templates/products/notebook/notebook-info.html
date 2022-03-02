@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="blocks/libraries :: libraries"></div>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div th:each="item : ${product}">
+    <div class="product_container">
+        <div class="product_full_name">
+            <div th:text="${item.name}"></div>
+        </div>
+
+<!--        <div class="product_container2">-->
+<!--            <div class="product_option_inner">-->
+<!--                <div class="option_product">-->
+<!--                    <div class="">-->
+<!--                        <h6>Характеристики</h6>-->
+<!--                    </div>-->
+<!--                    <div class="sort_item">-->
+<!--                        <div>Гарантия:&#160;</div>-->
+<!--                        <div th:text="${item.warranty}"></div>-->
+<!--                        <div>&#160;месяцев</div>-->
+<!--                    </div>-->
+<!--                    <div class="sort_item">-->
+<!--                        <div>Объём памяти:&#160;</div>-->
+<!--                        <div th:text="${item.volume}"></div>-->
+<!--                        <div>&#160;МБ</div>-->
+<!--                    </div>-->
+<!--                    <div class="sort_item">-->
+<!--                        <div>Макс. скорость чтения:&#160;</div>-->
+<!--                        <div th:text="${item.max_wr_speed}"></div>-->
+<!--                        <div>&#160;МБ/c</div>-->
+<!--                    </div>-->
+<!--                    <div class="sort_item">-->
+<!--                        <div>Макс. скорость записи: &#160;</div>-->
+<!--                        <div th:text="${item.max_rd_speed}"></div>-->
+<!--                        <div>&#160;МБ/c</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                <div class="rectangle_opinion">-->
+<!--                    <div class="raiting">-->
+<!--                        <img src="images/star.png" width="20" height="20" alt="">-->
+<!--                        <img src="images/star.png" width="20" height="20" alt="">-->
+<!--                        <img src="images/star.png" width="20" height="20" alt="">-->
+<!--                        <img src="images/star.png" width="20" height="20" alt="">-->
+<!--                        <img src="images/star.png" width="20" height="20" alt="">-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        0.0 (отз.)-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="price_and_buy">-->
+<!--                <div class="price_config">-->
+<!--                    <div class="price_text">Цена:&#160;</div>-->
+<!--                    <div class="price" th:text="${item.price}"></div>-->
+<!--                    <div class="price_text">&#160;рублей</div>-->
+<!--                </div>-->
+<!--                <div class="element_right">-->
+<!--                    <button class="text-field__btn_buy" type="button">В корзину</button>-->
+<!--                </div>-->
+<!--                <div class="element_right">-->
+<!--                    <button class="text-field__btn_fav" type="button">В избранное</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+</div>
+</body>
+</html>

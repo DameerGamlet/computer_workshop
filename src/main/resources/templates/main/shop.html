@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:insert="blocks/libraries :: libraries"></div>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container">
+    <h1 class="product_name">Каталог товаров</h1>
+    <div>
+        <a href="/">Главная</a>
+    </div>
+    <div class="inner_container_1">
+        <div class="inner_container_2">
+            <div class="inner_element">
+                <a href="#">
+                    <div class="catalog_form">
+                        <img src="/images/catalog/1computers.png" alt="">
+                    </div>
+                    <p class="inner_text">Компьютеры</p>
+                </a>
+            </div>
+            <div class="inner_element">
+                <a href="/notebooks/list">
+                    <div class="catalog_form">
+                        <img src="/images/catalog/2laptops.png" alt="">
+                    </div>
+                    <p class="inner_text">Ноутбуки</p>
+                </a>
+            </div>
+            <div class="inner_element">
+                <a href="#">
+                    <div class="catalog_form">
+                        <img class="image_catalog" src="/images/catalog/3accessories.png" alt="">
+                    </div>
+                    <p class="inner_text">Комплектующие ПК</p>
+                </a>
+            </div>
+            <div class="inner_element">
+                <a href="#">
+                    <div class="catalog_form">
+                        <img class="image_catalog" src="/images/catalog/4spareparts.png" alt="">
+                    </div>
+                    <p class="inner_text">Запчасти</p>
+                </a>
+            </div>
+        </div>
+        <div class="inner_container_2">
+            <div class="inner_element">
+                <a href="#">
+                    <div class="catalog_form">
+                        <img class="image_catalog" src="/images/catalog/5peripheraldevices.png" alt="">
+                    </div>
+                    <p class="inner_text">Переферийные устройства</p>
+                </a>
+            </div>
+            <div class="inner_element">
+                <a href="#">
+                    <div class="catalog_form">
+                        <img class="image_catalog" src="/images/catalog/6officeequipment.png" alt="">
+                    </div>
+                    <p class="inner_text">Оборудования для офиса</p>
+                </a>
+            </div>
+            <div class="inner_element">
+                <a href="#">
+                    <div class="catalog_form">
+                        <img class="image_catalog" src="/images/catalog/7externaldrives.png" alt="">
+                    </div>
+                    <p class="inner_text">Внешние накопители</p>
+                </a>
+            </div>
+            <div class="inner_element">
+                <a href="#">
+                    <div class="catalog_form">
+                        <img class="image_catalog" src="/images/catalog/8other.png" alt="">
+                    </div>
+                    <p class="inner_text">Прочее</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
