@@ -612,7 +612,10 @@ a.inner_text {
     width: 300px;
 }
 
-
+.info_list{
+    display: flex;
+    justify-content: flex-start;
+}
 
 
 

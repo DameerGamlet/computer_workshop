@@ -66,7 +66,7 @@ public class ProductController {
     @GetMapping("/usb/{id}")
     public String usbInfo(@PathVariable(value = "id") Long id, Model model) {
         Optional<UsbFlashProduct> usb = usbFlashRepository.findById(id);
-        ArrayList <UsbFlashProduct> result = new ArrayList<>();
+        ArrayList<UsbFlashProduct> result = new ArrayList<>();
         usb.ifPresent(result::add);
         result.forEach(System.out::println);
         model.addAttribute("product", result);
@@ -76,7 +76,7 @@ public class ProductController {
     @GetMapping("/notebook/{id}")
     public String notebookInfo(@PathVariable(value = "id") Long id, Model model) {
         Optional<Notebook> notebook = notebookRepository.findById(id);
-        ArrayList <Notebook> result = new ArrayList<>();
+        ArrayList<Notebook> result = new ArrayList<>();
         notebook.ifPresent(result::add);
         result.forEach(System.out::println);
         model.addAttribute("product", result);
@@ -131,6 +131,9 @@ public class ProductController {
 
     @GetMapping("/admin/notebook")
     public String returnAdminNotebook(Model model) {
+        Iterable<Notebook> notebooks = notebookRepository.findAll();
+
+        model.addAttribute("products", notebooks);
         return "/admin/admin_products/notebook/edit_notebook";
     }
 
