@@ -1,100 +1,77 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <div th:insert="blocks/libraries :: libraries"></div>
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <div th:insert="blocks/libraries :: libraries"></div>-->
 
-</head>
-<body>
-<div>
-    <h2>Создать товар:</h2>
-    <form method="post" action="/usb/create">
-        <div class="col-md-8 order-md-1 cont">
-            <h4 class="mb-3">Добавление ноутбука</h4>
-
-
-
-
-
-
-           name              Модель
-           brand             Название
-           price             Цена
-           category          Категория
-           subCategory       Подкатегория
-           description       Описание
-           status            Статус
-           inStock           Наличие
-           display           Дисплей
-           processorName     Процессор
-           videoCardName     Видеокарта
-           ramSize           Объём ОП
-           memoryDrives      Накопители
-           batteryLife       Время от батареи
-           osName            Версия ОС
-           termOfUse         Время использования
-
-            <div class="mb-3"><label>Модель             </label> <input type="" class="form-control" placeholder="Модель" name = "name"></div>
-            <div class="mb-3"><label>Название           </label> <input type="" class="form-control" placeholder="Название" name = "brand"></div>
-            <div class="mb-3"><label>Цена               </label> <input type="" class="form-control" placeholder="Цена" name = "price"></div>
-            <div class="mb-3"><label>Категория          </label> <input type="" class="form-control" placeholder="Категория" name = "category"></div>
-            <div class="mb-3"><label>Подкатегория       </label> <input type="" class="form-control" placeholder="Подкатегория" name = "subCategory"></div>
-            <div class="mb-3"><label>Описание           </label> <input type="" class="form-control" placeholder="Описание" name = "description"></div>
-            <div class="mb-3"><label>Статус             </label> <input type="" class="form-control" placeholder="Статус" name = "status"></div>
-            <div class="mb-3"><label>Наличие            </label> <input type="" class="form-control" placeholder="Наличие" name = "inStock"></div>
-            <div class="mb-3"><label>Дисплей            </label> <input type="" class="form-control" placeholder="Дисплей" name = "display"></div>
-            <div class="mb-3"><label>Процессор          </label> <input type="" class="form-control" placeholder="Процессор" name = "processorName"></div>
-            <div class="mb-3"><label>Видеокарта         </label> <input type="" class="form-control" placeholder="Видеокарта" name = "videoCardName"></div>
-            <div class="mb-3"><label>Объём ОП           </label> <input type="" class="form-control" placeholder="Объём ОП" name = "ramSize"></div>
-            <div class="mb-3"><label>Накопители         </label> <input type="" class="form-control" placeholder="Накопители" name = "memoryDrives"></div>
-            <div class="mb-3"><label>Время от батареи   </label> <input type="" class="form-control" placeholder="Время от батареи" name = "batteryLife"></div>
-            <div class="mb-3"><label>Версия ОС          </label> <input type="" class="form-control" placeholder="Версия ОС" name = "osName"></div>
-            <div class="mb-3"><label>Время использования</label> <input type="" class="form-control" placeholder="Время использования" name = "termOfUse"></div>
+<!--</head>-->
+<!--<body>-->
+<!--<div>-->
+<!--    <h2>Создать товар:</h2>-->
+<!--    <form method="post" action="/usb/create">-->
+<!--        <div class="col-md-8 order-md-1 cont">-->
+<!--            <h4 class="mb-3">Добавление ноутбука</h4>-->
+<!--            <div class="mb-3"><label>Модель             </label> <input type="" class="form-control" placeholder="Модель" name = "name"></div>-->
+<!--            <div class="mb-3"><label>Название           </label> <input type="" class="form-control" placeholder="Название" name = "brand"></div>-->
+<!--            <div class="mb-3"><label>Цена               </label> <input type="" class="form-control" placeholder="Цена" name = "price"></div>-->
+<!--            <div class="mb-3"><label>Категория          </label> <input type="" class="form-control" placeholder="Категория" name = "category"></div>-->
+<!--            <div class="mb-3"><label>Подкатегория       </label> <input type="" class="form-control" placeholder="Подкатегория" name = "subCategory"></div>-->
+<!--            <div class="mb-3"><label>Описание           </label> <input type="" class="form-control" placeholder="Описание" name = "description"></div>-->
+<!--            <div class="mb-3"><label>Статус             </label> <input type="" class="form-control" placeholder="Статус" name = "status"></div>-->
+<!--            <div class="mb-3"><label>Наличие            </label> <input type="" class="form-control" placeholder="Наличие" name = "inStock"></div>-->
+<!--            <div class="mb-3"><label>Дисплей            </label> <input type="" class="form-control" placeholder="Дисплей" name = "display"></div>-->
+<!--            <div class="mb-3"><label>Процессор          </label> <input type="" class="form-control" placeholder="Процессор" name = "processorName"></div>-->
+<!--            <div class="mb-3"><label>Видеокарта         </label> <input type="" class="form-control" placeholder="Видеокарта" name = "videoCardName"></div>-->
+<!--            <div class="mb-3"><label>Объём ОП           </label> <input type="" class="form-control" placeholder="Объём ОП" name = "ramSize"></div>-->
+<!--            <div class="mb-3"><label>Накопители         </label> <input type="" class="form-control" placeholder="Накопители" name = "memoryDrives"></div>-->
+<!--            <div class="mb-3"><label>Время от батареи   </label> <input type="" class="form-control" placeholder="Время от батареи" name = "batteryLife"></div>-->
+<!--            <div class="mb-3"><label>Версия ОС          </label> <input type="" class="form-control" placeholder="Версия ОС" name = "osName"></div>-->
+<!--            <div class="mb-3"><label>Время использования</label> <input type="" class="form-control" placeholder="Время использования" name = "termOfUse"></div>-->
 
 
-            <div class="mb-3"><label>Название                      </label> <input type="text" class="form-control" placeholder="Название" required="" name="name"></div>
-            <div class="mb-3"><label>Модель                        </label> <input type="text" class="form-control" placeholder="Модель" required="" name="model"></div>
-            <div class="mb-3"><label>Цена                          </label> <input type="number" class="form-control" placeholder="Цена" required="" name="price"></div>
-            <div class="mb-3"><label>Гарантия                      </label> <input type="number" class="form-control" placeholder="Гарантия" required="" name="warranty"></div>
-            <div class="mb-3"><label>Страна производства           </label> <input type="text" class="form-control" placeholder="Страна производства" required="" name="country_origin"></div>
-            <div class="mb-3"><label>Введите объём памяти          </label> <input type="number" class="form-control" placeholder="Объём памяти" required="" name="volume"></div>
-            <div class="mb-3"><label>Введите макс. величину чтения </label> <input type="number" class="form-control" placeholder="Макс величина чтения" required="" name="max_wr_speed"></div>
-            <div class="mb-3"><label>Введите макс. величину записи </label> <input type="number" class="form-control" placeholder="Макс величина записи" required="" name="max_rd_speed"></div>
-            <div class="mb-3"><label>Введите количество в наличии  </label> <input type="text" class="form-control" placeholder="Количество" required="" name="count"></div>
-            <div class="mb-3"><label>Введите описание товара       </label> <input type="text" class="form-control" placeholder="Описание" required="" name="description"></div>
+<!--            <div class="mb-3"><label>Название                      </label> <input type="text" class="form-control" placeholder="Название" required="" name="name"></div>-->
+<!--            <div class="mb-3"><label>Модель                        </label> <input type="text" class="form-control" placeholder="Модель" required="" name="model"></div>-->
+<!--            <div class="mb-3"><label>Цена                          </label> <input type="number" class="form-control" placeholder="Цена" required="" name="price"></div>-->
+<!--            <div class="mb-3"><label>Гарантия                      </label> <input type="number" class="form-control" placeholder="Гарантия" required="" name="warranty"></div>-->
+<!--            <div class="mb-3"><label>Страна производства           </label> <input type="text" class="form-control" placeholder="Страна производства" required="" name="country_origin"></div>-->
+<!--            <div class="mb-3"><label>Введите объём памяти          </label> <input type="number" class="form-control" placeholder="Объём памяти" required="" name="volume"></div>-->
+<!--            <div class="mb-3"><label>Введите макс. величину чтения </label> <input type="number" class="form-control" placeholder="Макс величина чтения" required="" name="max_wr_speed"></div>-->
+<!--            <div class="mb-3"><label>Введите макс. величину записи </label> <input type="number" class="form-control" placeholder="Макс величина записи" required="" name="max_rd_speed"></div>-->
+<!--            <div class="mb-3"><label>Введите количество в наличии  </label> <input type="text" class="form-control" placeholder="Количество" required="" name="count"></div>-->
+<!--            <div class="mb-3"><label>Введите описание товара       </label> <input type="text" class="form-control" placeholder="Описание" required="" name="description"></div>-->
 
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Добавить</button>
-        </div>
+<!--            <button class="btn btn-primary btn-lg btn-block" type="submit">Добавить</button>-->
+<!--        </div>-->
 
-        <!--        ____________________Введите название: <input class="form-control" width="300" type="text"   name="name"                         placeholder="название"> <br>-->
-        <!--        ______________________Введите модель: <input class="form-control" width="300" type="text"   name="model"                         placeholder="модель"> <br>-->
-        <!--        ________________________Введите цену: <input class="form-control" width="300" type="number" name="price"                             placeholder="цена"> <br>-->
-        <!--        ____________________Введите гарантию: <input class="form-control" width="300" type="number" name="warranty"                             placeholder="гарантия"> <br>-->
-        <!--        _________Введите страну производства: <input class="form-control" width="300" type="text"   name="country_origin"                           placeholder="страна производства"> <br>-->
-        <!--        ________________Введите объём памяти: <input class="form-control" width="300" type="number" name="volume"                        placeholder="объём памяти"> <br>-->
-        <!--        Введите максимальную величину чтения: <input class="form-control" width="300" type="number" name="maximum_write_speed"          placeholder="макс. величина чтения"> <br>-->
-        <!--        Введите максимальную величину записи: <input class="form-control" width="300" type="number" name="maximum_data_reading_speed"   placeholder="макс. величина записи"> <br>-->
-        <!--        ________Введите количество в наличии: <input class="form-control" width="300" type="number" name="count"                         placeholder="количество"> <br>-->
-        <!--        _____________Введите описание товара: <input class="form-control" width="900" type="text"   name="description"                  placeholder="описание"> <br>-->
-        <!--        <input class="btn btn-success" name="file" type="file" value="Добавить товар"/>-->
-        <!--        <br>-->
-        <!--        <button type="submit">Добавить</button>-->
-    </form>
-</div>
+<!--        &lt;!&ndash;        ____________________Введите название: <input class="form-control" width="300" type="text"   name="name"                         placeholder="название"> <br>&ndash;&gt;-->
+<!--        &lt;!&ndash;        ______________________Введите модель: <input class="form-control" width="300" type="text"   name="model"                         placeholder="модель"> <br>&ndash;&gt;-->
+<!--        &lt;!&ndash;        ________________________Введите цену: <input class="form-control" width="300" type="number" name="price"                             placeholder="цена"> <br>&ndash;&gt;-->
+<!--        &lt;!&ndash;        ____________________Введите гарантию: <input class="form-control" width="300" type="number" name="warranty"                             placeholder="гарантия"> <br>&ndash;&gt;-->
+<!--        &lt;!&ndash;        _________Введите страну производства: <input class="form-control" width="300" type="text"   name="country_origin"                           placeholder="страна производства"> <br>&ndash;&gt;-->
+<!--        &lt;!&ndash;        ________________Введите объём памяти: <input class="form-control" width="300" type="number" name="volume"                        placeholder="объём памяти"> <br>&ndash;&gt;-->
+<!--        &lt;!&ndash;        Введите максимальную величину чтения: <input class="form-control" width="300" type="number" name="maximum_write_speed"          placeholder="макс. величина чтения"> <br>&ndash;&gt;-->
+<!--        &lt;!&ndash;        Введите максимальную величину записи: <input class="form-control" width="300" type="number" name="maximum_data_reading_speed"   placeholder="макс. величина записи"> <br>&ndash;&gt;-->
+<!--        &lt;!&ndash;        ________Введите количество в наличии: <input class="form-control" width="300" type="number" name="count"                         placeholder="количество"> <br>&ndash;&gt;-->
+<!--        &lt;!&ndash;        _____________Введите описание товара: <input class="form-control" width="900" type="text"   name="description"                  placeholder="описание"> <br>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <input class="btn btn-success" name="file" type="file" value="Добавить товар"/>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <br>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <button type="submit">Добавить</button>&ndash;&gt;-->
+<!--    </form>-->
+<!--</div>-->
 
-Список товаров:
-<div th:each="item : ${products}">
-    <div>
-        <div>ID:</div>
-        <div th:text="${item.id}"></div>
-        <div>Название:</div>
-        <div th:text="${item.name}"></div>
-        <div>Цена:</div>
-        <div th:text="${item.price}"></div>
-    </div>
-    <br>
-</div>
+<!--Список товаров:-->
+<!--<div th:each="item : ${products}">-->
+<!--    <div>-->
+<!--        <div>ID:</div>-->
+<!--        <div th:text="${item.id}"></div>-->
+<!--        <div>Название:</div>-->
+<!--        <div th:text="${item.name}"></div>-->
+<!--        <div>Цена:</div>-->
+<!--        <div th:text="${item.price}"></div>-->
+<!--    </div>-->
+<!--    <br>-->
+<!--</div>-->
 
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->

@@ -57,6 +57,35 @@
     justify-content: space-around;
 }
 
+.display_flex_start{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.display_flex_space_b{
+    display: flex;
+    justify-content: space-around;
+}
+
+.display_flex_space_b_{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.main_text{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 0;
+}
+
+.left_{
+    margin-left: 10px;
+}
+
 .little_images{
     margin-top: 10px;
     width: 250px;
@@ -225,12 +254,109 @@
 }
 
 
+.social_network{
+    width: 250px;
+    background: #2F485B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+    padding: 30px;
+}
 
+.social_network, .subscribe, .social_network_fon, .subscribe_fon{
+    height: 75px;
+}
 
+.subscribe{
+    width: 1000px;
+    background: #647D90;
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
 
+.social_network_fon{
+    width: 400px;
+    background: #2F485B;
+}
 
+.subscribe_fon{
+    width: 500px;
+    background: #647D90;
+}
+
+.links{
+    height: 400px;
+    padding-top: 50px;
+    background: #DDDDDD;
+}
+
+.dis_block{
+    display: block;
+    justify-content: space-between;
+}
+
+.display_block{
+    display: block;
+    justify-content: space-around;
+}
+.display_flex_sb{
+    margin-top: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.big_email_text{
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #FFFFFF;
+}
+
+.small_email_text{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #FFFFFF;
+}
+
+.button_email_send {
+    margin-left: 10px;
+
+    width: 150px;
+    height: 40px;
+
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: #FFA951;
+    border: 1px solid #bdbdbd;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .9rem;
+    transition: background-color .15s ease-in-out
+}
+
+.button_email_send:hover {
+    background-color: #F57C00;
+}
+
+.my_flex{
+    display: flex;
+}
 
 
 
