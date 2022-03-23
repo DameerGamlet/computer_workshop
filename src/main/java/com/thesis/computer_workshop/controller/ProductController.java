@@ -24,14 +24,7 @@ public class ProductController {
     @Autowired
     public NotebookRepository notebookRepository;
 
-    @GetMapping("/notebooks/list")
-    public String returnAllNoteBooks(Model model) {
-        Iterable<Notebook> notebooks = notebookRepository.findAll();
-        int counts = (int) notebooks.spliterator().getExactSizeIfKnown();
-        model.addAttribute("notebooks", notebooks);
-        model.addAttribute("counts", counts);
-        return "/products/notebook/notebooks_list";
-    }
+//    ФЛЕШКИ
 
     @GetMapping("/usb/list")
     public String returnAllUsbFlash(Model model) {
@@ -73,16 +66,61 @@ public class ProductController {
         return "/products/usb/usb-info";
     }
 
+    //    НОУТБУКИ
+//    Список ноутбуков
+    @GetMapping("/notebooks/list")
+    public String returnAllNoteBooks(Model model) {
+        Iterable<Notebook> notebooks = notebookRepository.findAll();
+        int counts = (int) notebooks.spliterator().getExactSizeIfKnown();
+        model.addAttribute("notebooks", notebooks);
+        model.addAttribute("counts", counts);
+        return "/products/notebook/notebooks_list";
+    }
+
+    //      Вывод каждого отдельного ноутбука
     @GetMapping("/notebook/{id}")
     public String notebookInfo(@PathVariable(value = "id") Long id, Model model) {
         Optional<Notebook> notebook = notebookRepository.findById(id);
         ArrayList<Notebook> result = new ArrayList<>();
         notebook.ifPresent(result::add);
-        result.forEach(System.out::println);
         model.addAttribute("product", result);
+        model.addAttribute("name", result.get(0).getName().split("/")[0]);
+        List<String> description = Arrays.asList(result.get(0).getDescription().split("\n"));
+        List<String> descriptionOut = new ArrayList<>();
+        description.forEach(item -> {
+            if (item.length() > 1) descriptionOut.add(item);
+        });
+        model.addAttribute("description", descriptionOut);
+
         return "/products/notebook/notebook-info";
     }
 
+    // ADMIN
+    @GetMapping("/admin")
+    public String returnAdminCatalog(Model model) {
+        return "/admin/catalog_for_edit";
+    }
+
+    @GetMapping("/admin/notebook")
+    public String returnAdminNotebook(Model model) {
+        Iterable<Notebook> notebooks = notebookRepository.findAll();
+
+        model.addAttribute("products", notebooks);
+        return "/admin/admin_products/notebook/edit_notebook";
+    }
+
+    @PostMapping("/admin/notebook")
+    public String setAdminNotebook(@RequestParam String name, Notebook notebook, Model model) {
+        System.out.println(name);
+        Date dt = new java.util.Date();
+        SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentTime = sdf.format(dt);
+        notebook.setDateTimeCreate(Timestamp.valueOf(currentTime));
+        notebookRepository.save(notebook);
+        return "/admin/admin_products/notebook/edit_notebook";
+    }
+
+//    Прочие страницы (фиксированные) для пользователей
     @GetMapping("/")
     public String returnMain(Model model) {
         return "/main/main";
@@ -122,30 +160,4 @@ public class ProductController {
     public String returnFeedback(Model model) {
         return "/main/feedback";
     }
-
-    // ADMIN
-    @GetMapping("/admin")
-    public String returnAdminCatalog(Model model) {
-        return "/admin/catalog_for_edit";
-    }
-
-    @GetMapping("/admin/notebook")
-    public String returnAdminNotebook(Model model) {
-        Iterable<Notebook> notebooks = notebookRepository.findAll();
-
-        model.addAttribute("products", notebooks);
-        return "/admin/admin_products/notebook/edit_notebook";
-    }
-
-    @PostMapping("/admin/notebook")
-    public String setAdminNotebook(@RequestParam String name, Notebook notebook, Model model) {
-        System.out.println(name);
-        Date dt = new java.util.Date();
-        SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String currentTime = sdf.format(dt);
-        notebook.setDateTimeCreate(Timestamp.valueOf(currentTime));
-        notebookRepository.save(notebook);
-        return "/admin/admin_products/notebook/edit_notebook";
-    }
-
 }

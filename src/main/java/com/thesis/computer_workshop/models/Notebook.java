@@ -44,7 +44,7 @@ public class Notebook {
 
     private String termOfUse;           // время использования. Пример, "36" в месяцах
 
-    private Timestamp dateTimeCreate;            // дата создания товара
+    private Timestamp dateTimeCreate;   // дата создания товара
 
     public Notebook(String name, String brand, double price, String description, String status, boolean inStock, String display, String processorName, String videoCardName, int ramSize, String memoryDrives, String batteryLife, String osName, String termOfUse) {
         this.name = name;

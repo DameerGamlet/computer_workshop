@@ -249,7 +249,7 @@ body {
 }
 
 .text-field__btn_fav {
-    width: 150px;
+    width: 125px;
     margin-top: 10px;
     display: inline-block;
     font-weight: 400;
@@ -274,7 +274,7 @@ body {
 }
 
 .text-field__btn_buy {
-    width: 150px;
+    width: 125px;
     margin-top: 10px;
     display: inline-block;
     font-weight: 400;
@@ -616,12 +616,6 @@ a.inner_text {
     display: flex;
     justify-content: flex-start;
 }
-
-
-
-
-
-
 
 
 
