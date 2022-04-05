@@ -358,8 +358,37 @@
     display: flex;
 }
 
+.mapping_20{
+    padding: 10px;
+}
 
+.block_{
+    display: block;
+}
 
+.flex_{
+    display: flex;
+    justify-content: space-between;
+}
+
+.image_photo{
+    width: 150px;
+    height: 150px;
+}
+
+.button_del_upd{
+    width: 150px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+table, th, td {
+        border: 1px solid black;
+}
+
+.width_200{
+    width: 300px;
+}
 
 
 

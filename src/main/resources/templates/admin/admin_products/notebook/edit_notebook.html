@@ -8,8 +8,8 @@
 </head>
 <body>
 <div class="container body-color">
-    <h2>Создать товар:</h2>
-    <h4 class="mb-3">Добавление ноутбука</h4>
+    <br>
+    <h2 class="mb-3" style="width: 30%; margin: 0 auto;">Добавление ноутбука</h2>
     <form method="post" action="/admin/notebook">
         <div class="col-xl-30 order-md-3 cont">
             <div class="model_name">
@@ -129,50 +129,196 @@
                 <textarea class="form-control" rows="5" cols="100" name="description" placeholder="Описание"></textarea><br>
             </div>
 
-            <button class="btn btn-primary btn-lg btn-block lower_mapping" type="submit">Добавить</button>
+            <div class="flex_" style="margin-bottom: 10px">
+                <input type="file" id="file1" name="file" multiple>
+                <input type="file" id="file2" name="file" multiple>
+                <input type="file" id="file3" name="file" multiple>
+            </div>
+
+            <div class="flex_" style="margin-bottom: 20px">
+                <input type="file" id="file4" name="file" multiple>
+                <input type="file" id="file5" name="file" multiple>
+                <input type="file" id="file6" name="file" multiple>
+            </div>
+
+            <button class="btn btn-primary btn-lg btn-block lower_mapping width_200" style="display: table;  margin: 0 auto;" type="submit">Добавить</button>
         </div>
     </form>
 
-    Список товаров:
+    <h2>Список товаров:</h2>
     <div th:each="item : ${products}">
-        <div class="info_list">
-            <div>ID:</div>
-            <div th:text="${item.id}"></div>
+
+        <div class="flex_">
+            <div class="block_">
+                <h4 th:text="'ID: ' + ${item.id}">ID: </h4>
+                <h5 th:text="'Ноутбук (' + ${item.brand} + ') ' + ${item.name}"></h5>
+            </div>
+            <div class="block_">
+                <button class="button_del_upd">Изменить</button>
+                <button class="button_del_upd">Удалить</button>
+            </div>
         </div>
-        <div class="info_list">
-            <div>Модель:</div>
-            <div th:text="${item.brand}"></div>
+
+        <div class="my_flex mapping_20">
+            <div class="mapping_20 block_">
+                <img class="image_photo" src="/images/header/logo.png"/>
+                <div>
+                    <button class="button_del_upd">Изменить</button>
+                </div>
+                <div>
+                    <button class="button_del_upd">Удалить</button>
+                </div>
+            </div>
+            <div class="mapping_20 block_">
+                <img class="image_photo" src="/images/header/logo.png"/>
+                <div>
+                    <button class="button_del_upd">Изменить</button>
+                </div>
+                <div>
+                    <button class="button_del_upd">Удалить</button>
+                </div>
+            </div>
+            <div class="mapping_20 block_">
+                <img class="image_photo" src="/images/header/logo.png"/>
+                <div>
+                    <button class="button_del_upd">Изменить</button>
+                </div>
+                <div>
+                    <button class="button_del_upd">Удалить</button>
+                </div>
+            </div>
+            <div class="mapping_20 block_">
+                <img class="image_photo" src="/images/header/logo.png"/>
+                <div>
+                    <button class="button_del_upd">Изменить</button>
+                </div>
+                <div>
+                    <button class="button_del_upd">Удалить</button>
+                </div>
+            </div>
+            <div class="mapping_20 block_">
+                <img class="image_photo" src="/images/header/logo.png"/>
+                <div>
+                    <button class="button_del_upd">Изменить</button>
+                </div>
+                <div>
+                    <button class="button_del_upd">Удалить</button>
+                </div>
+            </div>
         </div>
-        <div>Название:</div>
-        <div th:text="${item.name}"></div>
-        <div>Цена:</div>
-        <div th:text="${item.price}"></div>
-        <div>Описание:</div>
-        <div th:text="${item.description}"></div>
-        <div>Статус:</div>
-        <div th:text="${item.status}"></div>
-        <div>Наличие:</div>
-        <div th:text="${item.inStock}"></div>
-        <div>Дисплей:</div>
-        <div th:text="${item.display}"></div>
-        <div>Процессор:</div>
-        <div th:text="${item.processorName}"></div>
-        <div>Видеокарта:</div>
-        <div th:text="${item.videoCardName}"></div>
-        <div>Объём ОП:</div>
-        <div th:text="${item.ramSize}"></div>
-        <div>Накопители:</div>
-        <div th:text="${item.memoryDrives}"></div>
-        <div>Время от батареи:</div>
-        <div th:text="${item.batteryLife}"></div>
-        <div>Версия ОС:</div>
-        <div th:text="${item.osName}"></div>
-        <div>Время использования:</div>
-        <div th:text="${item.termOfUse}"></div>
-        <button>Удалить</button>
-        <button>Редактировать</button>
+
+        <h4>Характеристики оборудования</h4>
+        <table border="1" style='font-size: 18px'>
+            <tr>
+                <th>Дисплей</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Процессор</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Видеокарта</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ОП</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Внешний Накопитель</th>
+            </tr>
+            <tr>
+                <td>
+                    <div th:text="${item.display}"></div>
+                </td>
+                <td>
+                    <div th:text="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.processorName}"></div>
+                </td>
+                <td>
+                    <div th:text="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.videoCardName}"></div>
+                </td>
+                <td>
+                    <div th:text="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.ramSize}"></div>
+                </td>
+                <td>
+                    <div th:text="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.memoryDrives}"></div>
+                </td>
+            </tr>
+        </table>
+
         <br>
+
+        <h4>Допольнительная информация</h4>
+        <table border="1" style='font-size: 18px'>
+            <tr>
+                <th>Характеристика</th>
+                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Значение</th>
+            </tr>
+            <tr>
+            <tr>
+                <td>Статус</td>
+                <td>
+                    <div th:text="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.status}"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>В наличии</td>
+                <td>
+                    <div th:text="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.inStock}"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>ОС</td>
+                <td>
+                    <div th:text="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.osName}"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Время использования</td>
+                <td>
+                    <div th:text="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.termOfUse}"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Дата создания</td>
+                <td>
+                    <div th:text="'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.dateTimeCreate}"></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <hr>
     </div>
+
+    <!--    Список товаров:-->
+    <!--    <div th:each="item : ${products}">-->
+    <!--        <div class="info_list">-->
+    <!--            <div>ID:</div>-->
+    <!--            <div th:text="${item.id}"></div>-->
+    <!--        </div>-->
+    <!--        <div class="info_list">-->
+    <!--            <div>Модель:</div>-->
+    <!--            <div th:text="${item.brand}"></div>-->
+    <!--        </div>-->
+    <!--        <div>Название:</div>-->
+    <!--        <div th:text="${item.name}"></div>-->
+    <!--        <div>Цена:</div>-->
+    <!--        <div th:text="${item.price}"></div>-->
+    <!--        <div>Описание:</div>-->
+    <!--        <div th:text="${item.description}"></div>-->
+    <!--        <div>Статус:</div>-->
+    <!--        <div th:text="${item.status}"></div>-->
+    <!--        <div>Наличие:</div>-->
+    <!--        <div th:text="${item.inStock}"></div>-->
+    <!--        <div>Дисплей:</div>-->
+    <!--        <div th:text="${item.display}"></div>-->
+    <!--        <div>Процессор:</div>-->
+    <!--        <div th:text="${item.processorName}"></div>-->
+    <!--        <div>Видеокарта:</div>-->
+    <!--        <div th:text="${item.videoCardName}"></div>-->
+    <!--        <div>Объём ОП:</div>-->
+    <!--        <div th:text="${item.ramSize}"></div>-->
+    <!--        <div>Накопители:</div>-->
+    <!--        <div th:text="${item.memoryDrives}"></div>-->
+    <!--        <div>Время от батареи:</div>-->
+    <!--        <div th:text="${item.batteryLife}"></div>-->
+    <!--        <div>Версия ОС:</div>-->
+    <!--        <div th:text="${item.osName}"></div>-->
+    <!--        <div>Время использования:</div>-->
+    <!--        <div th:text="${item.termOfUse}"></div>-->
+    <!--        <button>Удалить</button>-->
+    <!--        <button>Редактировать</button>-->
+    <!--        <br>-->
+    <!--    </div>-->
 </div>
 </body>
 </html>
