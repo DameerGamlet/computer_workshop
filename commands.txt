@@ -1,0 +1,12 @@
+
+* Создать контейнер
+    sudo docker run -p 3307:3306 --name mysqlcon2
+    -e MYSQL_ROOT_PASSWORD=PASSWORD
+    -e MYSQL_DATABASE=computer_workshop  mysql
+
+* Запустить контейнер
+    sudo docker start mysqlcon2
+
+* Открыть через консоль
+    sudo docker exec -it mysqlcon2 mysql -uroot -p
+
