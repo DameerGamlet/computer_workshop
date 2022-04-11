@@ -24,6 +24,18 @@ public class ProductController {
     @Autowired
     public NotebookRepository notebookRepository;
 
+//   КАТАЛОГ
+
+    @GetMapping("/shop")
+    public String returnShop(Model model) {
+        return "/main/shop";
+    }
+
+    @GetMapping("/shop/peripherals")
+    public String returnCatPeripherals(Model model) {
+        return "/catalog/cat_peripherals";
+    }
+
 //    ФЛЕШКИ
 
     @GetMapping("/usb/list")
@@ -95,6 +107,16 @@ public class ProductController {
         return "/products/notebook/notebook-info";
     }
 
+    // МОНИТОРЫ
+    @GetMapping("/monitor/list")
+    public String returnAllMonitors(Model model) {
+//        Iterable<Notebook> notebooks = notebookRepository.findAll();
+//        int counts = (int) notebooks.spliterator().getExactSizeIfKnown();
+//        model.addAttribute("notebooks", notebooks);
+//        model.addAttribute("counts", counts);
+        return "/products/monitors/monitor-list";
+    }
+
     // ADMIN
     @GetMapping("/admin")
     public String returnAdminCatalog(Model model) {
@@ -129,11 +151,6 @@ public class ProductController {
     @GetMapping("/location")
     public String returnLocation(Model model) {
         return "/main/location";
-    }
-
-    @GetMapping("/shop")
-    public String returnShop(Model model) {
-        return "/main/shop";
     }
 
     @GetMapping("/contacts")

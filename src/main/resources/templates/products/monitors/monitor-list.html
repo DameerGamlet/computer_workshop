@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <div th:insert="blocks/libraries :: libraries"></div>
+</head>
+<body>
+
+<header th:insert="blocks/header :: header"></header>
+
+<!-- МАИН -->
+<div class="container">
+  <!-- ИНФОРАМАЦИЯ ОБ ЭЛЕМЕНТАХ НА СТРАНИЦЕ -->
+  <h1 class="product_name">Мониторы</h1>
+  <div>
+    <a href="/">Главная</a> &nbsp; > &nbsp; <a href="/shop">Каталог</a> &nbsp; > &nbsp; <a href="/shop/peripherals">Переферийные устройства</a>
+  </div>
+  <div class="main_panel">
+    <div class="find_count">
+      <div>Найдено&#160;</div>
+<!--      <div th:text="${counts}"></div>-->
+      <div>&#160;товара</div>
+    </div>
+    <div class="text-field">
+      <div class="text-field__group">
+        <input class="text-field__input" type="search" id="search" name="search"
+               placeholder="Найти товар по названию и ключевым полям">
+        <button class="text-field__btn" type="button">Найти</button>
+      </div>
+    </div>
+  </div>
+  <!-- ИНФОРАМАЦИЯ ЕНД -->
+
+  <!-- ПАНЕЛЬ С ГЛАВНОЙ ИНФОРМАЦИЕЙ -->
+  <div class="panel_filter_and_data">
+    <!-- ФИЛЬТРАЦИЯ ПО ЦЕНЕ, ПРОИЗВОДИТЕЛЯМ, ХАРАКТЕРИСТИКАМ И Т,Д -->
+    <div class="panel_filter">
+      <div class="panel_filter_main_text">Фильтр</div>
+    </div>
+    <!-- ФИЛЬТРАЦИЯ ЕНД -->
+    <div class="search_element_container">
+      <!-- ФИЛЬТРАЦИЯ -->
+      <div class="sorted_group">
+        <div>Сортировка по:</div>
+        <select>
+          <option>сначала недорогие</option>
+          <option>сначала дорогие</option>
+          <option>по дате добавления</option>
+          <option>по наименованию</option>
+        </select>
+        <div>Показывать на странице по:&nbsp;</div>
+        <button>5</button>
+        <button>10</button>
+        <button>25</button>
+        <button>50</button>
+        <button>100</button>
+        <div>
+          <button class="text-field__btn" type="button">Принять</button>
+        </div>
+      </div>
+
+        <!-- ТОВАР -->
+        <!-- Серая форма товара-->
+        <div class="elements_group">
+          <!-- Продукты внутри-->
+          <div class="product_inner">
+
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- ФИЛЬТРАЦИЯ И КОНТЕНТ ЕНД -->
+</div>
+<!-- КОНТЕЙНЕР ЕНД -->
+
+
+<header th:insert="blocks/bottom :: bottom"></header>
+</body>
+</html>
