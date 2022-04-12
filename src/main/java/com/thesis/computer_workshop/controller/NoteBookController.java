@@ -9,10 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Controller
 public class NoteBookController {
@@ -26,8 +25,6 @@ public class NoteBookController {
         int counts = (int) notebooks.spliterator().getExactSizeIfKnown();
         model.addAttribute("notebooks", notebooks);
         model.addAttribute("counts", counts);
-        ImageNoteBook imageNoteBook = notebooks.iterator().next().getImageNoteBooksList().get(0);
-        model.addAttribute("imagePreview", imageNoteBook);
         return "/products/notebook/notebooks_list";
     }
 

@@ -827,18 +827,17 @@ padding:10px;
 }
 
 .image_photo {
-width:150px;
-height:150px;
+height:125px;
+}
+
+.image_photo, .button_del_upd{
+width:175px;
 }
 
 .button_del_upd {
-width:150px;
 margin-top:5px;
 margin-bottom:5px;
-}
-
-.width_200 {
-
+margin-left:10px;
 }
 
 .panel,.mail_panel,.info_list {
@@ -888,5 +887,9 @@ width:300px;
 }
 
 .img_border,table,th,td {
-border:1px solid #000;
+border:.25px solid #000;
+}
+
+.img_border{
+background-size: cover;
 }

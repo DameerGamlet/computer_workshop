@@ -66,10 +66,9 @@
                     <div class="product_inner">
                         <!-- ИКОНКА -->
                         <a th:href="'/notebook/' + ${item.id}">
-                            <img class="img_border" src="/images/notebook/{id}}" width="200" height="200" alt="">
-                            <img class="img_border" width="200" height="200" th:attr="src=@{${image}}"/>
-
-                            <!--                            <img class="img_border" src="/images/products/groceries.png" width="200" height="200" alt="">-->
+                            <img class="img_border"
+                                 th:src="@{'http://localhost:8080/images/notebook/'+ ${item.previewImageId}}"
+                                 width="200" height="150">
                         </a>
 
                         <div class="product_container">

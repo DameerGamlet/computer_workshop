@@ -142,7 +142,8 @@
             </div>
 
             <button class="btn btn-primary btn-lg btn-block"
-                    style="display:table; margin: 0 auto; width:200px; margin-bottom:50px;" type="submit">Добавить</button>
+                    style="display:table; margin: 0 auto; width:200px; margin-bottom:50px;" type="submit">Добавить
+            </button>
         </div>
     </form>
 
@@ -161,44 +162,14 @@
         </div>
 
         <div class="my_flex mapping_20">
-            <div class="mapping_20 block_">
-                <img class="image_photo" src="/images/header/logo.png"/>
-                <div>
-                    <button class="button_del_upd">Изменить</button>
+            <div th:each="image : ${item.imageNoteBooksList}">
+                <div class="mapping_20 block_">
+                    <a th:href="@{'http://localhost:8080/images/notebook/'+ ${image.id}}">
+                        <img class="image_photo"
+                             th:src="@{'http://localhost:8080/images/notebook/'+ ${image.id}}"
+                        >
+                    </a>
                 </div>
-                <div>
-                    <button class="button_del_upd">Удалить</button>
-                </div>
-            </div>
-            <div class="mapping_20 block_">
-                <img class="image_photo" src="/images/header/logo.png"/>
-                <div>
-                    <button class="button_del_upd">Изменить</button>
-                </div>
-                <div>
-                    <button class="button_del_upd">Удалить</button>
-                </div>
-            </div>
-            <div class="mapping_20 block_">
-                <img class="image_photo" src="/images/header/logo.png"/>
-                <div>
-                    <button class="button_del_upd">Изменить</button>
-                </div>
-                <div>
-                    <button class="button_del_upd">Удалить</button>
-                </div>
-            </div>
-            <div class="mapping_20 block_">
-                <img class="image_photo" src="/images/header/logo.png"/>
-                <div>
-                    <button class="button_del_upd">Изменить</button>
-                </div>
-                <div>
-                    <button class="button_del_upd">Удалить</button>
-                </div>
-            </div>
-            <div class="mapping_20 block_">
-                <img class="image_photo" src="/images/header/logo.png"/>
                 <div>
                     <button class="button_del_upd">Изменить</button>
                 </div>
