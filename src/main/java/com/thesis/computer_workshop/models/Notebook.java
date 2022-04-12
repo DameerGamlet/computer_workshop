@@ -1,6 +1,7 @@
 package com.thesis.computer_workshop.models;
 
 import com.sun.istack.NotNull;
+import com.thesis.computer_workshop.models.images.ImageNoteBook;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -46,25 +50,12 @@ public class Notebook {
 
     private Timestamp dateTimeCreate;   // дата создания товара
 
-    public Notebook(String name, String brand, double price, String description, String status, boolean inStock, String display, String processorName, String videoCardName, int ramSize, String memoryDrives, String batteryLife, String osName, String termOfUse) {
-        this.name = name;
-        this.brand = brand;
-        this.price = price;
-        this.description = description;
-        this.status = status;
-        this.inStock = inStock;
-        this.display = display;
-        this.processorName = processorName;
-        this.videoCardName = videoCardName;
-        this.ramSize = ramSize;
-        this.memoryDrives = memoryDrives;
-        this.batteryLife = batteryLife;
-        this.osName = osName;
-        this.termOfUse = termOfUse;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "notebook")
+    private List<ImageNoteBook> imageNoteBooksList = new ArrayList<>();
+    private Long previewImageId;
+
+    public void addImageToNotebook(ImageNoteBook imageNoteBook){
+        imageNoteBook.setNotebook(this);
+        imageNoteBooksList.add(imageNoteBook);
     }
-
-    //  Информация об просмотрах
-    //  private int counts_views;              // количество просмотров товара
-
-    // Images
 }

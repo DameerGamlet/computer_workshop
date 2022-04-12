@@ -10,7 +10,7 @@
 <div class="container body-color">
     <br>
     <h2 class="mb-3" style="width: 30%; margin: 0 auto;">Добавление ноутбука</h2>
-    <form method="post" action="/admin/notebook">
+    <form method="post" action="/admin/notebook" enctype="multipart/form-data">
         <div class="col-xl-30 order-md-3 cont">
             <div class="model_name">
                 <div>
@@ -130,18 +130,19 @@
             </div>
 
             <div class="flex_" style="margin-bottom: 10px">
-                <input type="file" id="file1" name="file" multiple>
-                <input type="file" id="file2" name="file" multiple>
-                <input type="file" id="file3" name="file" multiple>
+                <input type="file" id="file1" name="file1" multiple>
+                <input type="file" id="file2" name="file2" multiple>
+                <input type="file" id="file3" name="file3" multiple>
             </div>
 
             <div class="flex_" style="margin-bottom: 20px">
-                <input type="file" id="file4" name="file" multiple>
-                <input type="file" id="file5" name="file" multiple>
-                <input type="file" id="file6" name="file" multiple>
+                <input type="file" id="file4" name="file4" multiple>
+                <input type="file" id="file5" name="file5" multiple>
+                <input type="file" id="file6" name="file6" multiple>
             </div>
 
-            <button class="btn btn-primary btn-lg btn-block lower_mapping width_200" style="display: table;  margin: 0 auto;" type="submit">Добавить</button>
+            <button class="btn btn-primary btn-lg btn-block"
+                    style="display:table; margin: 0 auto; width:200px; margin-bottom:50px;" type="submit">Добавить</button>
         </div>
     </form>
 
