@@ -179,6 +179,7 @@ color:#000;
 
 .main_panel {
 margin-top:10px;
+height: 40px;
 display:flex;
 justify-content:space-between;
 }
@@ -188,8 +189,7 @@ width:100%;
 }
 
 .text-field__group {
-padding-top:10px;
-display:flex;
+    display:flex;
 }
 
 .text-field__btn {
@@ -213,6 +213,15 @@ transition:background-color .15s ease-in-out;
 padding:.375rem .75rem;
 }
 
+.btn_filter{
+    margin-top: 20px;
+    margin-left: 40px;
+
+    width:275px;
+    align-items:center;
+    text-align:center;
+}
+
 .text-field__btn:hover {
 background-color:#bdbdbd;
 }
@@ -230,16 +239,20 @@ cursor:pointer;
 -webkit-user-select:none;
 -moz-user-select:none;
 user-select:none;
-background-color:#ff97fb;
-border:1px solid #bdbdbd;
 font-size:1rem;
-border-radius:.25rem;
 transition:background-color .15s ease-in-out;
 padding:.375rem .75rem;
+
+background: linear-gradient(90deg, #FF9090 0%, #FFCDFD 100%);
+background-blend-mode: multiply;
+border: 1px solid #FDB3FA;
+box-sizing: border-box;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+border-radius: 10px;
 }
 
 .text-field__btn_fav:hover {
-background-color:#d482d0;
+background-color:#FEDAFF;
 }
 
 .text-field__btn_buy {
@@ -255,22 +268,25 @@ cursor:pointer;
 -webkit-user-select:none;
 -moz-user-select:none;
 user-select:none;
-background-color:#eae454;
-border:1px solid #bdbdbd;
 font-size:1rem;
-border-radius:.25rem;
 transition:background-color .15s ease-in-out;
 padding:.375rem .75rem;
+
+background: linear-gradient(90deg, #EAE454 0%, #FF9DC0 100%);
+background-blend-mode: multiply;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+border-radius: 10px;
+
+border: 1px solid #D6B4B4;
 }
 
 .text-field__btn_buy:hover {
-background-color:#d1cb3c;
+background-color:#D8D59C;
 }
 
 .text-field__input {
 display:block;
-width:100%;
-height:calc(2.25rem+2px);
+width:700px;
 font-family:inherit;
 font-size:1rem;
 font-weight:400;
@@ -285,7 +301,6 @@ padding:.375rem .75rem;
 }
 
 .text-field__group .text-field__input {
-width:500px;
 border-top-right-radius:0;
 border-bottom-right-radius:0;
 position:relative;
@@ -315,24 +330,41 @@ padding:15px 32px;
 }
 
 .panel_filter {
+display:block;
 align-items:flex-start;
+
 background-color:#e0e0e0cc;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 border-radius:20px;
-display:flex;
-height:800px;
-justify-content:center;
 margin-left:4px;
-min-width:400px;
-padding:8px 0;
+height: 850px;
+width:400px;
+padding:8px 0 15px;
+}
+
+.panel_filter_main_text{
+font-size:24px;
+font-weight:700;
+align-items:center;
+text-align:center;
+}
+
+.filter_par{
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+
+font-weight: normal;
+display:block;
+justify-content:space-around;
+padding:10px;
+margin-left: 15px;
 }
 
 .panel_filter div {
-align-items:center;
-font-size:24px;
-font-weight:700;
 letter-spacing:0;
 min-height:29px;
-text-align:center;
 width:358px;
 }
 
@@ -340,6 +372,113 @@ width:358px;
 margin-top:30px;
 display:flex;
 justify-content:space-between;
+}
+
+.input_price_panel{
+
+}
+
+.input_price{
+width: 150px;
+}
+
+/* checkbox */
+.toggle{
+  --uiToggleSize: var(--toggleSize, 1.25rem);
+  --uiToggleBorderWidth: var(--toggleBorderWidth, 3px);
+  --uiToggleColor: var(--toggleColor, #F57C00);
+  display: var(--toggleDisplay, inline-flex);
+  position: relative;
+
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle__input{
+  width: var(--uiToggleSize);
+  height: var(--uiToggleSize);
+  opacity: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+.toggle__label{
+  margin-bottom: 3px;
+
+  display: inline-flex;
+  min-height: var(--uiToggleSize);
+  padding-left: calc(var(--uiToggleSize) + var(--toggleIndent, .4em));
+}
+
+.toggle__input:not(:disabled) ~ .toggle__label{
+  cursor: pointer;
+}
+
+.toggle__label::after{
+  content: "";
+  box-sizing: border-box;
+  width: 1em;
+  height: 1em;
+  font-size: var(--uiToggleSize);
+
+  background-color: transparent;
+  border: var(--uiToggleBorderWidth) solid var(--uiToggleColor);
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.toggle__input:checked ~ .toggle__label::after{
+  background-color: var(--uiToggleColor);
+}
+
+.toggle__label::before{
+  content: "";
+  width: 0;
+  height: 0;
+  font-size: var(--uiToggleSize); /* 1 */
+
+  border-left-width: 0;
+  border-bottom-width: 0;
+  border-left-style: solid;
+  border-bottom-style: solid;
+  border-color: var(--toggleArrowColor, #fff);
+
+  position: absolute;
+  top: .5428em;
+  left: .25em;
+  z-index: 3;
+
+  transform-origin: left top;
+  transform: rotate(-40deg) skew(10deg);
+}
+
+.toggle__input:checked ~ .toggle__label::before{
+  --uiToggleArrowWidth: var(--toggleArrowWidth, 2px);
+
+  width: .4em;
+  height: .2em;
+  border-left-width: var(--uiToggleArrowWidth);
+  border-bottom-width: var(--uiToggleArrowWidth);
+}
+
+.toggle__label::after{
+  border-radius: var(--toggleBorderRadius, 2px);
+}
+
+/*  */
+.scroll_ {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height:150px;
+    width:100%;
 }
 
 .sort_elements {
@@ -358,14 +497,15 @@ flex-direction:column;
 }
 
 .sorted_group {
-align-items:center;
 background-color:#e0e0e0;
 border-radius:15px;
-display:flex;
+padding:6px 20px 6px;
+
+display:block;
 justify-content:space-between;
-height:45px;
-min-width:850px;
-padding:4px 17px;
+align-items:center;
+
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .elements_group {
@@ -378,6 +518,8 @@ height:250px;
 margin-top:32px;
 max-width:850px;
 padding:0 28px;
+
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .product_option_inner {
@@ -389,11 +531,9 @@ justify-content:space-between;
 .rectangle_opinion {
 background-color:#fff;
 border-radius:10px;
-margin-top:10px;
 height:25px;
 width:220px;
 display:flex;
-justify-content:space-between;
 align-items:center;
 padding:5px;
 }
@@ -887,7 +1027,9 @@ width:300px;
 }
 
 .img_border,table,th,td {
-border:.25px solid #000;
+border:.25px solid #C4C4C4;
+box-sizing: border-box;
+border-radius: 10px;
 }
 
 .img_border{
