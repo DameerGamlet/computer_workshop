@@ -156,8 +156,12 @@
                 <h5 th:text="'Ноутбук (' + ${item.brand} + ') ' + ${item.name}"></h5>
             </div>
             <div class="block_">
-                <button class="button_del_upd">Изменить</button>
-                <button class="button_del_upd">Удалить</button>
+                <a th:href="'/admin/notebook/' + ${item.id} + '/edit'">
+                    <button class="button_del_upd">Изменить</button>
+                </a>
+                <form th:action="'/admin/notebook/' + ${item.id} + '/delete'"  method="post">
+                    <button class="button_del_upd" type="submit" >Удалить</button>
+                </form>
             </div>
         </div>
 
@@ -169,12 +173,6 @@
                              th:src="@{'http://localhost:8080/images/notebook/'+ ${image.id}}"
                         >
                     </a>
-                </div>
-                <div>
-                    <button class="button_del_upd">Изменить</button>
-                </div>
-                <div>
-                    <button class="button_del_upd">Удалить</button>
                 </div>
             </div>
         </div>
@@ -250,47 +248,6 @@
         <br>
         <hr>
     </div>
-
-    <!--    Список товаров:-->
-    <!--    <div th:each="item : ${products}">-->
-    <!--        <div class="info_list">-->
-    <!--            <div>ID:</div>-->
-    <!--            <div th:text="${item.id}"></div>-->
-    <!--        </div>-->
-    <!--        <div class="info_list">-->
-    <!--            <div>Модель:</div>-->
-    <!--            <div th:text="${item.brand}"></div>-->
-    <!--        </div>-->
-    <!--        <div>Название:</div>-->
-    <!--        <div th:text="${item.name}"></div>-->
-    <!--        <div>Цена:</div>-->
-    <!--        <div th:text="${item.price}"></div>-->
-    <!--        <div>Описание:</div>-->
-    <!--        <div th:text="${item.description}"></div>-->
-    <!--        <div>Статус:</div>-->
-    <!--        <div th:text="${item.status}"></div>-->
-    <!--        <div>Наличие:</div>-->
-    <!--        <div th:text="${item.inStock}"></div>-->
-    <!--        <div>Дисплей:</div>-->
-    <!--        <div th:text="${item.display}"></div>-->
-    <!--        <div>Процессор:</div>-->
-    <!--        <div th:text="${item.processorName}"></div>-->
-    <!--        <div>Видеокарта:</div>-->
-    <!--        <div th:text="${item.videoCardName}"></div>-->
-    <!--        <div>Объём ОП:</div>-->
-    <!--        <div th:text="${item.ramSize}"></div>-->
-    <!--        <div>Накопители:</div>-->
-    <!--        <div th:text="${item.memoryDrives}"></div>-->
-    <!--        <div>Время от батареи:</div>-->
-    <!--        <div th:text="${item.batteryLife}"></div>-->
-    <!--        <div>Версия ОС:</div>-->
-    <!--        <div th:text="${item.osName}"></div>-->
-    <!--        <div>Время использования:</div>-->
-    <!--        <div th:text="${item.termOfUse}"></div>-->
-    <!--        <button>Удалить</button>-->
-    <!--        <button>Редактировать</button>-->
-    <!--        <br>-->
-    <!--    </div>-->
 </div>
 </body>
 </html>

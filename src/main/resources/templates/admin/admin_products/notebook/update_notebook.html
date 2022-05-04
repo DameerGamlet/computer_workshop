@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="blocks/libraries :: libraries"></div>
+
+</head>
+<body>
+<div class="container body-color">
+    <br>
+    <h2 class="mb-3" style="width: 30%; margin: 0 auto;">Изменение товара</h2>
+    <div th:each="item : ${notebook}">
+        <form method="post" enctype="multipart/form-data">
+            <div class="col-xl-30 order-md-3 cont">
+                <div class="model_name">
+                    <div>
+                        <label>Модель</label>
+                        <div class="width-selected">
+                            <select name="brand" id="brand-select" class="form-control" th:value="${item.brand}">
+                                <option>Выберите модель</option>
+                                <option value="HP">HP</option>
+                                <option value="Lenovo">Lenovo</option>
+                                <option value="Acer">Acer</option>
+                                <option value="Asus">Asus</option>
+                                <option value="Samsung">Samsung</option>
+                                <option value="Xiaomi">Xiaomi</option>
+                                <option value="Dell">Dell</option>
+                                <option value="Apple">Apple</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Название</label>
+                        <div class="in_size">
+                            <input type="text" class="form-control" placeholder="Название" name="name" th:value="${item.name}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Цена </label>
+                        <div class="price_size">
+                            <input type="number" class="form-control" placeholder="Цена" name="price" th:value="${item.price}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model_name">
+                    <div class="mb-3">
+                        <label>Статус </label>
+                        <div class="width-selected">
+                            <select name="status" id="status-select" class="form-control" th:value="${item.status}">
+                                <option>Выберите статус</option>
+                                <option value="Новый">Новый</option>
+                                <option value="БУ">Бывшего употребления</option>
+                                <option value="На запчасти">На запчасти</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Наличие </label>
+                        <div class="width-selected">
+                            <select name="inStock" id="inStock-select" class="form-control" th:value="${item.inStock}">
+                                <option>Выберите параметр</option>
+                                <option value="TRUE">Имеется в наличии</option>
+                                <option value="FALSE">Нет в наличии</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Дисплей </label>
+                        <div class="in_display">
+                            <input type="text" class="form-control" placeholder="Дисплей" name="display"  th:value="${item.display}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Процессор </label>
+                    <input type="text" class="form-control" placeholder="Процессор" name="processorName"  th:value="${item.processorName}">
+                </div>
+
+                <div class="mb-3">
+                    <label>Видеокарта </label>
+                    <input type="text" class="form-control" placeholder="Видеокарта" name="videoCardName" th:value="${item.videoCardName}">
+                </div>
+
+                <div class="model_name">
+                    <div class="mb-3">
+                        <label>Объём ОП </label>
+                        <div class="price_size">
+                            <input type="number" class="form-control" placeholder="Объём ОП" name="ramSize"  th:value="${item.ramSize}">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Накопители </label>
+                        <div class="in_md">
+                            <input type="text" class="form-control" placeholder="Накопители" name="memoryDrives"  th:value="${item.memoryDrives}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="model_name">
+                    <div class="mb-3">
+                        <label>Версия ОС </label>
+                        <div class="in_version">
+                            <input type="text" class="form-control" placeholder="Версия ОС" name="osName"  th:value="${item.osName}">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Время от батареи </label>
+                        <div class="in_time">
+                            <input type="text" class="form-control" placeholder="Время от батареи" name="batteryLife"  th:value="${item.batteryLife}">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Время использования</label>
+                        <div class="in_time">
+                            <input type="text" class="form-control" placeholder="Время использования" name="termOfUse" th:value="${item.termOfUse}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Описание </label>
+                    <textarea class="form-control" rows="5" cols="100" name="description"
+                              placeholder="Описание"></textarea><br>
+                </div>
+
+                <div class="flex_" style="margin-bottom: 10px">
+                    <input type="file" id="file1" name="file1" multiple>
+                    <input type="file" id="file2" name="file2" multiple>
+                    <input type="file" id="file3" name="file3" multiple>
+                </div>
+
+                <div class="flex_" style="margin-bottom: 20px">
+                    <input type="file" id="file4" name="file4" multiple>
+                    <input type="file" id="file5" name="file5" multiple>
+                    <input type="file" id="file6" name="file6" multiple>
+                </div>
+                <button class="btn btn-primary btn-lg btn-block"
+                        style="display:table; margin: 0 auto; width:200px; margin-bottom:50px;" type="submit">Изменить
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
