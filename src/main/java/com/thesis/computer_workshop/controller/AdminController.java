@@ -1,8 +1,8 @@
 package com.thesis.computer_workshop.controller;
 
-import com.thesis.computer_workshop.models.Notebook;
+import com.thesis.computer_workshop.models.products.Notebook;
 import com.thesis.computer_workshop.models.images.ImageNoteBook;
-import com.thesis.computer_workshop.repositories.NotebookRepository;
+import com.thesis.computer_workshop.repositories.productsRepositories.NotebookRepository;
 import com.thesis.computer_workshop.repositories.imagesRepositories.ImageNoteBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,14 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Optional;
 
 @Controller

@@ -1,8 +1,7 @@
 package com.thesis.computer_workshop.controller;
 
-import com.thesis.computer_workshop.models.Notebook;
-import com.thesis.computer_workshop.models.images.ImageNoteBook;
-import com.thesis.computer_workshop.repositories.NotebookRepository;
+import com.thesis.computer_workshop.models.products.Notebook;
+import com.thesis.computer_workshop.repositories.productsRepositories.NotebookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 @Controller
 public class NoteBookController {

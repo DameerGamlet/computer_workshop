@@ -1,4 +1,4 @@
-package com.thesis.computer_workshop.models;
+package com.thesis.computer_workshop.models.products;
 
 import com.sun.istack.NotNull;
 import com.thesis.computer_workshop.models.images.ImageNoteBook;
