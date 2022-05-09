@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Entity
 @Getter
@@ -22,13 +24,14 @@ import java.util.Set;
 @AllArgsConstructor
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;               // уникальный номер пользователя
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    private String id;
     @Column(unique = true)
     @NotNull
     private String email;          // почта пользователя (нужна для авторизации)
     @Column(length = 12)
-    private String PhoneNumber;    // номер телефона - необязательная часть
+    private String phoneNumber;    // номер телефона - необязательная часть
     @NotNull
     @Column(length = 100)
     private String name;           // имя пользователя - используется при обращении

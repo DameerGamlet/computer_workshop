@@ -23,13 +23,12 @@ public class UserController {
     public String registrationUser(){
         return "users/registration";
     }
-
-//    @PostMapping("/registration")
-//    public String createUser(User user, Model model){
-//        if(!userService.createUser(user)){
-//            model.addAttribute("errorMessage", "Пользователь с email \"" + user.getEmail() + "\" уже существует");
-//            return "registration";
-//        }
-//        return "redirect:/login";
-//    }
+    @PostMapping("/registration")
+    public String createUser(User user, Model model){
+        if(!userService.createUser(user)){
+            model.addAttribute("errorMessage", "Пользователь с email \"" + user.getEmail() + "\" уже существует");
+            return "registration";
+        }
+        return "redirect:/login";
+    }
 }

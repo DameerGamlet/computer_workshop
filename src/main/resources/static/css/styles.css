@@ -9,13 +9,17 @@ margin:0;
 box-sizing:border-box;
 }
 
-.container, .header_background, .header_container{
+.container, .header_background, .header_container, .container_reg{
 width:100%;
 margin:0 auto;
 }
 
 .container {
 max-width:1200px;
+}
+
+.container_reg {
+max-width:800px;
 }
 
 .header_background {
@@ -1035,4 +1039,8 @@ border-radius: 10px;
 
 .img_border{
 background-size: cover;
+}
+
+.space_top{
+    margin-top: 20px;
 }
