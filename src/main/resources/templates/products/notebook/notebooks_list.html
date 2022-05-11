@@ -1,215 +1,187 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <title>Каталог ноутбуков</title>
     <div th:insert="blocks/libraries :: libraries"></div>
 </head>
-<body>
-
+<body style="background: #F1F4F6;">
 <header th:insert="blocks/header :: header"></header>
 
-<!-- МАИН -->
 <div class="container">
-    <!-- ИНФОРАМАЦИЯ ОБ ЭЛЕМЕНТАХ НА СТРАНИЦЕ -->
-    <h1 class="product_name">Ноутбуки</h1>
-    <div>
-        <a href="#">Главная</a> &nbsp; > &nbsp; <a href="#">Каталог</a>
-    </div>
-    <div class="main_panel">
-        <div class="find_count">
-            <div>Найдено&#160;</div>
-            <div th:text="${counts}"></div>
-            <div>&#160;товара</div>
-        </div>
-        <div class="text-field__group">
-            <input class="text-field__input" type="search" id="search" name="search"
-                   placeholder="Найти товар по названию и ключевым полям">
-            <button class="text-field__btn" type="button">Найти</button>
-        </div>
-    </div>
-    <!-- ИНФОРАМАЦИЯ ЕНД -->
+    <h1 class="product_name mt-4 mb-2">Ноутбуки</h1>
+    <div style="font-size: 18px;"><a href="#">Главная</a> &nbsp; > &nbsp; <a href="#">Каталог</a></div>
+    <div class="content_ space_top">
+        <div class="left_block">
+            <div class="find_count_element">
+                <div>Найдено&#160;</div>
+                <div th:text="${counts}"></div>
+                <div>&#160;товара</div>
+            </div>
 
-    <!-- ПАНЕЛЬ С ГЛАВНОЙ ИНФОРМАЦИЕЙ -->
-    <div class="panel_filter_and_data">
-        <!-- ФИЛЬТРАЦИЯ ПО ЦЕНЕ, ПРОИЗВОДИТЕЛЯМ, ХАРАКТЕРИСТИКАМ И Т,Д -->
-        <div class="panel_filter">
-            <div class="panel_filter_main_text">Фильтр</div>
-            <div class="filter_par">
-                <div>
-                    <label class="toggle">
-                        <input class="toggle__input" type="checkbox" checked>
-                        <span class="toggle__label"> В наличии</span>
-                    </label>
+            <div class="panel_filter space_top">
+                <center>
+                    <h3>Фильтр</h3>
+                </center>
+                <h5 class="mt-2">Основные настройки</h5>
+                <div class="form-check">
+                    <input class="form-check-input checkbox_color" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">В наличии</label>
                 </div>
-                <div>
-                    <label class="toggle">
-                        <input class="toggle__input" type="checkbox" checked>
-                        <span class="toggle__label toggle__text">Рейтинг 4 и выше</span>
-                    </label>
+                <div class="form-check">
+                    <input class="form-check-input checkbox_color" type="checkbox" value="" id="flexCheckDefault2">
+                    <label class="form-check-label" for="flexCheckDefault2">Рейтинг 4 и выше</label>
                 </div>
-
                 <hr>
                 <div>
-                    <h5>Цена (₽)</h5>
-                    <div class="flex_">
-                        <input class="input_price" type="number" name="price_from" id="price_from" placeholder="От">
-                        <input class="input_price" style="margin-left: 5px;margin-right: 15px;" type="number"
-                               name="price_up_to" id="price_up_to" placeholder="До">
+                    <h5 class="mb-1">Цена (₽)</h5>
+                    <div class="mt-2" style="display:flex; justify-content:space-around; width:100%;">
+                        <input class="input_price" style="width:40%;" type="number" name="price_from" id="price_from_"
+                               placeholder="От">
+                        <input class="input_price" style="width:40%;" type="number"
+                               name="price_up_to" id="price_up_to_" placeholder="До">
                     </div>
                 </div>
                 <hr>
                 <div>
-                    <h5>Производители</h5>
-                    <div class="block_">
-                        <div class="scroll_">
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">HP</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">Lenovo</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">Acer</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">Asus</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">Samsung</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">Dell</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">Apple</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">Honor</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">Irbis</span>
-                                </label>
-                            </div>
+                    <h5 class="mb-1">Производители</h5>
+                    <div class="block_ scroll_">
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="flexCheckDefault3">
+                            <label class="form-check-label" for="flexCheckDefault3">HP</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="flexCheckDefault5">
+                            <label class="form-check-label" for="flexCheckDefault3">Lenovo</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="flexCheckDefault6">
+                            <label class="form-check-label" for="flexCheckDefault3">Acer</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="flexCheckDefault7">
+                            <label class="form-check-label" for="flexCheckDefault3">Asus</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="flexCheckDefault8">
+                            <label class="form-check-label" for="flexCheckDefault3">Samsung</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="flexCheckDefault9">
+                            <label class="form-check-label" for="flexCheckDefault3">Dell</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="flexCheckDefault10">
+                            <label class="form-check-label" for="flexCheckDefault3">Apple</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="flexCheckDefault11">
+                            <label class="form-check-label" for="flexCheckDefault3">Honor</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="flexCheckDefault12">
+                            <label class="form-check-label" for="flexCheckDefault3">Irbis</label>
                         </div>
                     </div>
                 </div>
                 <hr>
                 <div>
-                    <h5>Объём оперативной памяти</h5>
-                    <div class="block_">
-                        <div class="scroll_">
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">до 2 ГБ</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">2 ГБ</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">4 ГБ</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">8 ГБ</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">16 ГБ</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">32 ГБ</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">64 ГБ</span>
-                                </label>
-                            </div>
-                            <div>
-                                <label class="toggle">
-                                    <input class="toggle__input" type="checkbox" checked>
-                                    <span class="toggle__label">128 ГБ</span>
-                                </label>
-                            </div>
+                    <h5 class="mb-1">Объём оперативной памяти</h5>
+                    <div class="block_ scroll_">
+
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="ram_1">
+                            <label class="form-check-label" for="ram_1">до 2 ГБ</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="ram_2">
+                            <label class="form-check-label" for="ram_2">2 ГБ</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="ram_3">
+                            <label class="form-check-label" for="ram_3">4 ГБ</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox" value=""
+                                   id="ram_4">
+                            <label class="form-check-label" for="ram_4">8 ГБ</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox"
+                                   value="" id="ram_5">
+                            <label class="form-check-label" for="ram_5">16 ГБ</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color" type="checkbox"
+                                   value="" id="ram_6">
+                            <label class="form-check-label" for="ram_6">32 ГБ</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color"
+                                   type="checkbox" value="" id="ram_7">
+                            <label class="form-check-label" for="ram_7">64 ГБ</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input checkbox_color"
+                                   type="checkbox" value="" id="ram_8">
+                            <label class="form-check-label" for="ram_8">128 ГБ</label>
                         </div>
                     </div>
                 </div>
                 <hr>
-                <div>
-                    <button class="btn_filter" type="button">Применить</button>
-                </div>
-                <div>
-                    <button class="btn_filter" type="button">Сбросить</button>
-                </div>
+                <center>
+                    <button type="button" class="btn btn-outline-secondary button_filter mt-2 mb-1">Применить</button>
+                </center>
+                <center>
+                    <button type="button" class="btn btn-outline-secondary button_filter mt-1 mb-3">Сбросить</button>
+                </center>
             </div>
         </div>
-        <!-- ФИЛЬТРАЦИЯ ЕНД -->
-        <div class="search_element_container">
-            <!-- ФИЛЬТРАЦИЯ -->
-            <div class="sorted_group">
-                <div class="flex_">
+
+
+        <div class="right_block">
+            <div class="text-field__group">
+                <input class="text-field__input" type="search" id="s" name="search"
+                       placeholder="Найти товар по названию и ключевым полям">
+                <button class="text-field__btn" type="button">Найти</button>
+            </div>
+            <div class="sorted_group space_top" style="border-radius:10px;">
+                <div style="display:flex;justify-content:space-around;">
+                    <h6 class="mt-1 ml-1">Сортировать:&nbsp; &nbsp;</h6>
                     <div>
-                        <h6>Сортировка:</h6>
-                        <select>
-                            <option>сначала недорогие</option>
-                            <option>сначала дорогие</option>
-                            <option>по дате добавления</option>
-                            <option>по наименованию</option>
+                        <select style="height:30px;" class="form-select form-select-sm"
+                                aria-label=".form-select-sm example">-->
+                            <option selected value="1">по дате добавления</option>
+                            <option value="2">сначала недорогие</option>
+                            <option value="3">сначала дорогие</option>
+                            <option value="4">по именованию</option>
                         </select>
                     </div>
+                </div>
+                <div style="display:flex;justify-content:space-around;">
+                    <h6 class="mt-1">Показывать по:&nbsp;&nbsp;</h6>
                     <div>
-                        <h6>Показывать на странице по:&nbsp;</h6>
-
-                        <button>5</button>
-                        <button>10</button>
-                        <button>25</button>
-                        <button>50</button>
-                        <button>100</button>
-                    </div>
-                    <div>
-                        <button class="text-field__btn" style="margin-top:10px;" type="button">Принять</button>
+                        <select style="height:30px;" class="form-select form-select-sm"
+                                aria-label=".form-select-sm example">
+                            <option selected value="1">5</option>
+                            <option value="2">10</option>
+                            <option value="3">25</option>
+                            <option value="4">50</option>
+                        </select>
                     </div>
                 </div>
+                <button class="text-field__btn" type="button">Принять</button>
             </div>
 
             <div th:each="item : ${notebooks}">
@@ -217,18 +189,39 @@
                 <!-- Серая форма товара-->
                 <div class="elements_group">
                     <!-- Продукты внутри-->
-                    <div class="product_inner">
+                    <div class="flex_">
                         <!-- ИКОНКА -->
-                        <a th:href="'/notebook/' + ${item.id}">
-                            <img class="img_border"
-                                 th:src="@{'http://localhost:8080/images/notebook/'+ ${item.previewImageId}}"
-                                 width="200" height="150">
-                        </a>
+                        <div>
+                            <a th:href="'/notebook/' + ${item.id}">
+                                <img class="img_border"
+                                     th:src="@{'http://localhost:8080/images/notebook/'+ ${item.previewImageId}}"
+                                     width="200" height="150" src="">
+                            </a>
+                            <div class="rectangle_opinion mt-1">
+                                <div class="ml-2">
+                                    <img src="/images/products/star_orange.png" alt="">
+                                    <img src="/images/products/star_orange.png" alt="">
+                                    <img src="/images/products/star_orange.png" alt="">
+                                    <img src="/images/products/star_orange.png" alt="">
+                                    <img src="/images/products/star.png" alt="">
+                                </div>
+                                <p class="rectangle_opinion_p"> 4.0 (1 отз.)</p>
+                            </div>
+                        </div>
 
                         <div class="product_container">
-                            <div class="product_full_name" th:text="${item.name}"></div>
+                            <div class="flex_">
+                                <div class="product_full_name" th:text="${item.name}"></div>
+
+                                <div class="price_config">
+                                    <div class="price_text">Цена:&#160;</div>
+                                    <div class="price"
+                                         th:text="${item.price}"></div>
+                                    <div class="price_text">&#160;₽</div>
+                                </div>
+                            </div>
                             <div class="product_container2">
-                                <div class="product_option_inner">
+                                <div class="product_option_inner ">
                                     <div class="option_product">
                                         <h5>Характеристики</h5>
                                         <div th:text="'Процессор:&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.processorName}"></div>
@@ -239,32 +232,24 @@
                                             <span th:case="${false}">Товара нет в наличии</span>
                                         </div>
                                     </div>
-
-                                    <div class="rectangle_opinion">
-                                        <img src="/images/products/star_orange.png" alt="">
-                                        <img src="/images/products/star_orange.png" alt="">
-                                        <img src="/images/products/star.png" alt="">
-                                        <img src="/images/products/star.png" alt="">
-                                        <img src="/images/products/star.png" alt="">
-                                        <p> 0.0 (xxx отз.)</p>
-                                    </div>
                                 </div>
-
-                                <div class="price_and_buy">
-                                    <div class="price_config">
-                                        <div class="price_text">Цена:&#160;</div>
-                                        <div class="price" th:text="${item.price}"></div>
-                                        <div class="price_text">&#160;₽</div>
-                                    </div>
-                                    <div class="element_right">
-                                        <button class="text-field__btn_buy" type="button">В корзину</button>
-                                    </div>
-                                    <div class="element_right">
-                                        <button class="text-field__btn_buy" type="button">В избранное</button>
+                                <div class="price_and_buy mt-4">
+                                    <div class="flex_">
+                                        <div>
+                                            <a href="#">
+                                                <img class="image_user" src="/images/products/shop_.png"/>
+                                            </a>
+                                        </div>
+                                        <div class="left_">
+                                            <a href="#"> <img class="image_user" src="/images/products/heart_.png"/>
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="element_right">
                                         <a th:href="'/notebook/' + ${item.id}">
-                                            <button class="text-field__btn_fav" type="button">Подробнее</button>
+                                            <button class="text-field__btn_fav"
+                                                    type="button">Подробнее
+                                            </button>
                                         </a>
                                     </div>
                                 </div>
@@ -277,10 +262,7 @@
             </div>
         </div>
     </div>
-    <!-- ФИЛЬТРАЦИЯ И КОНТЕНТ ЕНД -->
 </div>
-<!-- КОНТЕЙНЕР ЕНД -->
-
 
 <header th:insert="blocks/bottom :: bottom"></header>
 </body>

@@ -2,6 +2,7 @@ package com.thesis.computer_workshop.controller;
 
 import com.thesis.computer_workshop.models.products.Notebook;
 import com.thesis.computer_workshop.models.images.ImageNoteBook;
+import com.thesis.computer_workshop.repositories.logsRepositories.LogProductRepository;
 import com.thesis.computer_workshop.repositories.productsRepositories.NotebookRepository;
 import com.thesis.computer_workshop.repositories.imagesRepositories.ImageNoteBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +24,10 @@ import java.util.Optional;
 public class AdminController {
     @Autowired
     public NotebookRepository notebookRepository;
-
     @Autowired
     public ImageNoteBookRepository imageNoteBookRepository;
-
+    @Autowired
+    public LogProductRepository logProductRepository;
 
     // ADMIN
     @GetMapping("/admin")
@@ -43,7 +44,9 @@ public class AdminController {
     }
 
     @PostMapping("/admin/notebook")
-    public String setAdminNotebook(@RequestParam String name, Notebook notebook, Model model,
+    public String setAdminNotebook(@RequestParam String name,
+                                   Notebook notebook,
+                                   Model model,
                                    @RequestParam("file1") MultipartFile file1,
                                    @RequestParam("file2") MultipartFile file2,
                                    @RequestParam("file3") MultipartFile file3,
@@ -65,6 +68,17 @@ public class AdminController {
         Notebook notebookFromDB = notebookRepository.save(notebook);
         notebookFromDB.setPreviewImageId(notebookFromDB.getImageNoteBooksList().get(0).getId());
         notebookRepository.save(notebook);
+
+        System.out.println("Добавлен товар \"" + notebook.getName()
+                + "\" ценой " + notebook.getPrice() + " (" + notebook.getDateTimeCreate() + ")");
+
+//        LogProduct newProduct = new LogProduct();
+//        newProduct.setCategory("Ноутбук");
+//        newProduct.setAction("Добавление товара");
+//        newProduct.setIdProduct(notebook.getId());
+//        newProduct.setNameProduct(notebook.getName());
+//        newProduct.setDescription("Добавлен товар \"" + notebook.getName() + "\" ценой " + notebook.getPrice() + " (" + notebook.getDateTimeCreate() + ")");
+//        logProductRepository.save(newProduct);
 
         return "/admin/admin_products/notebook/edit_notebook";
     }
