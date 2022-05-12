@@ -1,5 +1,6 @@
 package com.thesis.computer_workshop.controller;
 
+import com.thesis.computer_workshop.models.logs.LogProduct;
 import com.thesis.computer_workshop.models.products.Notebook;
 import com.thesis.computer_workshop.models.images.ImageNoteBook;
 import com.thesis.computer_workshop.repositories.logsRepositories.LogProductRepository;
@@ -72,13 +73,13 @@ public class AdminController {
         System.out.println("Добавлен товар \"" + notebook.getName()
                 + "\" ценой " + notebook.getPrice() + " (" + notebook.getDateTimeCreate() + ")");
 
-//        LogProduct newProduct = new LogProduct();
-//        newProduct.setCategory("Ноутбук");
-//        newProduct.setAction("Добавление товара");
-//        newProduct.setIdProduct(notebook.getId());
-//        newProduct.setNameProduct(notebook.getName());
-//        newProduct.setDescription("Добавлен товар \"" + notebook.getName() + "\" ценой " + notebook.getPrice() + " (" + notebook.getDateTimeCreate() + ")");
-//        logProductRepository.save(newProduct);
+        LogProduct newProduct = new LogProduct();
+        newProduct.setCategory("Ноутбук");
+        newProduct.setAction("Добавление товара");
+        newProduct.setIdProduct(notebook.getId());
+        newProduct.setNameProduct(notebook.getName());
+        newProduct.setDescription("Добавлен товар \"" + notebook.getName() + "\" ценой " + notebook.getPrice() + " (" + notebook.getDateTimeCreate() + ")");
+        logProductRepository.save(newProduct);
 
         return "/admin/admin_products/notebook/edit_notebook";
     }

@@ -579,6 +579,16 @@ font-size:20px;
 font-weight:600;
 }
 
+.price_text_2 {
+font-size:28px;
+font-weight:400;
+}
+
+.price_2 {
+font-size:32px;
+font-weight:600;
+}
+
 .element_right {
 margin-left:auto;
 }
@@ -688,9 +698,9 @@ padding:40px;
 }
 
 .elements_group_3 {
+margin: 0 auto;
+text-align: center;
 margin-top:30px;
-margin-left:150px;
-width:100%;
 max-width:1000px;
 padding:40px;
 }
@@ -758,19 +768,21 @@ font-size:16px;
 .rectangle_opinion_info {
 background-color:#EAEAEA;
 border-radius:10px;
-height:35px;
+height:45px;
+width: 400px;
 display:flex;
 justify-content:space-between;
-padding:5px;
-width: 320px;
+padding:5px 20px;
 }
 
 .rectangle_opinion_p_info {
-font-size:18px;
+font-size:16px;
+margin-top: 5px;
+margin-left: 10px;
 }
 
 .button_add_star {
-margin-left:10px;
+margin-left:30px;
 width:100px;
 height:35px;
 font-weight:400;
@@ -880,12 +892,13 @@ align-items:center;
 }
 
 .social_network {
-width:250px;
+width:30%;
 background:#2F485B;
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:30px;
+padding-left:50px;
 }
 
 .social_network,.subscribe,.social_network_fon,.subscribe_fon {
@@ -893,12 +906,13 @@ height:75px;
 }
 
 .subscribe {
-width:1000px;
+width:70%;
 background:#647D90;
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:30px;
+mapping-top: 400px;
 }
 
 .social_network_fon {
@@ -987,7 +1001,7 @@ width:175px;
 }
 
 .image_photo_2{
-width:50px;
+width:75px;
 }
 
 
@@ -1106,4 +1120,15 @@ border-radius: 12px;
 .left_{
 width: 100%;
 margin-left: 30px;
+}
+
+.table_{
+text-align:left;
+width:100%;
+font-size:18px;
+border: none;
+}
+
+.left_t_element{
+font-weight:700;
 }
