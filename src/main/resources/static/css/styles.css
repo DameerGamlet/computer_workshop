@@ -1132,3 +1132,18 @@ border: none;
 .left_t_element{
 font-weight:700;
 }
+.bottom_left{
+width:30%;
+background:#2F485B;
+padding:25px;
+padding-left:300px;
+}
+.bottom_right{
+width:30%;
+background:#647D90;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:30px;
+padding-right: 300px;
+}
