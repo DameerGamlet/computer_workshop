@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Регистрация</title>
+    <div th:insert="blocks/libraries :: libraries"></div>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<h3 style="text-align: center" class="mt-5 mb-3">Мой аккаунт</h3>
+
+<div class="container">
+    <div th:each="us : ${user}">
+        <div th:text="${us.username}"></div>
+        <div th:text="${us.name}"></div>
+        <div th:text="${us.email}"></div>
+        <div th:text="${us.phoneNumber}"></div>
+    </div>
+</div>
+
+<header th:insert="blocks/bottom :: bottom"></header>
+</body>
+</html>

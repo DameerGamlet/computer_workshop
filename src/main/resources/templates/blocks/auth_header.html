@@ -1,4 +1,4 @@
-<div th:fragment="header">
+<div th:fragment="auth_header">
     <!-- ХЕДЕР -->
     <div class="header_background">
         <div class="header_container">
@@ -56,8 +56,23 @@
                                  class="rounded-circle">
                         </a>
                         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
-                            <li><a class="dropdown-item" href="/registration">Зарегистрироваться</a></li>
-                            <li><a class="dropdown-item" href="/login">Войти</a></li>
+                            <li><a class="dropdown-item" href="/account">Мой аккаунт</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Мои заказы</a></li>
+                            <li><a class="dropdown-item" href="#">Мои избранные</a></li>
+                            <li><a class="dropdown-item" href="#">Моя история</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">
+                                <form th:action="@{/logout}" method="post">
+                                    <input type="submit" value="Выйти"/>
+                                    <input type="hidden" name="_csrf" value="${_csrf.token}">
+                                </form>
+                            </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
