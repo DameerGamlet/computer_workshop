@@ -6,7 +6,6 @@
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
-
 <h3 style="text-align: center" class="mt-5 mb-3">Регистрация пользователя</h3>
 
 <div class="container_reg">
@@ -16,7 +15,8 @@
 
     <form th:action="@{/registration}" method="post">
         <div><label for="u"> User Name : <input type="text" class="form-control" id="u" placeholder="Логин пользователя" name="username"/> </label></div>
-        <div><label for="e"> email : <input type="text" class="form-control" id="e" name="email"/> </label></div>
+        <div><label for="nm"> name : <input type="text" class="form-control" id="nm" name="name"/> </label></div>
+        <div><label for="e"> email : <input type="email" class="form-control" id="e" name="email"/> </label></div>
         <div><label for="n"> Number: <input type="text" class="form-control" id="n" name="phoneNumber"/> </label></div>
         <div><label for="p"> Password: <input type="password" class="form-control" id="p" name="password"/> </label></div>
         <input type="hidden"

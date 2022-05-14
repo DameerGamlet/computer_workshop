@@ -5,7 +5,10 @@
     <div th:insert="blocks/libraries :: libraries"></div>
 </head>
 <body>
-<header th:insert="blocks/header :: header"></header>
+<div th:switch="${check}">
+    <div th:case="${true}"><header th:insert="blocks/auth_header :: auth_header"></header></div>
+    <div th:case="*"><header th:insert="blocks/header :: header"></header></div>
+</div>
 Местоположение
 <a class="dg-widget-link"
    href="http://2gis.ru/saratov/firm/70000001028701051/center/46.02473258972168,51.530652993300414/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть

@@ -29,7 +29,9 @@ public class ProductController {
 //   КАТАЛОГ
 
     @GetMapping("/shop")
-    public String returnShop(Model model) {
+    public String returnShop(Model model, Principal principal) {
+        Usr user = getUserByPrincipal(principal);
+        model.addAttribute("check", user.getUsername() != null);
         return "/main/shop";
     }
 
@@ -83,10 +85,6 @@ public class ProductController {
     // МОНИТОРЫ
     @GetMapping("/monitor/list")
     public String returnAllMonitors(Model model) {
-//        Iterable<Notebook> notebooks = notebookRepository.findAll();
-//        int counts = (int) notebooks.spliterator().getExactSizeIfKnown();
-//        model.addAttribute("notebooks", notebooks);
-//        model.addAttribute("counts", counts);
         return "/products/monitors/monitor-list";
     }
 
@@ -94,7 +92,6 @@ public class ProductController {
     @GetMapping("/")
     public String returnMain(Model model, Principal principal) {
         Usr user = getUserByPrincipal(principal);
-        model.addAttribute("user", user);
         model.addAttribute("check", user.getUsername() != null);
         return "/main/main";
     }
@@ -107,7 +104,9 @@ public class ProductController {
     }
 
     @GetMapping("/location")
-    public String returnLocation(Model model) {
+    public String returnLocation(Model model, Principal principal) {
+        Usr user = getUserByPrincipal(principal);
+        model.addAttribute("check", user.getUsername() != null);
         return "/main/location";
     }
 

@@ -3,11 +3,13 @@ package com.thesis.computer_workshop.controller;
 import com.thesis.computer_workshop.models.users.Role;
 import com.thesis.computer_workshop.models.users.Usr;
 import com.thesis.computer_workshop.repositories.usersRepositories.UserRepository;
+import com.thesis.computer_workshop.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.security.Principal;
@@ -18,31 +20,48 @@ import java.util.Collections;
 public class UserController {
     @Autowired
     private final UserRepository userRepository;
+    @Autowired
+    private UserService userService;
 //    private final PasswordEncoder passwordEncoder;
 
+    @GetMapping("/login")
+    public String loginUser(Model model, Principal principal) {
+        Usr user = getUserByPrincipal(principal);
+        model.addAttribute("check", user.getUsername() != null);
+        return "users/login";
+    }
+
     @GetMapping("/registration")
-    public String registrationUser(Model model) {
+    public String registrationUser(Model model, Principal principal) {
+        Usr user = getUserByPrincipal(principal);
+        model.addAttribute("check", user.getUsername() != null);
         return "users/registration";
     }
 
     @PostMapping("/registration")
     public String createUser(Usr usr, Model model) {
-        Usr byUserName = userRepository.findByUsername(usr.getUsername());
-        if(byUserName != null){
-            model.addAttribute("message", "Такой пользователь уже существует !!!");
+        if(!userService.createUser(usr)){
             return "users/registration";
         }
-        usr.setActive(true);
-//        usr.setPassword(passwordEncoder.encode(usr.getPassword()));
-        usr.setRoles(Collections.singleton(Role.USER));
-        userRepository.save(usr);
-        System.out.println(usr.getUsername());
-        return "redirect:/login";
+        return "users/login";
+    }
+
+    @GetMapping("/activate/{code}")
+    public String activate(Model model, @PathVariable String code){
+        boolean isActive = userService.activateUser(code);
+        if(isActive){
+            model.addAttribute("message", "Пользователь успешно активирован !");
+        }
+        else {
+            model.addAttribute("message", "Пользователь не был активирован !");
+        }
+        return "users/login";
     }
 
     @GetMapping("/account")
-    public String getAccount(Principal principal, Model model) {
+    public String getAccount(Principal principal,  Model model) {
         Usr user = getUserByPrincipal(principal);
+        model.addAttribute("check", user.getUsername() != null);
         model.addAttribute("user", user);
         return "users/account";
     }

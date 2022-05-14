@@ -4,17 +4,102 @@
     <title>Регистрация</title>
     <div th:insert="blocks/libraries :: libraries"></div>
 </head>
-<body>
+<body style="background: #F1F4F6;">
 <header th:insert="blocks/header :: header"></header>
 
-<h3 style="text-align: center" class="mt-5 mb-3">Мой аккаунт</h3>
+<h1 style="text-align: center" class="mt-5 mb-5">Мой аккаунт</h1>
+<div th:each="us : ${user}">
 
-<div class="container">
-    <div th:each="us : ${user}">
-        <div th:text="${us.username}"></div>
-        <div th:text="${us.name}"></div>
-        <div th:text="${us.email}"></div>
-        <div th:text="${us.phoneNumber}"></div>
+    <div class="container">
+        <div class="flex_">
+            <div class="block_">
+                <div class="account_form">
+                    <div><img style="border:1px solid #E7E7E7" height="200" width="200" src="/images/avatar.jpg"/></div>
+                    <div class="mt-2">
+                        <button type="button" class="btn btn-outline-primary" style="width: 200px;">
+                            Изменить картинку
+                        </button>
+                    </div>
+                    <div class="mt-2 mt-3">
+                        <button type="button" class="btn btn-outline-primary" style="width: 200px;">
+                            Удалить картинку
+                        </button>
+                    </div>
+                </div>
+                <div class="account_form mt-4" style="text-align:left;font-size:20px;">
+                    <div>Мои бонусы</div>
+                    <hr>
+                    <div>Мои избранные</div>
+                    <hr>
+                    <div>Мои покупки</div>
+                    <hr>
+                    <div>Моя история</div>
+                </div>
+            </div>
+            <div class="block_" style="width: 65%">
+                <div>
+                    <h3 th:text="'Добрый день, ' + ${us.name}"></h3>
+                </div>
+                <div>
+                    Простатривайте и редактируйте здесь свой аккаунт
+                </div>
+                <hr>
+                <div>
+                    <table cellpadding="0" cellspacing="0" border="0" BGCOLOR="#FFF" class="table_"
+                           style="font-size:22px;background:#F1F4F6;margin-left: 10px;">
+                        <tr>
+                            <td class="left_t_element">Логин:</td>
+                            <td>
+                                <div th:text="${us.username}"></div>
+                            </td>
+                            <td>
+                                <div><img height="30" width="30" src="/images/edit.png"/></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left_t_element">Имя:</td>
+                            <td>
+                                <div th:text="${us.name}"></div>
+                            </td>
+                            <td>
+                                <div><img height="30" width="30" src="/images/edit.png"/></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left_t_element">Электронная почта:</td>
+                            <td>
+                                <div th:text="${us.email}"></div>
+                            </td>
+                            <td>
+                                <div><img height="30" width="30" src="/images/edit.png"/></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left_t_element">Номер телефона:</td>
+                            <td>
+                                <div th:text="${us.phoneNumber}"></div>
+                            </td>
+                            <td>
+                                <div><img height="30" width="30" src="/images/edit.png"/></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <center class="mt-5">
+                    <button type="button" class="btn btn-outline-primary" style="text-align:center;width:250px;">
+                        Изменить пароль
+                    </button>
+                </center>
+                <center class="mt-5">
+                    <button type="button" class="btn btn-outline-secondary" style="text-align:center;width:250px;">Выйти</button>
+                </center>
+                <center class="mt-3">
+                    <button type="button" class="btn btn-outline-danger" style="text-align:center;width:250px;">Удалить
+                        аккаунт
+                    </button>
+                </center>
+            </div>
+        </div>
     </div>
 </div>
 

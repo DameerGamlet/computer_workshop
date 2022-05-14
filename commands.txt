@@ -5,8 +5,8 @@
     -e MYSQL_DATABASE=computer_workshop  mysql
 
 * Запустить контейнер
-    sudo docker start mysqlcon2
+sudo docker start mysqlcon2
 
 * Открыть через консоль
-    sudo docker exec -it mysqlcon2 mysql -uroot -p
+sudo docker exec -it mysqlcon2 mysql -uroot -p
 

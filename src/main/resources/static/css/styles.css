@@ -1,7 +1,8 @@
 body {
 font-family:Roboto, sans-serif;
 font-size:16px;
-color:#333;
+color#333;
+background: #F1F4F6;
 margin:0;
 }
 
@@ -336,7 +337,11 @@ font-size:16px;
 padding:15px 32px;
 }
 /* ПАНЕЛЬ */
-.panel_filter, .sorted_group, .elements_group, .elements_group_3{
+.panel_filter,
+.sorted_group,
+.elements_group,
+.elements_group_3,
+.account_form{
 background-color:#FFFFFF;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius:20px;
@@ -1146,4 +1151,13 @@ justify-content:space-between;
 align-items:center;
 padding:30px;
 padding-right: 300px;
+}
+
+/* account */
+.account_form {
+margin: 0 auto;
+text-align: center;
+/* margin-top:30px; */
+/* max-width:1000px; */
+padding:20px;
 }

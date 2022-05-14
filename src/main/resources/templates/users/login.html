@@ -5,9 +5,10 @@
     <div th:insert="blocks/libraries :: libraries"></div>
 </head>
 <body>
-
 <header th:insert="blocks/header :: header"></header>
+
 <h3 style="text-align: center" class="mt-5 mb-3">Авторизация пользователя</h3>
+<div th:text="${message}"></div>
 
 <div th:if="${param.error}">Некорректный логин или пароль</div>
 <div th:if="${param.logout}">Вы вышли из аккаунтка</div>

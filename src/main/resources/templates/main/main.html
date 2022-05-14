@@ -5,11 +5,7 @@
     <div th:insert="blocks/libraries :: libraries"></div>
 </head>
 <body>
-
-<div th:switch="${check}">
-    <div th:case="${true}"><header th:insert="blocks/auth_header :: auth_header"></header></div>
-    <div th:case="*"><header th:insert="blocks/header :: header"></header></div>
-</div>
+<header th:insert="blocks/header :: header"></header>
 
 Главная
 

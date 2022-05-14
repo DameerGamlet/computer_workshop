@@ -1,23 +1,30 @@
 package com.thesis.computer_workshop.controller;
 
 import com.thesis.computer_workshop.models.products.Notebook;
+import com.thesis.computer_workshop.models.users.Usr;
 import com.thesis.computer_workshop.repositories.productsRepositories.NotebookRepository;
+import com.thesis.computer_workshop.repositories.usersRepositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.security.Principal;
 import java.util.*;
 
 @Controller
 public class NoteBookController {
     @Autowired
     public NotebookRepository notebookRepository;
+    @Autowired
+    public UserRepository userRepository;
 
     //    Список ноутбуков
     @GetMapping("/notebooks/list")
-    public String returnAllNoteBooks(Model model) {
+    public String returnAllNoteBooks(Model model, Principal principal) {
+        Usr user = getUserByPrincipal(principal);
+        model.addAttribute("check", user.getUsername() != null);
         Iterable<Notebook> notebooks = notebookRepository.findAll();
         int counts = (int) notebooks.spliterator().getExactSizeIfKnown();
         model.addAttribute("notebooks", notebooks);
@@ -27,7 +34,9 @@ public class NoteBookController {
 
     //      Вывод каждого отдельного ноутбука
     @GetMapping("/notebook/{id}")
-    public String notebookInfo(@PathVariable(value = "id") Long id, Model model) {
+    public String notebookInfo(@PathVariable(value = "id") Long id, Model model, Principal principal) {
+        Usr user = getUserByPrincipal(principal);
+        model.addAttribute("check", user.getUsername() != null);
         Optional<Notebook> notebook = notebookRepository.findById(id);
         ArrayList<Notebook> result = new ArrayList<>();
         notebook.ifPresent(result::add);
@@ -41,5 +50,12 @@ public class NoteBookController {
         model.addAttribute("description", descriptionOut);
 
         return "/products/notebook/notebook-info";
+    }
+
+    public Usr getUserByPrincipal(Principal principal) {
+        if (principal == null) {
+            return new Usr();
+        }
+        return userRepository.findByUsername(principal.getName());
     }
 }

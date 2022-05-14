@@ -1,4 +1,4 @@
-<div th:fragment="auth_header">
+<div th:fragment="auth_header" xmlns:th="http://www.w3.org/1999/xhtml">
     <!-- ХЕДЕР -->
     <div class="header_background">
         <div class="header_container">
@@ -66,12 +66,13 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">
+                            <li>
                                 <form th:action="@{/logout}" method="post">
-                                    <input type="submit" value="Выйти"/>
+                                    <a class="dropdown-item" href="#">
+                                        <input type="submit" value="Выйти"/>
+                                    </a>
                                     <input type="hidden" name="_csrf" value="${_csrf.token}">
                                 </form>
-                            </a>
                             </li>
                         </ul>
                     </div>
