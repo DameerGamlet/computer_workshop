@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Регистрация</title>
+    <div th:insert="blocks/libraries :: libraries"></div>
+</head>
+<body style="background: #F1F4F6;">
+<header th:insert="blocks/header :: header"></header>
+
+<h1 style="text-align: center" class="mt-5 mb-5">Оформить заявку</h1>
+
+<div th:each="us : ${user}">
+    <div class="container" style="padding: 0 150px;">
+        <form method="post" action="/application" enctype="multipart/form-data">
+            <div class="mt-3">
+                <label>Имя пользователя</label>
+                <div class="in_size">
+                    <input type="text" class="form-control" placeholder="Имя" name="name">
+                </div>
+            </div>
+            <div class="mt-3">
+                <label>Заголовок</label>
+                <div class="in_size">
+                    <input type="text" class="form-control" placeholder="Заголовок" name="title">
+                </div>
+            </div>
+            <div class="mt-3">
+                <label>Описание </label>
+                <textarea class="form-control" rows="5" cols="100" name="description" placeholder="Описание"></textarea><br>
+            </div>
+            <h5 class="mt-3">Загрузить фотографии по желанию:</h5>
+            <div class="flex_ mt-2">
+                <input type="file" id="file1" name="file1" multiple>
+                <input type="file" id="file2" name="file2" multiple>
+            </div>
+            <div class="flex_ mt-2">
+                <input type="file" id="file3" name="file3" multiple>
+                <input type="file" id="file4" name="file4" multiple>
+            </div>
+            <div class="flex_ mt-2">
+                <input type="file" id="file5" name="file5" multiple>
+                <input type="file" id="file6" name="file6" multiple>
+            </div>
+            <input type="hidden" name="_csrf" value="${_csrf.token}">
+            <div class="mt-5" style="text-align:center;">
+                <button type="submit" style="margin: 0 auto;" class="btn btn-primary btn-lg btn-block">Оформить заявку
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<header th:insert="blocks/bottom :: bottom"></header>
+</body>
+</html>

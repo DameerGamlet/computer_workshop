@@ -4,8 +4,33 @@
     <title>Главная</title>
     <div th:insert="blocks/libraries :: libraries"></div>
 </head>
-<body>
+<body style="background: #F1F4F6;">
 <header th:insert="blocks/header :: header"></header>
+
+<div class="image_">
+    <div class="container" style="text-align: center;">
+        <div class="inner_container">
+            <div class="main_logo_text">
+                Ремонт и продажа компьютерной техники и не только
+            </div>
+            <div class="main_logo_bottom mt-3">
+                Уже более 7 лет организация "Мастерская ЭВМ" занимается ремонтом не только компьютерной техники, но и
+                принтеров,
+                микроволновок и любой другой техники. Оставьте заявку по форме ниже и узнайте о возможности произвести
+                ремонт
+                техники и её примерную стоимость.
+            </div>
+        </div>
+        <div class="mt-4" style="display:flex;justify-content:space-around;width:600px;width: 50%;margin: 0 auto;">
+            <div>
+                <a href="/application"><button type="button" class="btn button_main btn-primary">Оставить заявку на ремонт</button></a>
+            </div>
+            <div>
+                <button type="button" class="btn button_main btn-secondary">Узнать больше</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 Главная
 

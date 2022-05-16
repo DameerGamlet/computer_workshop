@@ -1,8 +1,10 @@
 package com.thesis.computer_workshop.controller;
 
+import com.thesis.computer_workshop.models.application.RepairApplication;
 import com.thesis.computer_workshop.models.logs.LogProduct;
 import com.thesis.computer_workshop.models.products.Notebook;
 import com.thesis.computer_workshop.models.images.ImageNoteBook;
+import com.thesis.computer_workshop.repositories.applicationRepositories.RepairApplicationRepository;
 import com.thesis.computer_workshop.repositories.logsRepositories.LogProductRepository;
 import com.thesis.computer_workshop.repositories.productsRepositories.NotebookRepository;
 import com.thesis.computer_workshop.repositories.imagesRepositories.ImageNoteBookRepository;
@@ -29,11 +31,28 @@ public class AdminController {
     public ImageNoteBookRepository imageNoteBookRepository;
     @Autowired
     public LogProductRepository logProductRepository;
+    @Autowired
+    public RepairApplicationRepository repairApplicationRepository;
 
     // ADMIN
     @GetMapping("/admin")
     public String returnAdminCatalog(Model model) {
         return "/admin/catalog_for_edit";
+    }
+
+    @GetMapping("/admin/application")
+    public String returnNewApplicationList(Model model) {
+        Iterable<RepairApplication> applicationIterable = repairApplicationRepository.findAll();
+        System.out.println(applicationIterable.iterator().next().getTitle());
+        model.addAttribute("applicationIterable", applicationIterable);
+        return "/applications/admin_application_list";
+    }
+
+    @PostMapping("/admin/application/{id}/delete")
+    public String deleteApplication(@PathVariable(value = "id") long id, Model model) throws IOException {
+        RepairApplication repairApplication = repairApplicationRepository.findById(id).orElseThrow();
+        repairApplicationRepository.delete(repairApplication);
+        return "redirect:/admin/application";
     }
 
     // НОУТБУКИ
@@ -150,4 +169,6 @@ public class AdminController {
         }
         return image;
     }
+
+
 }
