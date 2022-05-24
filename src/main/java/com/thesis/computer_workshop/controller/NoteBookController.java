@@ -7,8 +7,7 @@ import com.thesis.computer_workshop.repositories.usersRepositories.UserRepositor
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.*;
@@ -31,6 +30,30 @@ public class NoteBookController {
         model.addAttribute("counts", counts);
         return "/products/notebook/notebooks_list";
     }
+//    @PostMapping("/notebooks/list")
+//    @RequestMapping(params = "price_from")
+//    public String returnByPrinceFrom(@RequestParam(name = "price_from") double price_from, Model model, Principal principal) {
+//        System.out.println(price_from);
+//        System.out.println(123);
+//        Usr user = getUserByPrincipal(principal);
+//        model.addAttribute("check", user.getUsername() != null);
+//        Iterable<Notebook> notebooks = notebookRepository.findAllByFromAndToPrice(0, price_from);
+//        int counts = (int) notebooks.spliterator().getExactSizeIfKnown();
+//        model.addAttribute("notebooks", notebooks);
+//        model.addAttribute("counts", counts);
+//        return "/products/notebook/notebooks_list";
+//    }
+//    @PostMapping("/notebooks/list")
+//    @ResponseBody
+//    public String returnByPBrand(@RequestParam(name = "brand") String brand, Model model, Principal principal) {
+//        Usr user = getUserByPrincipal(principal);
+//        model.addAttribute("check", user.getUsername() != null);
+//        Iterable<Notebook> notebooks = notebookRepository.findByBrand("HP");
+//        int counts = (int) notebooks.spliterator().getExactSizeIfKnown();
+//        model.addAttribute("notebooks", notebooks);
+//        model.addAttribute("counts", counts);
+//        return "/products/notebook/notebooks_list";
+//    }
 
     //      Вывод каждого отдельного ноутбука
     @GetMapping("/notebook/{id}")

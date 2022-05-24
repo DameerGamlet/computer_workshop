@@ -12,34 +12,48 @@
 <div th:each="us : ${user}">
     <div class="container" style="padding: 0 150px;">
         <form method="post" action="/application" enctype="multipart/form-data">
-            <div class="mt-3">
-                <label>Имя пользователя</label>
-                <div class="in_size">
-                    <input type="text" class="form-control" placeholder="Имя" name="name">
+<!--            <div class="input-group mt-3">-->
+<!--                <label>Имя пользователя</label>-->
+<!--                <div class=" in_size">-->
+<!--                    <input type="text" class="form-control" placeholder="Имя" name="name">-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:200px;" id="inputGroup-sizing-default">Имя пользователя</span>
                 </div>
+                <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default" placeholder="Имя" name="name">
             </div>
-            <div class="mt-3">
-                <label>Заголовок</label>
-                <div class="in_size">
-                    <input type="text" class="form-control" placeholder="Заголовок" name="title">
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" style="width:200px;" id="inputGroup-sizing-default2">Заголовок</span>
                 </div>
+                <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default2" placeholder="Заголовок" name="title">
             </div>
+
+<!--            <div class="mt-3">-->
+<!--                <label>Заголовок</label>-->
+<!--                <div class="in_size">-->
+<!--                    <input type="text" class="form-control" placeholder="Заголовок" name="title">-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="mt-3">
                 <label>Описание </label>
                 <textarea class="form-control" rows="5" cols="100" name="description" placeholder="Описание"></textarea><br>
             </div>
             <h5 class="mt-3">Загрузить фотографии по желанию:</h5>
             <div class="flex_ mt-2">
-                <input type="file" id="file1" name="file1" multiple>
-                <input type="file" id="file2" name="file2" multiple>
+                <input type="file" id="file1" name="file1" class="form-control-file" multiple>
+                <input type="file" id="file2" name="file2" class="form-control-file" multiple>
             </div>
             <div class="flex_ mt-2">
-                <input type="file" id="file3" name="file3" multiple>
-                <input type="file" id="file4" name="file4" multiple>
+                <input type="file" id="file3" name="file3" class="form-control-file" multiple>
+                <input type="file" id="file4" name="file4" class="form-control-file" multiple>
             </div>
             <div class="flex_ mt-2">
-                <input type="file" id="file5" name="file5" multiple>
-                <input type="file" id="file6" name="file6" multiple>
+                <input type="file" id="file5" name="file5" class="form-control-file" multiple>
+                <input type="file" id="file6" name="file6" class="form-control-file" multiple>
             </div>
             <input type="hidden" name="_csrf" value="${_csrf.token}">
             <div class="mt-5" style="text-align:center;">

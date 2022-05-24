@@ -11,14 +11,19 @@
 
 <div class="container">
     <div th:each="item : ${product}">
-        <h1 class="product_name mt-4 mb-2">Ноутбук</h1>
+        <h1 class="product_name mt-5 mb-3">Ноутбук</h1>
         <div class="change_position mb-2">
-            <div><a href="/">Главная</a> &nbsp; > &nbsp; <a href="/shop">Каталог</a> &nbsp; > &nbsp; <a
-                    href="/notebooks/list">Ноутбуки</a></div>
-            <div> < <a href="">Предыдуший товар</a> | <a href="">Следующий товар</a> ></div>
+            <div style="margin-left:40px;" class="td-none">
+                <a class="link_back td-none" href="/">Главная</a> &nbsp; > &nbsp;
+                <a class="link_back td-none" href="/shop">Каталог</a> &nbsp; > &nbsp;
+                <a class="link_back td-none" href="/notebooks/list">Ноутбуки</a>
+            </div>
+            <div style="margin-right:40px;"> < <a class="link_back td-none" href="">Предыдуший товар</a>&nbsp;|&nbsp;<a
+                    class="link_back td-none" href="">Следующий товар</a> >
+            </div>
         </div>
 
-        <div class="elements_group_3 block_ mt-3">
+        <div class="elements_group_3 block_ mt-4">
             <div class="info_inner_form">
                 <div class="block_">
                     <div class="images_pos">
@@ -81,7 +86,7 @@
                             <div class="price_2" th:text="${item.price}"></div>
                             <div class="price_text_2">&#160;₽</div>
                         </div>
-                        <div class="block_" style="margin-top:150px;">
+                        <div class="block_" style="margin-top:135px;">
                             <table cellpadding="0" cellspacing="0" border="0" BGCOLOR="#FFF" class="table_">
                                 <tr>
                                     <td class="left_t_element">Добавить в корзину</td>
@@ -92,9 +97,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="left_t_element">Добавить в избранное</td>
+                                    <td class="left_t_element">
+                                        <div style="margin-top:15px;">Добавить в избранное</div>
+                                    </td>
                                     <td>
-                                        <div>
+                                        <div style="margin-top:15px;">
                                             <a href="#"> <img class="image_user" src="/images/products/heart_.png"/></a>
                                         </div>
                                     </td>
@@ -186,7 +193,8 @@
             <h3 style="text-align:center;">Задать вопрос продавцу</h3>
             <hr>
             <div class="input-group mb-3" style="width:50%;">
-                <input placeholder="Имя пользователя" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                <input placeholder="Имя пользователя" type="text" class="form-control" aria-label="Small"
+                       aria-describedby="inputGroup-sizing-sm">
             </div>
             <div class="mb-2">
                 <textarea class="form-control" rows="6" cols="100" name="comment"

@@ -58,9 +58,8 @@ line-height:21px;
 }
 
 .full_line {
-width:1200px;
 height:1px;
-border:1px solid #047695;
+border:1px solid #000000;
 }
 
 .panel_inner {
@@ -125,11 +124,8 @@ padding-right:10px;
 }
 
 .end_panel {
-padding-left:60px;
-width:120px;
+margin-left:10px;
 display:flex;
-justify-content:space-between;
-text-align:right;
 }
 
 .ico {
@@ -340,6 +336,7 @@ padding:15px 32px;
 .panel_filter,
 .sorted_group,
 .elements_group,
+.catalog_form,
 .elements_group_3,
 .account_form{
 background-color:#FFFFFF;
@@ -625,15 +622,11 @@ margin-top:50px;
 display:block;
 }
 
-.catalog_form {
+.catalog_form, .empty_{
 width:200px;
 height:200px;
 margin-left:20px;
-background:#ECECEC;
-border:.25px solid #000;
 box-sizing:border-box;
-box-shadow:0 4px 4px rgba(0,0,0,0.25);
-border-radius:20px;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -648,10 +641,20 @@ background:#C4C4C4;
 width:200px;
 height:60px;
 margin-left:20px;
-font-weight:300;
+margin-top:10px;
+font-weight:600;
 font-size:24px;
 line-height:28px;
 text-align:center;
+color: #000000;
+}
+
+.link_back{
+font-weight:400;
+font-size:20px;
+}
+
+.td-none{
 text-decoration:none;
 }
 
@@ -682,7 +685,7 @@ width:400px;
 }
 
 .body-color {
-background-color:#E1E1E1;
+background-color:#EEEEEE;
 }
 
 .lower_mapping {
@@ -1017,8 +1020,6 @@ width:75px;
 width:150px;
 }
 
-
-
 .button_del_upd {
 margin-top:5px;
 margin-bottom:5px;
@@ -1066,9 +1067,13 @@ display:flex;
 justify-content:space-around;
 }
 
+.inner_container_2 a{
+text-decoration: none;
+}
+
 .catalog_form img,.image_catalog {
-width:175px;
-height:175px;
+width:150px;
+height:150px;
 position:absolute;
 }
 

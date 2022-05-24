@@ -3,10 +3,10 @@
     <div class="header_background">
         <div class="header_container">
             <div class="header_element">
-                <a href="/"> <img height="75" width="75" src="/images/header/logo.png"/></a>
+                <a href="/"> <img height="75" width="75" src="/images/header/logo_2.png"/></a>
                 <div class="text_container">
                     <div class="title_name">МАСТЕРСКАЯ ЭВМ</div>
-                    <div class="process_name">Ремонт электронной техники&nbsp · Продажа и покупка техники</div>
+                    <div class="process_name">Ремонт электронной техники&nbsp · Продажа устройст и товаров</div>
                 </div>
             </div>
             <hr class="full_line">
@@ -18,16 +18,17 @@
             <div class="container">
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-3 justify-content-center mb-md-0">
-                        <li><a href="/" class="nav-link px-5 link-secondary">Главная</a></li>
-                        <li><a href="/shop" class="nav-link px-2 link-dark">Магазин</a></li>
-                        <li><a href="/contacts" class="nav-link px-2 link-dark">Контакты</a></li>
-                        <li><a href="/reviews" class="nav-link px-2 link-dark">Отзывы</a></li>
+                        <li><b><a href="/" class="nav-link px-5 link-secondary">Главная</a></b></li>
+                        <li><b><a href="/shop" class="nav-link px-2 link-dark">Магазин</a></b></li>
+                        <li><b><a href="/contacts" class="nav-link px-2 link-dark">Контакты</a></b></li>
+                        <li><b><a href="/reviews" class="nav-link px-2 link-dark">Отзывы</a></b></li>
                         <li>
                             <div class="dropdown">
-                                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle pt-2 px-2"
-                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                <b><a href="#" class="d-block link-dark text-decoration-none dropdown-toggle pt-2 px-2"
+                                      data-bs-toggle="dropdown" aria-expanded="false">
                                     Ещё
                                 </a>
+                                </b>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
                                     <li><a class="dropdown-item" href="/interesting_articles">Интересные статьи</a></li>
                                     <li><a class="dropdown-item" href="/about_company">О компании</a></li>
@@ -38,15 +39,12 @@
                         </li>
                     </ul>
                     <div class="mail_panel px-10">
-                        <div class="mail_and_number">sar.comp.workshop@gmail.com</div>
-                        <div class="mail_and_number">8 (964) 996-99-55</div>
-                        <a href="/location">
-                            <img width="20" height="20" src="/images/header/pin.png" alt="">
-                        </a>
+
                     </div>
                     <div class="end_panel">
-                        <a href="#"><img class="ico" src="/images/header/heart.png" alt=""></a>
-                        <a href="#"><img class="ico" src="/images/header/bag.png" alt=""></a>
+                        <a href="/location"><img class="ico" style="margin-bottom:2px;" src="/images/header/pin.png" alt=""></a>
+                        <a href="#"><img class="ico" style="margin-left:10px;" src="/images/header/heart.png" alt=""></a>
+                        <a href="#"><img class="ico" style="margin-left:10px;" src="/images/header/bag.png" alt=""></a>
                     </div>
                     <div class="dropdown text-end px-5">
                         <div th:switch="${check}">
@@ -54,8 +52,8 @@
                                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
                                    data-bs-toggle="dropdown"
                                    aria-expanded="false">
-                                    <img  src="/images/avatar.jpg" alt="mdo" width="32" height="32"
-                                          class="rounded-circle">
+                                    <img src="/images/avatar.jpg" alt="mdo" width="32" height="32"
+                                         class="rounded-circle">
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
                                     <li><a class="dropdown-item" href="/account">Мой аккаунт</a></li>
@@ -68,22 +66,23 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li>
-                                        <form th:action="@{/logout}" method="post">
-<!--                                            <a class="dropdown-item" onsubmit="@{/logout}">Выйти</a>-->
-                                            <a class="dropdown-item" href="#">
-                                                <input type="submit" value="Выйти"/>
-                                            </a>
-                                            <input type="hidden" name="_csrf" value="${_csrf.token}">
-                                        </form>
-                                    </li>
+                                    <li><a class="dropdown-item" href="#">Выйти</a></li>
+<!--                                    <li>-->
+<!--                                        <form th:action="@{/logout}" method="post">-->
+<!--                                            &lt;!&ndash;                                            <a class="dropdown-item" onsubmit="@{/logout}">Выйти</a>&ndash;&gt;-->
+<!--                                            <a class="dropdown-item" href="#">-->
+<!--                                                <input type="submit" value="Выйти"/>-->
+<!--                                            </a>-->
+<!--                                            <input type="hidden" name="_csrf" value="${_csrf.token}">-->
+<!--                                        </form>-->
+<!--                                    </li>-->
                                 </ul>
                             </div>
                             <div th:case="*">
                                 <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
                                    data-bs-toggle="dropdown"
                                    aria-expanded="false">
-                                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
+                                    <img src="/images/user_defoult.png" alt="mdo" width="32" height="32"
                                          class="rounded-circle">
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1" style="">
