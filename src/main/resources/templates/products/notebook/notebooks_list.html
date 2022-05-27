@@ -38,12 +38,12 @@
                 <hr>
                 <div>
                     <h5 class="mb-1">Цена (₽)</h5>
-                        <div class="mt-2" style="display:flex; justify-content:space-around; width:100%;">
-                            <input class="input_price" style="width:40%;" type="number" name="price_from" id="price_from_"
-                                   placeholder="От">
-                            <input class="input_price" style="width:40%;" type="number"
-                                   name="price_up_to" id="price_up_to_" placeholder="До">
-                        </div>
+                    <div class="mt-2" style="display:flex; justify-content:space-around; width:100%;">
+                        <input class="input_price" style="width:40%;" type="number" name="price_from" id="price_from_"
+                               placeholder="От">
+                        <input class="input_price" style="width:40%;" type="number"
+                               name="price_up_to" id="price_up_to_" placeholder="До">
+                    </div>
                 </div>
                 <hr>
                 <div>
@@ -155,18 +155,19 @@
 
 
         <div class="right_block">
-            <div class="text-field__group">
-                <input class="text-field__input" type="search" id="s" name="search"
-                       placeholder="Найти товар по названию и ключевым полям">
-                <button class="text-field__btn" type="button">Найти</button>
-            </div>
+            <form action="@{/notebook/list}">
+                <div class="text-field__group">
+                    <input class="text-field__input" type="text" name="keyword"
+                           placeholder="Найти товар по названию и ключевым полям">
+                    <button class="text-field__btn" type="submit">Найти</button>
+                </div>
+            </form>
             <div class="sorted_group space_top" style="border-radius:10px;">
                 <div style="display:flex;justify-content:space-around;">
-                    <h6 class="mt-1 ml-1">Сортировать:&nbsp; &nbsp;</h6>
+                    <h6 class="mt-1" style="margin-left:10px;">Сортировать:&nbsp; &nbsp;</h6>
                     <div>
-                        <select style="height:30px;" class="form-select form-select-sm"
-                                aria-label=".form-select-sm example">-->
-                            <option selected value="1">по дате добавления</option>
+                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected value="1">по дате добавления</option>-->
                             <option value="2">сначала недорогие</option>
                             <option value="3">сначала дорогие</option>
                             <option value="4">по именованию</option>
@@ -201,16 +202,6 @@
                                      th:src="@{'http://localhost:8080/images/notebook/'+ ${item.previewImageId}}"
                                      width="200" height="150" src="">
                             </a>
-                            <div class="rectangle_opinion mt-1">
-                                <div class="ml-2">
-                                    <img src="/images/products/star_orange.png" alt="">
-                                    <img src="/images/products/star_orange.png" alt="">
-                                    <img src="/images/products/star_orange.png" alt="">
-                                    <img src="/images/products/star_orange.png" alt="">
-                                    <img src="/images/products/star.png" alt="">
-                                </div>
-                                <p class="rectangle_opinion_p"> 4.0 (1 отз.)</p>
-                            </div>
                         </div>
 
                         <div class="product_container">

@@ -40,6 +40,7 @@ public class UserController {
 
     @PostMapping("/registration")
     public String createUser(Usr usr, Model model) {
+        System.out.println(123);
         if(!userService.createUser(usr)){
             return "users/registration";
         }
@@ -50,10 +51,10 @@ public class UserController {
     public String activate(Model model, @PathVariable String code){
         boolean isActive = userService.activateUser(code);
         if(isActive){
-            model.addAttribute("message", "Пользователь успешно активирован !");
+            model.addAttribute("message", true);
         }
         else {
-            model.addAttribute("message", "Пользователь не был активирован !");
+            model.addAttribute("message", false);
         }
         return "users/login";
     }

@@ -8,7 +8,14 @@
 <header th:insert="blocks/header :: header"></header>
 
 <h3 style="text-align: center" class="mt-5 mb-3">Авторизация пользователя</h3>
-<div th:text="${message}"></div>
+
+<!--<script type="text/javascript">-->
+<!--    $(window).on('load',function(){-->
+<!--        $('#message').modal('show');-->
+<!--    });-->
+<!--</script>-->
+
+<!--<header th:insert="blocks/modals :: login"></header>-->
 
 <div th:if="${param.error}">Некорректный логин или пароль</div>
 <div th:if="${param.logout}">Вы вышли из аккаунтка</div>

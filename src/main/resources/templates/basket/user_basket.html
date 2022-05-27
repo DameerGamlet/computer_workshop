@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Главная</title>
+    <div th:insert="blocks/libraries :: libraries"></div>
+</head>
+<body style="background: #F1F4F6;">
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container">
+    <h1 class="product_name mt-4 mb-4">Моя корзина</h1>
+
+    <select class="form-select mb-1" aria-label="Default select example">
+        <option selected>Выберите категорию</option>
+        <option value="1">Ноутбуки</option>
+        <option value="2">Мониторы</option>
+        <option value="3">Флешк-арты</option>
+    </select>
+
+    <div class="find_count_element_2 mt-4 mt-3">
+        <div>В избанном находится&#160;</div>
+        <div th:text="${counts}"></div>
+        <div>&#160;товара</div>
+    </div>
+
+    <div th:each="item : ${notebooks}">
+        <!-- ТОВАР -->
+        <!-- Серая форма товара-->
+        <div class="elements_group_basket">
+            <!-- Продукты внутри-->
+            <div class="flex_">
+                <!-- ИКОНКА -->
+                <div>
+                    <a th:href="'/notebook/' + ${item.id}">
+                        <img class="img_border"
+                             th:src="@{'http://localhost:8080/images/notebook/'+ ${item.previewImageId}}"
+                             width="250" height="200" src="">
+                    </a>
+                </div>
+
+                <div class="product_container">
+                    <div class="flex_">
+                        <div class="product_full_name" th:text="${item.name}"></div>
+
+                        <div class="price_config">
+                            <div class="price_text">Цена:&#160;</div>
+                            <div class="price"
+                                 th:text="${item.price}"></div>
+                            <div class="price_text">&#160;₽</div>
+                        </div>
+                    </div>
+                    <div class="product_container2">
+                        <div class="product_option_inner ">
+                            <div class="option_product">
+                                <h5>Характеристики</h5>
+                                <div th:text="'Процессор:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.processorName}"></div>
+                                <div th:text="'Видеокарта:&nbsp;&nbsp;' + ${item.videoCardName}"></div>
+                                <div th:text="'Объём ОП:&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.ramSize} + ' ГБ'"></div>
+                            </div>
+                        </div>
+                        <div class="price_and_buy mt-4">
+                            <div class="flex_">
+                                <div class="left_">
+                                    <a href="#"> <img class="image_user" src="/images/products/heart_.png"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="element_right">
+                                <a th:href="'/notebook/' + ${item.id}">
+                                    <button class="text-field__btn_fav"
+                                            type="button">Подробнее
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Продукты внутри-->
+            </div>
+        </div>
+        <!-- ТОВАР ЭНД -->
+    </div>
+
+</div>
+
+<header th:insert="blocks/bottom :: bottom"></header>
+</body>
+</html>

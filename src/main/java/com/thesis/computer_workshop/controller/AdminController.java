@@ -40,6 +40,11 @@ public class AdminController {
         return "/admin/catalog_for_edit";
     }
 
+    @GetMapping("/admin/add-news")
+    public String addNews(Model model) {
+        return "/admin/news/add-news";
+    }
+
     @GetMapping("/admin/application")
     public String returnNewApplicationList(Model model) {
         Iterable<RepairApplication> applicationIterable = repairApplicationRepository.findAll();

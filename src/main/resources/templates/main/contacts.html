@@ -6,7 +6,36 @@
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
-Наши контакты
+
+<div class="container flex_ mt-5">
+    <div style="font-size: 24px;" class="p-3">
+        <center>
+            <h1 class="mb-2">Контакты</h1>
+        </center>
+        <div><b>Телефон: </b> +7(8452)27-54-49</div>
+        <div><b>e-mail: </b> sar.comp.workshop@gmail.com</div>
+        <div><b>Юридический адрес:</b> 410012, г. Саратов, им. Зарубина В.С, дом № 51, кв.32</div>
+        <div><b>Фактический адрес:</b> 410056, г. Саратов, ул. Сакко и Ванцетти, д.47</div>
+    </div>
+    <div>
+        <a class="dg-widget-link"
+           href="http://2gis.ru/saratov/firm/70000001028701051/center/46.02473258972168,51.530652993300414/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">Посмотреть
+            на карте Саратова</a>
+        <div class="dg-widget-link"><a
+                href="http://2gis.ru/saratov/firm/70000001028701051/photos/70000001028701051/center/46.02473258972168,51.530652993300414/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">Фотографии
+            компании</a></div>
+        <div class="dg-widget-link"><a
+                href="http://2gis.ru/saratov/center/46.024731,51.530154/zoom/16/routeTab/rsType/bus/to/46.024731,51.530154╎Мастерская ЭВМ, магазин?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">Найти
+            проезд до Мастерская ЭВМ, магазин</a></div>
+        <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+        <script charset="utf-8">
+    new DGWidgetLoader({"width":600,"height":600,"borderColor":"#a3a3a3","pos":{"lat":51.530652993300414,"lon":46.02473258972168,"zoom":16},"opt":{"city":"saratov"},"org":[{"id":"70000001028701051"}]});
+</script>
+        <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в
+            настройках вашего браузера.
+        </noscript>
+    </div>
+</div>
 
 <header th:insert="blocks/bottom :: bottom"></header>
 </body>

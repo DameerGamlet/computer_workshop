@@ -9,21 +9,26 @@
 
 <div class="image_">
     <div class="container" style="text-align: center;">
-        <div class="inner_container">
+        <div class="mb-2">
             <div class="main_logo_text">
                 Ремонт и продажа компьютерной техники и не только
             </div>
-            <div class="main_logo_bottom mt-3">
-                Уже более 7 лет организация "Мастерская ЭВМ" занимается ремонтом не только компьютерной техники, но и
-                принтеров,
-                микроволновок и любой другой техники. Оставьте заявку по форме ниже и узнайте о возможности произвести
-                ремонт
-                техники и её примерную стоимость.
+            <div class="main_logo_bottom mt-3 mb-3">
+                Уже более 7 лет организация мы занимаемся ремонтом не только компьютерной техники, но и
+                принтеров, микроволновок и любой другой техники.
+                <br>
+                Перейди по синей кнопке и оставьте заявку предложенной форме. Наши специалисты обязательно свяжутся с
+                вами!
             </div>
         </div>
-        <div class="mt-4" style="display:flex;justify-content:space-around;width:600px;width: 50%;margin: 0 auto;">
-            <div>
-                <a href="/application"><button type="button" class="btn button_main btn-primary">Оставить заявку на ремонт</button></a>
+        <div class="mt-4"
+             style="display:flex;justify-content:space-around;width:600px;width: 50%;margin: 0 auto;margin-top: 20px;">
+            <div class="mt-2">
+                <a href="/application">
+                    <button type="button" class="btn button_main btn-primary">Оставить заявку на
+                        ремонт
+                    </button>
+                </a>
             </div>
             <div>
                 <button type="button" class="btn button_main btn-secondary">Узнать больше</button>
@@ -32,7 +37,78 @@
     </div>
 </div>
 
-Главная
+<h1 class="product_name mt-4 mb-2">Каталог товаров</h1>
+
+<div class="inner_container_2 container">
+    <div class="inner_element">
+        <a href="#" class="td-none">
+            <div class="catalog_form_2">
+                <img src="/images/catalog/1computers.png" alt="">
+            </div>
+            <p class="inner_text_2">Компьютеры</p>
+        </a>
+    </div>
+    <div class="inner_element">
+        <a href="/notebooks/list" class="td-none">
+            <div class="catalog_form_2">
+                <img src="/images/catalog/2laptops.png" alt="">
+            </div>
+            <p class="inner_text_2">Ноутбуки</p>
+        </a>
+    </div>
+    <div class="inner_element">
+        <a href="#" class="td-none">
+            <div class="catalog_form_2">
+                <img class="image_catalog" src="/images/catalog/3accessories.png" alt="">
+            </div>
+            <p class="inner_text_2">Комплект. ПК</p>
+        </a>
+    </div>
+    <div class="inner_element">
+        <a href="#" class="td-none">
+            <div class="catalog_form_2">
+                <img class="image_catalog" src="/images/catalog/4spareparts.png" alt="">
+            </div>
+            <p class="inner_text_2">Запчасти</p>
+        </a>
+    </div>
+
+    <div class="inner_element">
+        <a href="/shop/peripherals" class="td-none">
+            <div class="catalog_form_2">
+                <img class="image_catalog" src="/images/catalog/5peripheraldevices.png" alt="">
+            </div>
+            <p class="inner_text_2">Переф. устройства</p>
+        </a>
+    </div>
+    <div class="inner_element">
+        <a href="#" class="td-none">
+            <div class="catalog_form_2">
+                <img class="image_catalog" src="/images/catalog/6officeequipment.png" alt="">
+            </div>
+            <p class="inner_text_2">Оборуд. для офиса</p>
+        </a>
+    </div>
+    <div class="inner_element">
+        <a href="#" class="td-none">
+            <div class="catalog_form_2">
+                <img class="image_catalog" src="/images/catalog/7externaldrives.png" alt="">
+            </div>
+            <p class="inner_text_2">Внешние накопители</p>
+        </a>
+    </div>
+    <div class="inner_element">
+        <a href="#" class="td-none">
+            <div class="catalog_form_2">
+                <img class="image_catalog" src="/images/catalog/8other.png" alt="">
+            </div>
+            <p class="inner_text_2">Прочее</p>
+        </a>
+    </div>
+</div>
+
+<h1 class="product_name mt-4 mb-5">Акции и предложения</h1>
+<header th:insert="blocks/slider :: slider"></header>
 
 <header th:insert="blocks/bottom :: bottom"></header>
 </body>

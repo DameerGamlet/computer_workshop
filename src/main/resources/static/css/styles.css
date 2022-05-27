@@ -25,7 +25,7 @@ max-width:800px;
 
 .header_background {
 height:120px;
-background-color:#e0f2f4;
+background-color:#fff;
 }
 
 .header_container {
@@ -161,7 +161,7 @@ color:#fff;
 }
 
 .menu_container {
-background-color:#e0f2f4;
+background-color:#fff;
 }
 
 /* ТОВАР */
@@ -336,7 +336,9 @@ padding:15px 32px;
 .panel_filter,
 .sorted_group,
 .elements_group,
+.elements_group_basket,
 .catalog_form,
+.catalog_form_2,
 .elements_group_3,
 .account_form{
 background-color:#FFFFFF;
@@ -366,7 +368,6 @@ justify-content:space-around;
 .panel_filter div {
 letter-spacing:0;
 min-height:29px;
-width:358px;
 }
 
 .panel_filter_and_data {
@@ -535,6 +536,16 @@ max-width:850px;
 padding:0 28px;
 }
 
+.elements_group_basket {
+align-items:center;
+display:flex;
+justify-content:flex-start;
+height:250px;
+margin-top:32px;
+max-width:1200px;
+padding:0 28px;
+}
+
 .product_option_inner {
 margin-right: 10px;
 display:flex;
@@ -553,7 +564,7 @@ padding:5px;
 }
 
 .rectangle_opinion_p {
-margin-top:20px;
+margin-top:18px;
 height:20px;
 font-size:14px;
 }
@@ -577,17 +588,17 @@ font-weight:300;
 }
 
 .price {
-font-size:20px;
+font-size:24px;
 font-weight:600;
 }
 
 .price_text_2 {
-font-size:28px;
+font-size:36px;
 font-weight:400;
 }
 
 .price_2 {
-font-size:32px;
+font-size:42px;
 font-weight:600;
 }
 
@@ -612,6 +623,11 @@ font-size:20px;
 font-weight:700;
 }
 
+.product_full_name {
+font-size:28px;
+font-weight:700;
+}
+
 .cont {
 margin:50px 100px 100px;
 padding-bottom: 30px;
@@ -625,6 +641,17 @@ display:block;
 .catalog_form, .empty_{
 width:200px;
 height:200px;
+margin-left:20px;
+box-sizing:border-box;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.catalog_form_2{
+width:150px;
+height:150px;
 margin-left:20px;
 box-sizing:border-box;
 display:flex;
@@ -649,6 +676,18 @@ text-align:center;
 color: #000000;
 }
 
+.inner_text_2 {
+width:125px;
+height:60px;
+margin-left:30px;
+margin-top:10px;
+font-weight:600;
+font-size:16px;
+line-height:28px;
+text-align:center;
+color: #000000;
+}
+
 .link_back{
 font-weight:400;
 font-size:20px;
@@ -658,7 +697,7 @@ font-size:20px;
 text-decoration:none;
 }
 
-.inner_text:hover {
+.inner_text:hover, .inner_text_2:hover{
 color:#9E9E9E;
 }
 
@@ -713,7 +752,6 @@ padding:40px;
 margin: 0 auto;
 text-align: center;
 margin-top:30px;
-max-width:1000px;
 padding:40px;
 }
 
@@ -746,6 +784,11 @@ margin-bottom:20px;
 display:flex;
 justify-content:start;
 align-items:center;
+}
+
+.flex_start {
+display:flex;
+justify-content:start;
 }
 
 .main_text {
@@ -1013,7 +1056,7 @@ width:175px;
 }
 
 .image_photo_2{
-width:75px;
+width:93px;
 }
 
 .image_photo_2_2{
@@ -1077,6 +1120,13 @@ height:150px;
 position:absolute;
 }
 
+.catalog_form_2 img {
+width:100px;
+height:100px;
+position:absolute;
+}
+
+
 .in_time,.flex-item {
 width:300px;
 }
@@ -1115,6 +1165,12 @@ width: 50%;
 margin: 0 auto;
 }
 
+.find_count_element_2 {
+display:flex;
+font-weight:700;
+font-size:24px;
+}
+
 .text_center{
 width: 50%;
 margin: 0 auto;
@@ -1148,7 +1204,14 @@ font-size:18px;
 border: none;
 }
 
+.table_2{
+width:100%;
+font-size:18px;
+border: none;
+}
+
 .left_t_element{
+font-size: 20px;
 font-weight:700;
 }
 .bottom_left{
@@ -1181,7 +1244,7 @@ padding:20px;
 padding: 50px 0 30px 0;
 width: 100%;
 height: 100%;
-background-image: url("/images/main_logo_.png");
+background-image: url("/images/заявка_новая.png");
 background-repeat: no-repeat;
 -webkit-background-size: cover;
 background-size: cover;
@@ -1223,4 +1286,331 @@ font-size: 30px;
 .center_{
 width: 50%;
 margin: 0 auto;
+}
+
+
+#full-stars-example {
+
+  .rating-group {
+    display: inline-flex;
+  }
+
+  .rating__icon {
+    pointer-events: none;
+  }
+
+  .rating__input {
+   position: absolute !important;
+   left: -9999px !important;
+  }
+
+  .rating__label {
+    cursor: pointer;
+    padding: 0 0.1em;
+    font-size: 2rem;
+  }
+
+  .rating__icon--star {
+    color: orange;
+  }
+
+  /* set color of none icon when unchecked */
+  .rating__icon--none {
+    color: #eee;
+  }
+
+  /* if none icon is checked, make it red */
+  .rating__input--none:checked + .rating__label .rating__icon--none {
+    color: red;
+  }
+
+  /* if any input is checked, make its following siblings grey */
+  .rating__input:checked ~ .rating__label .rating__icon--star {
+    color: #ddd;
+  }
+
+  /* make all stars orange on rating group hover */
+  .rating-group:hover .rating__label .rating__icon--star {
+    color: orange;
+  }
+
+  /* make hovered input's following siblings grey on hover */
+  .rating__input:hover ~ .rating__label .rating__icon--star {
+    color: #ddd;
+  }
+
+  /* make none icon grey on rating group hover */
+  .rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
+     color: #eee;
+  }
+
+  /* make none icon red on hover */
+  .rating__input--none:hover + .rating__label .rating__icon--none {
+    color: red;
+  }
+}
+
+#half-stars-example {
+
+  /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
+  .rating-group {
+    display: inline-flex;
+  }
+
+  /* make hover effect work properly in IE */
+  .rating__icon {
+    pointer-events: none;
+  }
+
+  /* hide radio inputs */
+  .rating__input {
+   position: absolute !important;
+   left: -9999px !important;
+  }
+
+  /* set icon padding and size */
+  .rating__label {
+    cursor: pointer;
+    /* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
+    padding: 0 0.1em;
+    font-size: 2rem;
+  }
+
+  /* add padding and positioning to half star labels */
+  .rating__label--half {
+    padding-right: 0;
+    margin-right: -0.6em;
+    z-index: 2;
+  }
+
+  /* set default star color */
+  .rating__icon--star {
+    color: orange;
+  }
+
+  /* set color of none icon when unchecked */
+  .rating__icon--none {
+    color: #eee;
+  }
+
+  /* if none icon is checked, make it red */
+  .rating__input--none:checked + .rating__label .rating__icon--none {
+    color: red;
+  }
+
+  /* if any input is checked, make its following siblings grey */
+  .rating__input:checked ~ .rating__label .rating__icon--star {
+    color: #ddd;
+  }
+
+  /* make all stars orange on rating group hover */
+  .rating-group:hover .rating__label .rating__icon--star,
+  .rating-group:hover .rating__label--half .rating__icon--star {
+    color: orange;
+  }
+
+  /* make hovered input's following siblings grey on hover */
+  .rating__input:hover ~ .rating__label .rating__icon--star,
+  .rating__input:hover ~ .rating__label--half .rating__icon--star {
+    color: #ddd;
+  }
+
+  /* make none icon grey on rating group hover */
+  .rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
+     color: #eee;
+  }
+
+  /* make none icon red on hover */
+  .rating__input--none:hover + .rating__label .rating__icon--none {
+    color: red;
+  }
+}
+
+
+#full-stars-example {
+
+  .rating-group {
+    display: inline-flex;
+  }
+
+  .rating__icon {
+    pointer-events: none;
+  }
+
+  .rating__input {
+   position: absolute !important;
+   left: -9999px !important;
+  }
+
+  .rating__label {
+    cursor: pointer;
+    padding: 0 0.1em;
+    font-size: 2rem;
+  }
+
+  .rating__icon--star {
+    color: orange;
+  }
+
+  /* set color of none icon when unchecked */
+  .rating__icon--none {
+    color: #eee;
+  }
+
+  /* if none icon is checked, make it red */
+  .rating__input--none:checked + .rating__label .rating__icon--none {
+    color: red;
+  }
+
+  /* if any input is checked, make its following siblings grey */
+  .rating__input:checked ~ .rating__label .rating__icon--star {
+    color: #ddd;
+  }
+
+  /* make all stars orange on rating group hover */
+  .rating-group:hover .rating__label .rating__icon--star {
+    color: orange;
+  }
+
+  /* make hovered input's following siblings grey on hover */
+  .rating__input:hover ~ .rating__label .rating__icon--star {
+    color: #ddd;
+  }
+
+  /* make none icon grey on rating group hover */
+  .rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
+     color: #eee;
+  }
+
+  /* make none icon red on hover */
+  .rating__input--none:hover + .rating__label .rating__icon--none {
+    color: red;
+  }
+}
+
+#half-stars-example {
+
+  /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
+  .rating-group {
+    display: inline-flex;
+  }
+
+  /* make hover effect work properly in IE */
+  .rating__icon {
+    pointer-events: none;
+  }
+
+  /* hide radio inputs */
+  .rating__input {
+   position: absolute !important;
+   left: -9999px !important;
+  }
+
+  /* set icon padding and size */
+  .rating__label {
+    cursor: pointer;
+    /* if you change the left/right padding, update the margin-right property of .rating__label--half as well. */
+    padding: 0 0.1em;
+    font-size: 2rem;
+  }
+
+  /* add padding and positioning to half star labels */
+  .rating__label--half {
+    padding-right: 0;
+    margin-right: -0.6em;
+    z-index: 2;
+  }
+
+  /* set default star color */
+  .rating__icon--star {
+    color: orange;
+  }
+
+  /* set color of none icon when unchecked */
+  .rating__icon--none {
+    color: #eee;
+  }
+
+  /* if none icon is checked, make it red */
+  .rating__input--none:checked + .rating__label .rating__icon--none {
+    color: red;
+  }
+
+  /* if any input is checked, make its following siblings grey */
+  .rating__input:checked ~ .rating__label .rating__icon--star {
+    color: #ddd;
+  }
+
+  /* make all stars orange on rating group hover */
+  .rating-group:hover .rating__label .rating__icon--star,
+  .rating-group:hover .rating__label--half .rating__icon--star {
+    color: orange;
+  }
+
+  /* make hovered input's following siblings grey on hover */
+  .rating__input:hover ~ .rating__label .rating__icon--star,
+  .rating__input:hover ~ .rating__label--half .rating__icon--star {
+    color: #ddd;
+  }
+
+  /* make none icon grey on rating group hover */
+  .rating-group:hover .rating__input--none:not(:hover) + .rating__label .rating__icon--none {
+     color: #eee;
+  }
+
+  /* make none icon red on hover */
+  .rating__input--none:hover + .rating__label .rating__icon--none {
+    color: red;
+  }
+}
+
+#full-stars-example-two {
+
+  /* use display:inline-flex to prevent whitespace issues. alternatively, you can put all the children of .rating-group on a single line */
+  .rating-group {
+    display: inline-flex;
+  }
+
+  /* make hover effect work properly in IE */
+  .rating__icon {
+    pointer-events: none;
+  }
+
+  /* hide radio inputs */
+  .rating__input {
+   position: absolute !important;
+   left: -9999px !important;
+  }
+
+  /* hide 'none' input from screenreaders */
+  .rating__input--none {
+    display: none
+  }
+
+  /* set icon padding and size */
+  .rating__label {
+    cursor: pointer;
+    padding: 0 0.1em;
+    font-size: 2rem;
+  }
+
+  /* set default star color */
+  .rating__icon--star {
+    color: orange;
+  }
+
+  /* if any input is checked, make its following siblings grey */
+  .rating__input:checked ~ .rating__label .rating__icon--star {
+    color: #ddd;
+  }
+
+  /* make all stars orange on rating group hover */
+  .rating-group:hover .rating__label .rating__icon--star {
+    color: orange;
+  }
+
+  /* make hovered input's following siblings grey on hover */
+  .rating__input:hover ~ .rating__label .rating__icon--star {
+    color: #ddd;
+  }
 }

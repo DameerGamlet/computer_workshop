@@ -13,4 +13,13 @@ public interface NotebookRepository  extends CrudRepository<Notebook, Long> {
     Iterable<Notebook> findByBrand(@Param("brand") String brand);
     @Query(value = "select n.* from notebook n where n.price between :a and :b", nativeQuery = true)
     List<Notebook> findAllByFromAndToPrice(@Param("a") double a, @Param("b") double b);
+    @Query(value = "select n.* from notebook n where n.price between :a and :b", nativeQuery = true)
+    List<Notebook> findAllByFromQuery(@Param("a") double a, @Param("b") double b);
+    @Query(value = "select n.* from notebook n order by n.name", nativeQuery = true)
+    List<Notebook> findAllOrderByName();
+    @Query(value = "select n.* from notebook n where n.name like :a " +
+            " or n.brand like :a " +
+            " or n.processor_name like :a " +
+            " or n.video_card_name like :a", nativeQuery = true)
+    List<Notebook> findAllByKeyword(@Param("a") String keyword);
 }

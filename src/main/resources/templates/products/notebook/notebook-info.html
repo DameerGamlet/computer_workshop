@@ -29,7 +29,7 @@
                     <div class="images_pos">
                         <img class="img_border"
                              th:src="@{'http://localhost:8080/images/notebook/'+ ${item.previewImageId}}"
-                             width="448" height="322" src="">
+                             width="560" height="402" src="">
                     </div>
                     <div class="flex_ mt-3">
                         <div th:each="image : ${item.imageNoteBooksList}">
@@ -42,140 +42,100 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div style="padding-left:30px;">
-                    <h3 th:text="'Ноутбук: ' + ${name}"></h3>
-                    <div class="flex_ mt-3">
-                        <div class="rectangle_opinion_info mt-1">
-                            <div>
-                                <a href="#"><img src="/images/products/star_orange.png" alt=""></a>
-                                <a href="#"><img src="/images/products/star_orange.png" alt=""></a>
-                                <a href="#"><img src="/images/products/star_orange.png" alt=""></a>
-                                <a href="#"><img src="/images/products/star_orange.png" alt=""></a>
-                                <a href="#"><img src="/images/products/star.png" alt=""></a>
-                            </div>
-                            <p class="rectangle_opinion_p_info"> 4.0 (1 отз.)</p>
-                            <div>
-                                <button data-easy-toggle="#modalWin" data-easy-class="show" class="button_add_star">
-                                    Оценить
-                                </button>
-                                <div id="modalWin" class="modal_w">
-                                    <div class="modal_window">
-                                        <h3>Оцените товар</h3>
-                                        <div class="rectangle_opinion_info_modal">
-                                            <img src="/images/products/star.png" alt="">
-                                            <img src="/images/products/star.png" alt="">
-                                            <img src="/images/products/star.png" alt="">
-                                            <img src="/images/products/star.png" alt="">
-                                            <img src="/images/products/star.png" alt="">
-                                            <button data-easy-toggle="#modalWin" data-easy-class="show"
-                                                    class="button_close">
-                                                X
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="overlay" data-easy-toggle="#modalWin" data-easy-class="show"></div>
+                    <div>
+                        <div class="block_" style="margin-top:20px;text-align:left;">
+                            <div class="flex_start">
+                                <div class="left_t_element" style="font-size: 24px;">Добавить в корзину</div>
+                                <div style="margin-left: 60px;">
+                                    <a href="#" data-toggle="modal" data-target="#exampleModalCenter"> <img
+                                            class="image_user" src="/images/products/shop_.png"/> </a>
                                 </div>
+                                <header th:insert="blocks/modals :: shop"></header>
+                            </div>
+                            <div class="flex_start">
+                                <div class="left_t_element  mt-3" style="font-size: 24px;">Добавить в избранное</div>
+                                <div class="mt-3" style="margin-left: 30px;">
+                                    <a href="#" data-toggle="modal" data-target="#exampleModalCenter"> <img
+                                            class="image_user" src="/images/products/heart_.png"/> </a>
+                                </div>
+                                <header th:insert="blocks/modals :: shop"></header>
                             </div>
                         </div>
                     </div>
-                    <!-- отображение картинок-->
+                </div>
+                <div style="padding-left:30px;width:100%;">
+                    <h1 style="text-align: left;" th:text="'Ноутбук: ' + ${name}"></h1>
                     <div class="block_">
-                        <div class="display_flex_start mt-2 mb-5">
+                        <div class="display_flex_start mt-3 mb-5">
                             <div class="price_text_2">Цена:&#160;</div>
                             <div class="price_2" th:text="${item.price}"></div>
                             <div class="price_text_2">&#160;₽</div>
                         </div>
-                        <div class="block_" style="margin-top:135px;">
+                        <div>
                             <table cellpadding="0" cellspacing="0" border="0" BGCOLOR="#FFF" class="table_">
                                 <tr>
-                                    <td class="left_t_element">Добавить в корзину</td>
+                                    <td class="left_t_element">Процессор:</td>
                                     <td>
-                                        <div>
-                                            <a href="#"> <img class="image_user" src="/images/products/shop_.png"/> </a>
-                                        </div>
+                                        <div th:text="${item.processorName}"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="left_t_element">Видеокарта(ты):</td>
+                                    <td>
+                                        <div th:text="${item.videoCardName}"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="left_t_element">Объём ОП:</td>
+                                    <td>
+                                        <div th:text="${item.ramSize}"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="left_t_element">Дисплей:</td>
+                                    <td>
+                                        <div th:text="${item.display}"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="left_t_element">Диски памяти:</td>
+                                    <td>
+                                        <div th:text="${item.memoryDrives}"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="left_t_element">Время работы от батареи:</td>
+                                    <td>
+                                        <div th:text="${item.batteryLife}"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="left_t_element">Установленная ОС:</td>
+                                    <td>
+                                        <div th:text="${item.osName}"></div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="left_t_element">
-                                        <div style="margin-top:15px;">Добавить в избранное</div>
+                                        <div th:text="'Товар ' + ${item.status}"></div>
                                     </td>
-                                    <td>
-                                        <div style="margin-top:15px;">
-                                            <a href="#"> <img class="image_user" src="/images/products/heart_.png"/></a>
+                                </tr>
+                                <tr>
+                                    <td class="left_t_element">
+                                        <div th:if="${item.inStock}">
+                                            <p>Товар в наличии</p>
+                                        </div>
+                                        <div th:unless="${item.inStock}">
+                                            <p>Товара в наличии нет</p>
                                         </div>
                                     </td>
                                 </tr>
                             </table>
+                            <div style="text-align:left;"
+                                 th:text="'Товар добавлен на сайт: ' + ${item.dateTimeCreate}"></div>
                         </div>
                     </div>
-
                 </div>
-            </div>
-            <br>
-            <hr>
-            <div class="product_container mt-3 mb-2">
-                <h3>Характеристики</h3>
-                <table cellpadding="0" cellspacing="0" border="0" BGCOLOR="#FFF" class="table_">
-                    <tr>
-                        <td class="left_t_element">Процессор:</td>
-                        <td>
-                            <div th:text="${item.processorName}"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="left_t_element">Видеокарта(ты):</td>
-                        <td>
-                            <div th:text="${item.videoCardName}"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="left_t_element">Объём ОП:</td>
-                        <td>
-                            <div th:text="${item.ramSize}"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="left_t_element">Дисплей:</td>
-                        <td>
-                            <div th:text="${item.display}"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="left_t_element">Диски памяти:</td>
-                        <td>
-                            <div th:text="${item.memoryDrives}"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="left_t_element">Время работы от батареи:</td>
-                        <td>
-                            <div th:text="${item.batteryLife}"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="left_t_element">Установленная ОС:</td>
-                        <td>
-                            <div th:text="${item.osName}"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="left_t_element">
-                            <div th:text="'Товар ' + ${item.status}"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="left_t_element">
-                            <div th:if="${item.inStock}">
-                                <p>Товар в наличии</p>
-                            </div>
-                            <div th:unless="${item.inStock}">
-                                <p>Товара в наличии нет</p>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-                <div style="text-align:left;" th:text="'Товар добавлен на сайт: ' + ${item.dateTimeCreate}"></div>
             </div>
         </div>
 

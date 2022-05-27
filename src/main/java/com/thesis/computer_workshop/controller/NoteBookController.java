@@ -2,9 +2,11 @@ package com.thesis.computer_workshop.controller;
 
 import com.thesis.computer_workshop.models.products.Notebook;
 import com.thesis.computer_workshop.models.users.Usr;
+import com.thesis.computer_workshop.repositories.basketRepositories.BasketRepository;
 import com.thesis.computer_workshop.repositories.productsRepositories.NotebookRepository;
 import com.thesis.computer_workshop.repositories.usersRepositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,10 +20,11 @@ public class NoteBookController {
     public NotebookRepository notebookRepository;
     @Autowired
     public UserRepository userRepository;
+    @Autowired
+    public BasketRepository basketRepository;
 
-    //    Список ноутбуков
     @GetMapping("/notebooks/list")
-    public String returnAllNoteBooks(Model model, Principal principal) {
+    public String returnAllNoteBooksWithKeyword(Model model, Principal principal) {
         Usr user = getUserByPrincipal(principal);
         model.addAttribute("check", user.getUsername() != null);
         Iterable<Notebook> notebooks = notebookRepository.findAll();
@@ -30,6 +33,12 @@ public class NoteBookController {
         model.addAttribute("counts", counts);
         return "/products/notebook/notebooks_list";
     }
+
+    @PostMapping("/add_basket")
+    public String saveNotebook(Model model, Principal principal, Notebook notebook) {
+        return "/products/notebook/notebooks_list";
+    }
+
 //    @PostMapping("/notebooks/list")
 //    @RequestMapping(params = "price_from")
 //    public String returnByPrinceFrom(@RequestParam(name = "price_from") double price_from, Model model, Principal principal) {
