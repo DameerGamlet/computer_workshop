@@ -27,9 +27,9 @@ public class Basket {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "usr_id")
-    private Usr usr;
+    private Usr userClass;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "notebook_id")
-    private Notebook notebookList;
+    private Notebook notebookClass;
 }

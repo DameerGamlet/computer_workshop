@@ -9,4 +9,3 @@ sudo docker start mysqlcon2
 
 * Открыть через консоль
 sudo docker exec -it mysqlcon2 mysql -uroot -p
-

@@ -1,9 +1,11 @@
 package com.thesis.computer_workshop.controller;
 
 import com.thesis.computer_workshop.models.products.UsbFlashProduct;
+import com.thesis.computer_workshop.models.reviews.Review;
 import com.thesis.computer_workshop.models.users.Usr;
 import com.thesis.computer_workshop.repositories.productsRepositories.NotebookRepository;
 import com.thesis.computer_workshop.repositories.productsRepositories.UsbFlashRepository;
+import com.thesis.computer_workshop.repositories.reviewRepositories.ReviewRepository;
 import com.thesis.computer_workshop.repositories.usersRepositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,20 +13,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
 import java.util.*;
 
 @Controller
-public class ProductController {
+public class MainController {
     @Autowired
     public UsbFlashRepository usbFlashRepository;
-
     @Autowired
     public NotebookRepository notebookRepository;
-
     @Autowired
     public UserRepository userRepository;
+    @Autowired
+    public ReviewRepository reviewRepository;
 
 //   КАТАЛОГ
 
@@ -88,7 +91,7 @@ public class ProductController {
         return "/products/monitors/monitor-list";
     }
 
-//    Прочие страницы (фиксированные) для пользователей
+    //    Прочие страницы (фиксированные) для пользователей
     @GetMapping("/")
     public String returnMain(Model model, Principal principal) {
         Usr user = getUserByPrincipal(principal);
@@ -96,8 +99,8 @@ public class ProductController {
         return "/main/main";
     }
 
-    public Usr getUserByPrincipal(Principal principal){
-        if(principal == null){
+    public Usr getUserByPrincipal(Principal principal) {
+        if (principal == null) {
             return new Usr();
         }
         return userRepository.findByUsername(principal.getName());
@@ -116,7 +119,22 @@ public class ProductController {
     }
 
     @GetMapping("/reviews")
-    public String returnReviews(Model model) {
+    public String returnReviews(Model model, Principal principal) {
+        Usr user = getUserByPrincipal(principal);
+        Iterable<Review> reviewIterable = reviewRepository.findAll();
+        model.addAttribute("check", user.getUsername() != null);
+        model.addAttribute("reviews", reviewIterable);
+        return "/main/reviews";
+    }
+
+    @PostMapping("/reviews")
+    public String saveReview(@RequestParam(name = "name") String name,  Review review, Principal principal, Model model) {
+        Usr user = getUserByPrincipal(principal);
+        model.addAttribute("check", user.getUsername() != null);
+        review.setAnonymous(false);
+        review.setUserName(name);
+        review.setUserUsername(user.getUsername());
+        reviewRepository.save(review);
         return "/main/reviews";
     }
 

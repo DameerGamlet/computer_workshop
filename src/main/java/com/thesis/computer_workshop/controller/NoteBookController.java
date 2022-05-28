@@ -1,10 +1,13 @@
 package com.thesis.computer_workshop.controller;
 
+import com.thesis.computer_workshop.models.basket.Basket;
 import com.thesis.computer_workshop.models.products.Notebook;
 import com.thesis.computer_workshop.models.users.Usr;
 import com.thesis.computer_workshop.repositories.basketRepositories.BasketRepository;
 import com.thesis.computer_workshop.repositories.productsRepositories.NotebookRepository;
 import com.thesis.computer_workshop.repositories.usersRepositories.UserRepository;
+import com.thesis.computer_workshop.services.NotebookService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -15,6 +18,7 @@ import java.security.Principal;
 import java.util.*;
 
 @Controller
+@RequiredArgsConstructor
 public class NoteBookController {
     @Autowired
     public NotebookRepository notebookRepository;
@@ -22,22 +26,30 @@ public class NoteBookController {
     public UserRepository userRepository;
     @Autowired
     public BasketRepository basketRepository;
+    private final NotebookService notebookService;
 
     @GetMapping("/notebooks/list")
-    public String returnAllNoteBooksWithKeyword(Model model, Principal principal) {
+    public String returnAllNoteBooksWithKeyword(@RequestParam(name = "keyword", required = false) String keyword, Model model, Principal principal) {
         Usr user = getUserByPrincipal(principal);
         model.addAttribute("check", user.getUsername() != null);
-        Iterable<Notebook> notebooks = notebookRepository.findAll();
+        System.out.println(keyword);
+        Iterable<Notebook> notebooks = notebookService.listProducts(keyword);
         int counts = (int) notebooks.spliterator().getExactSizeIfKnown();
         model.addAttribute("notebooks", notebooks);
         model.addAttribute("counts", counts);
         return "/products/notebook/notebooks_list";
     }
 
-    @PostMapping("/add_basket")
-    public String saveNotebook(Model model, Principal principal, Notebook notebook) {
-        return "/products/notebook/notebooks_list";
-    }
+//    @PostMapping("/add_basket")
+//    public String saveNotebook(Model model, Principal principal, Notebook notebook) {
+//        Usr user = getUserByPrincipal(principal);
+//        Basket basket = new Basket();
+//        basket.setUserClass(user);
+//        basket.setNotebookClass(notebook);
+//        basketRepository.save(basket);
+//        model.addAttribute("message_basket", "");
+//        return "/products/notebook/notebooks_list";
+//    }
 
 //    @PostMapping("/notebooks/list")
 //    @RequestMapping(params = "price_from")
@@ -80,9 +92,19 @@ public class NoteBookController {
             if (item.length() > 1) descriptionOut.add(item);
         });
         model.addAttribute("description", descriptionOut);
-
         return "/products/notebook/notebook-info";
     }
+
+//    @PostMapping("/notebook/{id}")
+//    public String saveNotebook(Model model, Principal principal, Notebook notebook) {
+//        Usr user = getUserByPrincipal(principal);
+//        Basket basket = new Basket();
+//        basket.setUserClass(user);
+//        basket.setNotebookClass(notebook);
+//        basketRepository.save(basket);
+//        model.addAttribute("message_basket", "");
+//        return "/products/notebook/notebooks_list";
+//    }
 
     public Usr getUserByPrincipal(Principal principal) {
         if (principal == null) {

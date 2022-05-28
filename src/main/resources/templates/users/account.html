@@ -10,30 +10,51 @@
 <h1 style="text-align: center" class="mt-5 mb-5">Мой аккаунт</h1>
 <div th:each="us : ${user}">
 
+    <div th:if="${show_result}" data-bs-toggle="modal" data-bs-target="#message_password">
+        <!-- Modal -->
+        <div class="modal fade" id="message_password" tabindex="-1" aria-labelledby="message_password_title"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="message_password_title">Обновление паролья</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p th:text="${message_update_password}"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закруть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container" style="padding-left: 50px; padding-right: 50px;">
         <div class="flex_">
-            <div class="block_" style="width: 20%">
+            <div class="block_ p-2" style="width: 20%">
                 <div class="account_form">
-                    <div><img style="border:1px solid #E7E7E7" height="200" width="200" src="/images/avatar.jpg"/></div>
+                    <div><img style="border:1px solid #E7E7E7; width: 100%" src="/images/avatar.jpg"/></div>
                     <div class="mt-2">
-                        <button type="button" class="btn btn-outline-primary" style="width: 200px;">
+                        <button type="button" class="btn btn-outline-primary">
                             Изменить картинку
                         </button>
                     </div>
                     <div class="mt-2 mt-3">
-                        <button type="button" class="btn btn-outline-primary" style="width: 200px;">
+                        <button type="button" class="btn btn-outline-primary">
                             Удалить картинку
                         </button>
                     </div>
                 </div>
-                <div class="account_form mt-4" style="text-align:left;font-size:20px;">
-                    <div>Мои бонусы</div>
+                <div class="account_form mt-4 td_none" style="text-align:left;font-size:20px;">
+                    <div><a href="#">Мои бонусы</a></div>
                     <hr>
-                    <div>Мои избранные</div>
+                    <div><a href="#">Мои избранные</a></div>
                     <hr>
-                    <div>Мои покупки</div>
+                    <div><a href="#">Мои покупки</a></div>
                     <hr>
-                    <div>Моя история</div>
+                    <div><a href="#">Моя история</a></div>
                 </div>
             </div>
             <div class="block_" style="width: 75%">
@@ -46,19 +67,15 @@
                 <hr>
                 <div>
                     <table cellpadding="0" cellspacing="0" border="0" BGCOLOR="#FFF" class="table_"
-                           style="font-size:22px;background:#F1F4F6;margin-left: 10px;">
+                           style="font-size:28px;background:#F1F4F6;margin-left:20px;;">
                         <colgroup>
                             <col span="1" style="width: 30%;">
-                            <col span="1" style="width: 60%;">
-                            <col span="1" style="width: 10%;">
+                            <col span="1" style="width: 70%;">
                         </colgroup>
                         <tr>
                             <td class="left_t_element">Логин:</td>
                             <td>
                                 <div th:text="${us.username}"></div>
-                            </td>
-                            <td>
-                                <div><img height="30" width="30" src="/images/edit.png"/></div>
                             </td>
                         </tr>
                         <tr>
@@ -66,17 +83,11 @@
                             <td>
                                 <div th:text="${us.name}"></div>
                             </td>
-                            <td>
-                                <div><img height="30" width="30" src="/images/edit.png"/></div>
-                            </td>
                         </tr>
                         <tr>
                             <td class="left_t_element">Электронная почта:</td>
                             <td>
                                 <div th:text="${us.email}"></div>
-                            </td>
-                            <td>
-                                <div><img height="30" width="30" src="/images/edit.png"/></div>
                             </td>
                         </tr>
                         <tr>
@@ -84,26 +95,43 @@
                             <td>
                                 <div th:text="${us.phoneNumber}"></div>
                             </td>
-                            <td>
-                                <div><img height="30" width="30" src="/images/edit.png"/></div>
-                            </td>
                         </tr>
                     </table>
                 </div>
-                <center class="mt-5">
-                    <button type="button" class="btn btn-outline-primary" style="text-align:center;width:250px;">
-                        Изменить пароль
-                    </button>
-                </center>
-                <center class="mt-5">
-                    <button type="button" class="btn btn-outline-secondary" style="text-align:center;width:250px;">
-                        Выйти
-                    </button>
-                </center>
-                <center class="mt-3">
-                    <button type="button" class="btn btn-outline-danger" style="text-align:center;width:250px;">Удалить
-                        аккаунт
-                    </button>
+                <center>
+                    <div class="mt-5">
+                        <button type="button" class="btn btn-outline-primary" style="text-align:center;width:250px;"
+                                data-toggle="modal" data-target="#updateDate">
+                            Изменить данные
+                        </button>
+
+                        <!-- Modal -->
+                        <header th:insert="blocks/modals/userModals :: updateData"></header>
+                    </div>
+                    <div class="mt-3">
+                        <button type="button" class="btn btn-outline-primary" style="text-align:center;width:250px;"
+                                data-toggle="modal" data-target="#updatePassword">
+                            Изменить пароль
+                        </button>
+                        <!-- Modal -->
+                        <header th:insert="blocks/modals/userModals :: updatePassword"></header>
+                    </div>
+                    <div class="mt-3">
+                        <form action="/logout">
+                            <button type="submit" class="btn btn-outline-secondary"
+                                    style="text-align:center;width:250px;">
+                                Выйти
+                            </button>
+                        </form>
+                    </div>
+                    <div class="mt-3">
+                        <button type="button" class="btn btn-outline-danger" style="text-align:center;width:250px;"
+                                data-toggle="modal" data-target="#deleteAccount">
+                            Удалить аккаунт
+                        </button>
+
+                        <header th:insert="blocks/modals/userModals :: deleteAccount"></header>
+                    </div>
                 </center>
             </div>
         </div>

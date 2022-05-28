@@ -1,9 +1,9 @@
 package com.thesis.computer_workshop.controller;
 
 import com.thesis.computer_workshop.models.images.ImageNoteBook;
-import com.thesis.computer_workshop.models.images.ImagesApplication;
+//import com.thesis.computer_workshop.models.images.ImagesApplication;
 import com.thesis.computer_workshop.repositories.imagesRepositories.ImageNoteBookRepository;
-import com.thesis.computer_workshop.repositories.imagesRepositories.ImageRepairApplicationRepository;
+//import com.thesis.computer_workshop.repositories.imagesRepositories.ImageRepairApplicationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
@@ -18,7 +18,7 @@ import java.io.ByteArrayInputStream;
 @RequiredArgsConstructor
 public class ImageController {
     private  final ImageNoteBookRepository imageNoteBookRepository;
-    private  final ImageRepairApplicationRepository imageRepairApplicationRepository;
+//    private  final ImageRepairApplicationRepository imageRepairApplicationRepository;
 
     @GetMapping("/images/notebook/{id}")
     private  ResponseEntity<?> getImageById(@PathVariable Long id){
@@ -30,14 +30,14 @@ public class ImageController {
                 .body(new InputStreamResource(new ByteArrayInputStream(imageNoteBook.getBytes())));
     }
 
-    @GetMapping("/images/application/{id}")
-    private  ResponseEntity<?> getImageApplicationById(@PathVariable Long id){
-        ImagesApplication imagesApplication
-                = imageRepairApplicationRepository.findById(id).orElse(null);
-        return ResponseEntity.ok()
-                .header("filename", imagesApplication.getOriginalFileName())
-                .contentType(MediaType.valueOf(imagesApplication.getContentType()))
-                .contentLength(imagesApplication.getSize())
-                .body(new InputStreamResource(new ByteArrayInputStream(imagesApplication.getBytes())));
-    }
+//    @GetMapping("/images/application/{id}")
+//    private  ResponseEntity<?> getImageApplicationById(@PathVariable Long id){
+//        ImagesApplication imagesApplication
+//                = imageRepairApplicationRepository.findById(id).orElse(null);
+//        return ResponseEntity.ok()
+//                .header("filename", imagesApplication.getOriginalFileName())
+//                .contentType(MediaType.valueOf(imagesApplication.getContentType()))
+//                .contentLength(imagesApplication.getSize())
+//                .body(new InputStreamResource(new ByteArrayInputStream(imagesApplication.getBytes())));
+//    }
 }

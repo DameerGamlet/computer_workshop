@@ -4,9 +4,125 @@
     <title>Отзывы клиентов</title>
     <div th:insert="blocks/libraries :: libraries"></div>
 </head>
-<body>
+<body style="background: #F1F4F6;">
 <header th:insert="blocks/header :: header"></header>
-Отзывы
+
+<div class="container">
+    <div th:switch="${check}">
+        <div th:case="${true}">
+            <form action="/reviews" method="post">
+                <h2 class="mt-5">Напишите отзыв</h2>
+                <div class="mb-2">
+                    <div>
+                        <div class="form-group space_top" style="font-size:20px">
+                            <label for="name">Имя</label>
+                            <input type="text" class="form-control" id="name" placeholder="Введите имя" name="name">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="flex_ mt-3 mb-3" style="width: 400px;">
+                            <div style="font-size:20px;">Выберите оценку:</div>
+                            <div class="rating-area">
+                                <input type="radio" id="star-5" name="rating" value="5">
+                                <label for="star-5" title="Оценка «5»"></label>
+                                <input type="radio" id="star-4" name="rating" value="4">
+                                <label for="star-4" title="Оценка «4»"></label>
+                                <input type="radio" id="star-3" name="rating" value="3">
+                                <label for="star-3" title="Оценка «3»"></label>
+                                <input type="radio" id="star-2" name="rating" value="2">
+                                <label for="star-2" title="Оценка «2»"></label>
+                                <input type="radio" id="star-1" name="rating" value="1">
+                                <label for="star-1" title="Оценка «1»"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1" style="font-size:20px;">Введите свои впечатления о работе
+                        компании</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" style="font-size:20px;" rows="5"
+                              name="message" placeholder="Введите отзыв"></textarea>
+                </div>
+                <div class="flex_">
+                    <div class="form-check mt-3 mb-3" style="font-size:20px;">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" name="checkbox">
+                        <label class="form-check-label" for="flexCheckDefault">Анонимный отзыв</label>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary mt-3" style="margin-top: 20px; width: 200px;">
+                            Отправить
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div th:case="*">
+            <h4 class="mt-5 mb-1">Чтобы написать комментарий необходимо авторизоваться!</h4>
+        </div>
+    </div>
+
+    <hr class="mt-5 mb-4">
+    <h1 class="mt-3 mb-3">Отзывы от клиентов</h1>
+    <div th:each="item : ${reviews}">
+        <div class="admin_form p-4 mb-4">
+            <div class="flex_">
+                <div>
+                    <h1 th:text="${item.userName}"></h1>
+                </div>
+                <div>
+                    <th:block th:switch="${item.rating}">
+                        <div th:case="1">
+                            <div class="rating-result">
+                                <span class="active"></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div th:case="2">
+                            <div class="rating-result">
+                                <span class="active"></span>
+                                <span class="active"></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div th:case="3">
+                            <div class="rating-result">
+                                <span class="active"></span>
+                                <span class="active"></span>
+                                <span class="active"></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div th:case="4">
+                            <div class="rating-result">
+                                <span class="active"></span>
+                                <span class="active"></span>
+                                <span class="active"></span>
+                                <span class="active"></span>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div th:case="5">
+                            <div class="rating-result">
+                                <span class="active"></span>
+                                <span class="active"></span>
+                                <span class="active"></span>
+                                <span class="active"></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
+            </div>
+            <h5 class="mt-2 mb-2" th:text="${item.message}"></h5>
+        </div>
+    </div>
+</div>
 
 <header th:insert="blocks/bottom :: bottom"></header>
 </body>

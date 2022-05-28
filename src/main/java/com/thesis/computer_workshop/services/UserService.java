@@ -28,7 +28,8 @@ public class UserService {
         }
         user.setActive(true);
         user.setPassword(user.getPassword());
-        user.setActivationCode(UUID.randomUUID().toString());//        usr.setPassword(passwordEncoder.encode(usr.getPassword()));
+        user.setActivationCode(UUID.randomUUID().toString());
+        //        usr.setPassword(passwordEncoder.encode(usr.getPassword()));
         user.setRoles(Collections.singleton(Role.USER));
         userRepository.save(user);
 
@@ -49,6 +50,7 @@ public class UserService {
             return false;
         }
         user.setActivationCode(null);
+        user.setActive(true);
         userRepository.save(user);
 
         return true;

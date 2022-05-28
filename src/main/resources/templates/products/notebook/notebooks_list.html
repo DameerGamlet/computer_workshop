@@ -155,7 +155,7 @@
 
 
         <div class="right_block">
-            <form action="@{/notebook/list}">
+            <form action="/notebooks/list" method="get">
                 <div class="text-field__group">
                     <input class="text-field__input" type="text" name="keyword"
                            placeholder="Найти товар по названию и ключевым полям">
@@ -179,10 +179,9 @@
                     <div>
                         <select style="height:30px;" class="form-select form-select-sm"
                                 aria-label=".form-select-sm example">
-                            <option selected value="1">5</option>
-                            <option value="2">10</option>
-                            <option value="3">25</option>
-                            <option value="4">50</option>
+                            <option selected value="1">10</option>
+                            <option value="2">25</option>
+                            <option value="3">50</option>
                         </select>
                     </div>
                 </div>

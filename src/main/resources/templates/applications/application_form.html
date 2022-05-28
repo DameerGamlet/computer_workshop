@@ -1,67 +1,345 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Регистрация</title>
+    <title>Заявка на предоставление ремонта</title>
     <div th:insert="blocks/libraries :: libraries"></div>
 </head>
 <body style="background: #F1F4F6;">
+<script type="text/javascript">
+    function change(a){
+        var message = "Оформлено на " + a + " %"
+        document.getElementById("percent").innerHTML=message;
+    }
+</script>
+
 <header th:insert="blocks/header :: header"></header>
 
-<h1 style="text-align: center" class="mt-5 mb-5">Оформить заявку</h1>
+<h1 style="text-align: center" class="mt-5 mb-5">Оформление заявки</h1>
 
-<div th:each="us : ${user}">
-    <div class="container" style="padding: 0 150px;">
-        <form method="post" action="/application" enctype="multipart/form-data">
-<!--            <div class="input-group mt-3">-->
-<!--                <label>Имя пользователя</label>-->
-<!--                <div class=" in_size">-->
-<!--                    <input type="text" class="form-control" placeholder="Имя" name="name">-->
-<!--                </div>-->
-<!--            </div>-->
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" style="width:200px;" id="inputGroup-sizing-default">Имя пользователя</span>
+<div class="container">
+    <form action="/application" method="post">
+        <div class="d-flex justify-content-between mb-4" style="min-height:800px;">
+            <div class="row" style="width:25%;font-size:22px;">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list_1_1" data-toggle="list"
+                       href="#list_1" role="tab" aria-controls="list_1">Выберите категорию поломки</a>
+                    <a class="list-group-item list-group-item-action mt-3" id="list_2_1" data-toggle="list"
+                       href="#list_2" role="tab" aria-controls="list_2">Характер ошибки</a>
+                    <a class="list-group-item list-group-item-action mt-3" id="list_3_1" data-toggle="list"
+                       href="#list_3" role="tab" aria-controls="list-3">Опишите проблему</a>
+                    <a class="list-group-item list-group-item-action mt-3" id="list_4_1" data-toggle="list"
+                       href="#list_4" role="tab" aria-controls="list_4">Заполните следующие данные для связи</a>
+                    <a class="list-group-item list-group-item-action mt-3" id="list_5_1" data-toggle="list"
+                       href="#list_5" role="tab" aria-controls="list_5">Подтвердите заявку</a>
+                    <h5 class="mt-4" id="percent">
+                        Оформлено на 0 %
+                    </h5>
                 </div>
-                <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default" placeholder="Имя" name="name">
             </div>
+            <div class="admin_form p-3" style="width:70%;">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active p-4" style="height:700px;" id="list_1" role="tabpanel"
+                         aria-labelledby="list_1">
+                        <h2 class="mt-2 mb-2">
+                            Ремонт какой категории вас интересует?
+                        </h2>
+                        <hr>
+                        <label for="exampleDataList" class="form-label mt-2 mb-3"><h3>Категория</h3></label>
+                        <input class="form-control" style="height: 40px;" list="datalistOptions" id="exampleDataList" name="category"
+                               placeholder="Выберите категорию">
+                        <datalist id="datalistOptions">
+                            <option value="Компьютер">
+                            <option value="Ноутбук">
+                            <option value="Телефон">
+                            <option value="Телевизор">
+                            <option value="Принтер">
+                            <option value="Монитор компьютера">
+                            <option value="Холодильник">
+                            <option value="Микроволновка">
+                            <option value="Стиральная машина">
+                            <option value="Электрическая плита">
+                            <option value="Другое: ">
+                        </datalist>
+                        <div class="flex_" style="margin-top:500px;">
+                            <a href="/">
+                                <button type="button" style="height:45x;width: 200px;" class="btn btn-secondary">
+                                    Отменить
+                                </button>
+                            </a>
+                            <a type="button" style="height:45x;width: 200px;" class="btn btn-primary" data-toggle="list"
+                               href="#list_2" role="tab" aria-controls="list_2">Дальше
+                            </a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade p-4" style="height:700px;" id="list_2" role="tabpanel"
+                         aria-labelledby="list_2">
+                        <h4 class="mt-2 mb-2">
+                            Выбранная категория: компьютеры
+                        </h4>
+                        <h2 class="mt-2 mb-2">
+                            Что случилось с техникой?
+                        </h2>
+                        <hr>
+                        <div style="font-size: 22px;">
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1">
+                                <label class="form-check-label" for="flexCheckChecked1">
+                                    Включается, экран остается чёрным
+                                </label>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2">
+                                <label class="form-check-label" for="flexCheckChecked2">
+                                    Не включается, нет реакции на нажатие кнопки включения
+                                </label>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3">
+                                <label class="form-check-label" for="flexCheckChecked3">
+                                    Работает медленно
+                                </label>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4">
+                                <label class="form-check-label" for="flexCheckChecked4">
+                                    Работает, но с зависаниями
+                                </label>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked5">
+                                <label class="form-check-label" for="flexCheckChecked5">
+                                    Синий экран сразу после загрузки
+                                </label>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked6">
+                                <label class="form-check-label" for="flexCheckChecked6">
+                                    Самопроизвольно выключается
+                                </label>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked7">
+                                <label class="form-check-label" for="flexCheckChecked7">
+                                    Сильно нагревается
+                                </label>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked8">
+                                <input type="text" class="form-control" name="another" id="another"
+                                       placeholder="Другое">
+                            </div>
+                        </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" style="width:200px;" id="inputGroup-sizing-default2">Заголовок</span>
+                        <div class="flex_" style="margin-top:242px;">
+                            <button type="button" style="height:45x;width: 200px;" class="btn btn-secondary"
+                                    onclick="change(0)">Назад
+                            </button>
+                            <button type="button" style="height:45x;width: 200px;" class="btn btn-primary"
+                                    data-toggle="list" href="#list-message" role="tab" aria-controls="profile"
+                                    onclick="change(45)">Дальше
+                            </button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade p-4" style="height:700px;" id="list_3" role="tabpanel"
+                         aria-labelledby="list_3">
+                        <h4 class="mt-2 mb-2">
+                            Выбранная категория: компьютеры
+                        </h4>
+                        <h2 class="mt-2 mb-2">
+                            Хотите ли добавить описание к проблеме?
+                        </h2>
+                        <hr>
+                        <div class="form-group" style="font-size: 20px;">
+                            <label for="exampleFormControlTextarea1">Описание</label>
+                            <textarea style="font-size: 20px;" class="form-control" id="exampleFormControlTextarea1" name="description"
+                                      rows="7"></textarea>
+                        </div>
+                        <h5 class="mt-4 mb-2">
+                            Хотите ли добавить внешний вид поломки к сообщению?
+                        </h5>
+                        <div class="form-group mt-4">
+                            <input type="file" class="form-control-file" id="file1" name="file1">
+                        </div>
+                        <div class="form-group mt-4">
+                            <input type="file" class="form-control-file" id="file2" name="file2">
+                        </div>
+                        <div class="form-group mt-4">
+                            <input type="file" class="form-control-file" id="file3" name="file3">
+                        </div>
+
+                        <div class="flex_" style="margin-top:100px;">
+                            <button type="button" style="height:45x;width: 200px;" class="btn btn-secondary"
+                                    onclick="change(45)">Назад
+                            </button>
+                            <button type="button" style="height:45x;width: 200px;" class="btn btn-primary"
+                                    data-toggle="list" href="#list-profile" role="tab" aria-controls="profile"
+                                    onclick="change(75)">Дальше
+                            </button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade p-4" style="height:700px;" id="list_4" role="tabpanel"
+                         aria-labelledby="list_4">
+                        <h4 class="mt-2 mb-2">
+                            Выбранная категория: компьютеры
+                        </h4>
+                        <h2 class="mt-2 mb-2">
+                            Оставьте данные для связи
+                        </h2>
+                        <hr>
+                        <div style="font-size: 20px;">
+                            <div class="form-group mt-3">
+                                <label for="email">Почтовый адрес</label>
+                                <input type="text" class="form-control" id="email" placeholder="Почтовый адрес"
+                                       name="email"
+                                       th:value="${user_email}">
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="number">Номер телефона</label>
+                                <input type="text" class="form-control" id="number" placeholder="Номер" name="number"
+                                       th:value="${user_number}">
+                            </div>
+                            <div class="form-group mt-2">
+                                <label for="address">Адресс проживания</label>
+                                <input type="text" class="form-control" id="address" placeholder="Адрес" name="address">
+                            </div>
+
+                            <div class="form-group mt-2">
+                                <label for="data_">Когда нужна услуга</label>
+                                <input type="date" max="2022-12-12" min="2022-05-20" class="form-control" id="data_"
+                                       name="data">
+                            </div>
+                        </div>
+
+                        <h4 class="mt-4">Как удобно организовать процедуру ремонта?</h4>
+                        <div style="font-size: 20px;">
+                            <div class="form-check mt-3">
+                                <input class="form-check-input" type="radio" name="element_1" id="element_1">
+                                <label class="form-check-label" for="element_1">
+                                    Приезд на дом
+                                </label>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="radio" name="element_2" id="element_2">
+                                <label class="form-check-label" for="element_2">
+                                    В мастерской магазина услуг
+                                </label>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="radio" name="element_3" id="element_3">
+                                <label class="form-check-label" for="element_3">
+                                    Дистанционно но видеосвязи
+                                </label>
+                            </div>
+                            <div class="form-check mt-2">
+                                <input class="form-check-input" type="radio" name="element_4" id="element_4">
+                                <label class="form-check-label" for="element_4">
+                                    Скажу по телефону
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="flex_" style="margin-top:53px;">
+                            <button type="button" style="height:45x;width: 200px;" class="btn btn-secondary"
+                                    onclick="change(45)">Назад
+                            </button>
+                            <button type="button" style="height:45x;width: 200px;" class="btn btn-primary"
+                                    data-toggle="list" href="#list-profile" role="tab" aria-controls="profile"
+                                    onclick="change(75)">Дальше
+                            </button>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade p-4" style="height:700px;" id="list_5" role="tabpanel"
+                         aria-labelledby="list_5">
+                        <h2 class="mt-2 mb-2">
+                            Вы ввели следующие данные?
+                        </h2>
+                        <hr>
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col">Категория</th>
+                                <th scope="col">Компьютеры</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">Характер ошибки</th>
+                                <td>Работает, но с зависаниями. Самопроизвольно выключается. Сильно нагревается. Сильно
+                                    гудит вентилятор.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Описание ошибки</th>
+                                <td>Компьютер совсем новый, ему и года нет. Был уже у мастера, но проблема вернулась
+                                    спустя
+                                    неделю.
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Заявитель</th>
+                                <td>Дамир Губайдулин</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Номер телефона</th>
+                                <td>+79371447245</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Почтовый адрес</th>
+                                <td>gubaidulin.dam@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Адрес проживания</th>
+                                <td>Саратов, Кировский, Высокая 10А</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Удобная дата ремонта</th>
+                                <td>02.06.2022</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Процедура ремонта</th>
+                                <td>В мастерской магазина услуг</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <h4 class="mt-3 mb-2">Всё верно? Если да, то нажмите кнопку "Закончить".</h4>
+
+                        <center style="margin-top: 90px;">
+                            <button type="submit" class="btn btn-success" style="height:45x;width: 200px;"
+                                    data-toggle="modal" data-target="#final">Занончить
+                            </button>
+
+                            <div class="modal fade" id="final" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Спасибо за оставленную
+                                                заявку</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h5>В скором времени с вами связжутся наши специалисты.</h5>
+                                            <h5>Ваша заявка также будет продублирована на указанную вами почту.</h5>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" href="/" class="btn btn-secondary"
+                                                    data-dismiss="modal">
+                                                Закрыть
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
+                    </div>
                 </div>
-                <input type="text" class="form-control" aria-describedby="inputGroup-sizing-default2" placeholder="Заголовок" name="title">
             </div>
-
-<!--            <div class="mt-3">-->
-<!--                <label>Заголовок</label>-->
-<!--                <div class="in_size">-->
-<!--                    <input type="text" class="form-control" placeholder="Заголовок" name="title">-->
-<!--                </div>-->
-<!--            </div>-->
-            <div class="mt-3">
-                <label>Описание </label>
-                <textarea class="form-control" rows="5" cols="100" name="description" placeholder="Описание"></textarea><br>
-            </div>
-            <h5 class="mt-3">Загрузить фотографии по желанию:</h5>
-            <div class="flex_ mt-2">
-                <input type="file" id="file1" name="file1" class="form-control-file" multiple>
-                <input type="file" id="file2" name="file2" class="form-control-file" multiple>
-            </div>
-            <div class="flex_ mt-2">
-                <input type="file" id="file3" name="file3" class="form-control-file" multiple>
-                <input type="file" id="file4" name="file4" class="form-control-file" multiple>
-            </div>
-            <div class="flex_ mt-2">
-                <input type="file" id="file5" name="file5" class="form-control-file" multiple>
-                <input type="file" id="file6" name="file6" class="form-control-file" multiple>
-            </div>
-            <input type="hidden" name="_csrf" value="${_csrf.token}">
-            <div class="mt-5" style="text-align:center;">
-                <button type="submit" style="margin: 0 auto;" class="btn btn-primary btn-lg btn-block">Оформить заявку
-                </button>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
 
 <header th:insert="blocks/bottom :: bottom"></header>

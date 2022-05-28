@@ -17,10 +17,11 @@
 
 <!--<header th:insert="blocks/modals :: login"></header>-->
 
-<div th:if="${param.error}">Некорректный логин или пароль</div>
-<div th:if="${param.logout}">Вы вышли из аккаунтка</div>
-
 <div class="container_reg mb-5">
+    <div th:text="${message}"></div>
+    <div class="mt-2 mb-2" th:if="${param.error}">Некорректный логин или пароль. Или аккаунт не был активирован, проверьте поточвый ящик</div>
+    <div class="mt-2 mb-2" th:if="${param.logout}">Вы вышли из аккаунтка</div>
+
     <form th:action="@{/login}" method="post">
         <div class="form-group space_top">
             <label for="username">Логин или почта</label>
@@ -38,8 +39,8 @@
     </form>
     <p class="mt-5">Если у вас ещё нет аккаунта - <a href="/registration">Зарегистрируйтесь</a></p>
 </div>
-
-<header class="mt-5" th:insert="blocks/bottom :: bottom"></header>
+<div style="margin-top: 300px;"></div>
+<header th:insert="blocks/bottom :: bottom"></header>
 
 </body>
 </html>

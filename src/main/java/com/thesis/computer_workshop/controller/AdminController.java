@@ -48,7 +48,6 @@ public class AdminController {
     @GetMapping("/admin/application")
     public String returnNewApplicationList(Model model) {
         Iterable<RepairApplication> applicationIterable = repairApplicationRepository.findAll();
-        System.out.println(applicationIterable.iterator().next().getTitle());
         model.addAttribute("applicationIterable", applicationIterable);
         return "/applications/admin_application_list";
     }

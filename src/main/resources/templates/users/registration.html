@@ -12,18 +12,21 @@
     <div th:if="${message!=null}">
         <h2 th:text="${message}"></h2>
     </div>
-
-    <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Успешная авторизация</h4>
-        <p>Проверьте почту и активируйте аккаунт (перейдя по коду активации)
-            <br>
-            После вам станут доступны функции веб-приложения.</p>
-        <hr>
-        <p class="mb-0">Активация перенаправит на страницу входа.</p>
+    <div th:if="${message_2!=null}">
+        <h2 th:text="${message_2}"></h2>
     </div>
-    <script>
-                $('.alert').alert()
-            </script>
+
+<!--    <div class="alert alert-success" role="alert">-->
+<!--        <h4 class="alert-heading">Успешная авторизация</h4>-->
+<!--        <p>Проверьте почту и активируйте аккаунт (перейдя по коду активации)-->
+<!--            <br>-->
+<!--            После вам станут доступны функции веб-приложения.</p>-->
+<!--        <hr>-->
+<!--        <p class="mb-0">Активация перенаправит на страницу входа.</p>-->
+<!--    </div>-->
+<!--    <script>-->
+<!--                $('.alert').alert()-->
+<!--            </script>-->
 
 <!--    <div th:switch="${check}">-->
 <!--        <div th:case="${true}">-->
@@ -48,6 +51,7 @@
             <div><label for="e"> email : <input type="email" class="form-control" id="e" name="email"/> </label></div>
             <div><label for="n"> Number: <input type="text" class="form-control" id="n" name="phoneNumber"/> </label></div>
             <div><label for="p"> Password: <input type="password" class="form-control" id="p" name="password"/> </label></div>
+            <div><label for="conf"> Password: <input type="password" class="form-control" id="conf" name="confPassword"/> </label></div>
 
             <div><input type="submit" value="Sign In" placeholder="Зарегистрироваться"/></div>
         </form>
