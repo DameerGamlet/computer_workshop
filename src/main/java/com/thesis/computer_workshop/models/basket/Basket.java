@@ -1,7 +1,6 @@
 package com.thesis.computer_workshop.models.basket;
 
 import com.thesis.computer_workshop.models.products.Notebook;
-import com.thesis.computer_workshop.models.users.ImageUser;
 import com.thesis.computer_workshop.models.users.Usr;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,8 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter

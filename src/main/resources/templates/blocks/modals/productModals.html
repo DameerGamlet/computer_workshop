@@ -1,0 +1,140 @@
+<div th:fragment="buyAll" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="modal fade bd-example-modal-lg" id="buyAll" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Оформить покупку всех товаров</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div th:each="us : ${user}" class="p-4">
+                    <form action="/basket" method="post">
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="name" class="col-form-label" style="font-size:20px;">Имя:</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="Введите ваше имя" style="font-size: 20px;"
+                                       th:value="${us.name}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="col-form-label" style="font-size:20px;">Почтовый
+                                    адрес:</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                                       th:value="${us.email}" style="font-size: 20px;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="numberPhone" class="col-form-label" style="font-size:20px;">Номер
+                                    телефона:</label>
+                                <input type="text"
+                                       class="form-control" id="numberPhone" name="numberPhone"
+                                       placeholder="+7 (123) 456 78-90"
+                                       th:value="${us.phoneNumber}" style="font-size: 20px;">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="comment" style="font-size:20px;">Комментарий к заказу</label>
+                                <textarea class="form-control" id="comment" rows="4" name="comment"
+                                          style="font-size: 20px;"></textarea>
+                            </div>
+                            <div class="flex_ p-3">
+                                <div>
+                                    <h4>Способ получения</h4>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="way_to_get"
+                                               id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1" style="font-size:20px;">
+                                            Доставка до дома
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="way_to_get"
+                                               id="flexRadioDefault2">
+                                        <label class="form-check-label" for="flexRadioDefault2" style="font-size:20px;">
+                                            Самовывоз
+                                        </label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4>Способ оплаты</h4>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="payment_method"
+                                               id="flexRadioDefault3">
+                                        <label class="form-check-label" for="flexRadioDefault3" style="font-size:20px;">
+                                            Оплата наличными
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="payment_method"
+                                               id="flexRadioDefault4">
+                                        <label class="form-check-label" for="flexRadioDefault4" style="font-size:20px;">
+                                            Оплата картой
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown p-3">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                        style="font-size:18px;"
+                                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Выбранный список товаров (11250 р.)
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="#" style="font-size: 20px;">Принтер лазерный HP
+                                        LaserJet PRO M104a (6000
+                                        р.)</a></li>
+                                    <li><a class="dropdown-item" href="#" style="font-size: 20px;">Ноутбук Acer
+                                        NITROAn515-55 (84000 р.)</a></li>
+                                    <li><a class="dropdown-item" href="#" style="font-size: 20px;">Компьютер MacMini
+                                        A1347 (22500 р.)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Отменить
+                            </button>
+                            <button type="submit" class="btn btn-primary">Оформить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="updatePassword" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="modal fade" id="updatePassword" tabindex="-1" aria-labelledby="updatePassword"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Изменение пароля</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <form action="/account_update_password" method="post">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="password" class="col-form-label">Старый пароль:</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="new_password" class="col-form-label">Новый пароль:</label>
+                            <input type="password" class="form-control" id="new_password" name="new_password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="conf_new_password" class="col-form-label">Подтвердите новый пароль:</label>
+                            <input type="password" class="form-control" id="conf_new_password" name="conf_new_password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Отменить
+                        </button>
+                        <button type="submit" class="btn btn-primary">Обновить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import com.thesis.computer_workshop.models.application.RepairApplication;
 import com.thesis.computer_workshop.models.mail.MaiLSender;
 import com.thesis.computer_workshop.models.users.Usr;
 import com.thesis.computer_workshop.repositories.applicationRepositories.RepairApplicationRepository;
+import com.thesis.computer_workshop.repositories.applicationRepositories.RepairRepository;
 import com.thesis.computer_workshop.repositories.usersRepositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,11 @@ import java.time.format.DateTimeFormatter;
 @RequiredArgsConstructor
 public class ApplicationController {
     @Autowired
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
     @Autowired
-    private final RepairApplicationRepository repairApplicationRepository;
+    private RepairApplicationRepository repairApplicationRepository;
+    @Autowired
+    private RepairRepository repairRepository;
     @Autowired
     private MaiLSender maiLSender;
 
@@ -39,34 +42,6 @@ public class ApplicationController {
         return "applications/application_form";
     }
 
-//    @GetMapping("/application_2")
-//    public String saveApplication(@RequestParam(name = "category") String category,
-//                                  @RequestParam(name = "email") String email,
-//                                  @RequestParam(name = "description") String description,
-//                                  @RequestParam(name = "number") String number,
-//                                  @RequestParam(name = "address") String address,
-//                                  @RequestParam(name = "data") String data,
-//
-//                                  Principal principal, Model model) {
-//        String character = "Работает, но с зависаниями. Самопроизвольно выключается. Сильно нагревается. Сильно гудит вентилятор.";
-//        String location = "В мастерской магазина услуг.";
-//        System.out.println(
-//                "category" + " = " + category + "\n" +
-//                        "character" + " = " + character + "\n" +
-//                        "description" + " = " + description + "\n" +
-//                        "email" + " = " + email + "\n" +
-//                        "number" + " = " + number + "\n" +
-//                        "address" + " = " + address + "\n" +
-//                        "data" + " = " + data + "\n" +
-//                        "location" + " = " + location + "\n"
-//        );
-//        Usr user = getUserByPrincipal(principal);
-//        model.addAttribute("check", user.getUsername() != null);
-//        model.addAttribute("user", user);
-//        System.out.println("category: " + category);
-//        return "main/main";
-//    }
-
     @PostMapping("/application")
     public String setApplication(Principal principal,
                                  Model model,
@@ -76,7 +51,6 @@ public class ApplicationController {
                                  @RequestParam(name = "address") String address,
                                  @RequestParam(name = "data") String data) throws IOException {
         RepairApplication repairApplication = new RepairApplication();
-        System.out.println(123);
 //        ImagesApplication image1 = addImage(repairApplication, file1),
 //                image2 = addImage(repairApplication, file2),
 //                image3 = addImage(repairApplication, file3);
@@ -93,7 +67,7 @@ public class ApplicationController {
         repairApplication.setCharacter(character);
         repairApplication.setLocation(location);
         repairApplication.setData(data);
-        repairApplicationRepository.save(repairApplication);
+        repairRepository.save(repairApplication);
 
         if (!StringUtils.isEmpty(user.getEmail())) {
             String dateMessage = repairApplication.getDateOfCreated().toString().split("T")[0];

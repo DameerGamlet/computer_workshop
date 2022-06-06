@@ -21,13 +21,14 @@
                                    th:value="${us.name}">
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="col-form-label">Имя:</label>
+                            <label for="email" class="col-form-label">Почтовый адрес:</label>
                             <input type="email" class="form-control" id="email" name="email"
                                    th:value="${us.email}">
                         </div>
                         <div class="mb-3">
-                            <label for="phoneNumber" class="col-form-label">Имя:</label>
-                            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber"
+                            <label for="phoneNumber" class="col-form-label">Номер телефона:</label>
+                            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                   class="form-control" id="phoneNumber" name="phoneNumber"
                                    th:value="${us.phoneNumber}">
                         </div>
                     </div>
@@ -95,7 +96,7 @@
                     <div class="modal-body">
                         <h2>Чтобы удалить аккаунт необходимо подтвердить подлинность</h2>
                         <div class="mb-3">
-                            <label for="username_check" class="col-form-label">Username:</label>
+                            <label for="username_check" class="col-form-label">Логин:</label>
                             <input type="text" class="form-control" id="username_check" name="username_check">
                         </div>
                         <div class="mb-3">

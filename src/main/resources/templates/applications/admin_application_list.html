@@ -10,63 +10,71 @@
 <div class="container body-color" style="padding-left: 100px;padding-right: 100px;">
     <h2 class="mt-4 mb-3" style="width: 30%; margin: 0 auto;">Список новых заявок</h2>
     <div th:each="item : ${applicationIterable}">
-        <div class="flex_">
-            <div>
-                <div class="flex_">
+        <div class="admin_form p-4 mt-3">
+            <div class="flex_">
+                <div>
+                    <h2 th:text="'ID: ' + ${item.id}"></h2>
+                </div>
+                <div class="d-flex justify-content-around">
                     <div>
-                        <h2 th:text="'ID: ' + ${item.id}"></h2>
+                        <button type="button" style="margin-right:10px;" class="btn btn-primary">Ответить</button>
                     </div>
-                    <div class="d-flex justify-content-around">
-                        <div>
-                            <button type="button" style="margin-right:10px;" class="btn btn-primary">Ответить</button>
-                        </div>
-                        <div>
-                            <button type="button" style="margin-right:10px;" class="btn btn-primary">Выполнено</button>
-                        </div>
-                        <div>
-                            <form th:action="'/admin/application/' + ${item.id} + '/delete'" method="post">
-                                <button class="btn btn-danger" type="submit">Удалить</button>
-                            </form>
-                        </div>
+                    <div>
+                        <button type="button" style="margin-right:10px;" class="btn btn-primary">Выполнено</button>
+                    </div>
+                    <div>
+                        <form th:action="'/admin/application/' + ${item.id} + '/delete'" method="post">
+                            <button class="btn btn-danger" type="submit">Удалить</button>
+                        </form>
                     </div>
                 </div>
-                <table BGCOLOR="#E1E1E1">
-                    <tr>
-                        <th><h5>Заголовок:</h5></th>
-                        <th><h6 class="left__" th:text="${item.title}"></h6></th>
-                    </tr>
-                    <tr>
-                        <th><h5>Логин пользователя:</h5></th>
-                        <th><h6 class="left__" th:text="${item.userUsername}"></h6></th>
-                    </tr>
-                    <tr>
-                        <th><h5>Имя пользователя:</h5></th>
-                        <th><h6 class="left__" th:text="${item.userName}"></h6></th>
-                    </tr>
-                    <tr>
-                        <th><h5>Почта пользователя:</h5></th>
-                        <th><h6 class="left__" th:text="${item.userEmail}"></h6></th>
-                    </tr>
-                    <tr>
-                        <th><h5>Номер пользователя:</h5></th>
-                        <th><h6 class="left__" th:text="${item.userNumber}"></h6></th>
-                    </tr>
-                </table>
-                <h3>Описание</h3>
-                <h6 th:text="${item.description}"></h6>
-                <br>
-                <h3>Изображения ошибки</h3>
-                <div class="d-flex justify-content-start">
-                    <div th:each="image : ${item.imagesApplicationArrayList}">
-                        <a th:href="@{'http://localhost:8080/images/application/'+ ${image.id}}" style="margin-right: 20px;">
-                            <img class="image_photo_2_2" border="1"
-                                 th:src="@{'http://localhost:8080/images/application/'+ ${image.id}}"
-                            >
-                        </a>
-                    </div>
-                </div>
-                <hr class="mt-3 mb-4" style="border-width: 2px;">
             </div>
+            <h3 class="mt-3">Основные характеристики заявки</h3>
+            <table cellpadding="0" cellspacing="0" border="0" BGCOLOR="#FFF" style="font-size:20px;border:none;">
+                <tr>
+                    <th><h5>Категория поломанного товара:</h5></th>
+                    <th><h6 class="left__" th:text="${item.category}"></h6></th>
+                </tr>
+                <tr>
+                    <th><h5>Характер ошибки</h5></th>
+                    <th><h6 class="left__">
+                        1. Работает, но с зависаниями. <br>
+                        2. Самопроизвольно выключается. <br>
+                        3. Сильно нагревается. <br>
+                        4. Сильно гудит вентилятор.
+                    </h6></th>
+                </tr>
+                <tr>
+                    <th><h5>Имя пользователя:</h5></th>
+                    <th><h6 class="left__" th:text="${item.name}"></h6></th>
+                </tr>
+                <tr>
+                    <th><h5>Логин пользователя:</h5></th>
+                    <th><h6 class="left__" th:text="${item.username}"></h6></th>
+                </tr>
+                <tr>
+                    <th><h5>Почта пользователя:</h5></th>
+                    <th><h6 class="left__" th:text="${item.email}"></h6></th>
+                </tr>
+                <tr>
+                    <th><h5>Указанный адрес:</h5></th>
+                    <th><h6 class="left__" th:text="${item.address}"></h6></th>
+                </tr>
+                <tr>
+                    <th><h5>Удобное способ организации ремонта:</h5></th>
+                    <th><h6 class="left__" th:text="${item.location}"></h6></th>
+                </tr>
+                <tr>
+                    <th><h5>Номер пользователя:</h5></th>
+                    <th><h6 class="left__">+79371447245</h6></th>
+                </tr>
+            </table>
+            <h3 class="mt-3">Описание</h3>
+            <h6 th:text="${item.description}"></h6>
+            <h3 class="mt-3">Изображения</h3>
+            <h6>К заявке изображений не прилагалось</h6>
+            <hr class="mt-4 mb-3">
+            <h6>Дата оформления: 2022-05-29 12:06:00.0</h6>
         </div>
     </div>
 </div>

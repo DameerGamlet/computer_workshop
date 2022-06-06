@@ -5,6 +5,7 @@ import com.thesis.computer_workshop.models.logs.LogProduct;
 import com.thesis.computer_workshop.models.products.Notebook;
 import com.thesis.computer_workshop.models.images.ImageNoteBook;
 import com.thesis.computer_workshop.repositories.applicationRepositories.RepairApplicationRepository;
+import com.thesis.computer_workshop.repositories.completedApplicationRepositories.CompletedApplicationRepository;
 import com.thesis.computer_workshop.repositories.logsRepositories.LogProductRepository;
 import com.thesis.computer_workshop.repositories.productsRepositories.NotebookRepository;
 import com.thesis.computer_workshop.repositories.imagesRepositories.ImageNoteBookRepository;

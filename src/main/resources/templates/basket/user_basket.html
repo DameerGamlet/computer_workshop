@@ -10,52 +10,63 @@
 <div class="container">
     <h1 class="product_name mt-4 mb-4">Моя корзина</h1>
 
-    <select class="form-select mb-1" aria-label="Default select example">
-        <option selected>Выберите категорию</option>
-        <option value="1">Ноутбуки</option>
-        <option value="2">Мониторы</option>
-        <option value="3">Флешк-арты</option>
-    </select>
+    <div class="find_count_element_2 flex_ mt-4 mt-3">
+        <div>
+            <div class="display_flex_start">
+                <div>В корзине &#160;&#160;</div>
+                <div>3</div>
+                <div>&#160;&#160;товара</div>
+            </div>
 
-    <div class="find_count_element_2 mt-4 mt-3">
-        <div>В избанном находится&#160;</div>
-        <div th:text="${counts}"></div>
-        <div>&#160;товара</div>
+            <div class="display_flex_start">
+                <div>На сумму&#160;&#160;</div>
+                <div>112500</div>
+                <div>&#160;&#160;рублей</div>
+            </div>
+        </div>
+
+        <div>
+            <button type="button"
+                    class="btn btn-outline-primary"
+                    style="margin-top: 20px; height: 40px; width: 280px;"
+                    data-toggle="modal" data-target="#buyAll">
+                Перейти к оформлению
+            </button>
+            <!-- Modal -->
+            <header th:insert="blocks/modals/productModals :: buyAll"></header>
+        </div>
     </div>
 
-    <div th:each="item : ${notebooks}">
-        <!-- ТОВАР -->
-        <!-- Серая форма товара-->
+    <div class="flex_">
         <div class="elements_group_basket">
             <!-- Продукты внутри-->
             <div class="flex_">
                 <!-- ИКОНКА -->
                 <div>
-                    <a th:href="'/notebook/' + ${item.id}">
-                        <img class="img_border"
-                             th:src="@{'http://localhost:8080/images/notebook/'+ ${item.previewImageId}}"
-                             width="250" height="200" src="">
-                    </a>
+                    <img class="img_border"
+                         src="images/PRIN.jpg"
+                         width="250" height="200">
                 </div>
 
                 <div class="product_container">
                     <div class="flex_">
-                        <div class="product_full_name" th:text="${item.name}"></div>
+                        <div>
+                            <h4>Принтер лазерный</h4>
+                            <div class="product_full_name">HP LaserJet PRO M104a</div>
+                        </div>
 
                         <div class="price_config">
                             <div class="price_text">Цена:&#160;</div>
-                            <div class="price"
-                                 th:text="${item.price}"></div>
+                            <div class="price">6000</div>
                             <div class="price_text">&#160;₽</div>
                         </div>
                     </div>
-                    <div class="product_container2">
+                    <div class="product_container3">
                         <div class="product_option_inner ">
                             <div class="option_product">
                                 <h5>Характеристики</h5>
-                                <div th:text="'Процессор:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.processorName}"></div>
-                                <div th:text="'Видеокарта:&nbsp;&nbsp;' + ${item.videoCardName}"></div>
-                                <div th:text="'Объём ОП:&nbsp;&nbsp;&nbsp;&nbsp;' + ${item.ramSize} + ' ГБ'"></div>
+                                <div>Цветность печати:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;черно-белая</div>
+                                <div>Технология печати:&nbsp;&nbsp;лазерная</div>
                             </div>
                         </div>
                         <div class="price_and_buy mt-4">
@@ -66,11 +77,9 @@
                                 </div>
                             </div>
                             <div class="element_right">
-                                <a th:href="'/notebook/' + ${item.id}">
-                                    <button class="text-field__btn_fav"
-                                            type="button">Подробнее
-                                    </button>
-                                </a>
+                                <button class="text-field__btn_fav"
+                                        type="button">Подробнее
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -78,9 +87,147 @@
                 <!-- Продукты внутри-->
             </div>
         </div>
-        <!-- ТОВАР ЭНД -->
+        <div class="first1">
+            <button type="button" class="btn mt-2 btn-outline-danger second2">Удалить из
+                корзины
+            </button>
+            <button type="button" class="btn mt-2 btn-outline-primary second2">Оформить
+                только данный товар
+            </button>
+        </div>
     </div>
 
+    <div class="flex_">
+        <div class="elements_group_basket">
+            <!-- Продукты внутри-->
+            <div class="flex_">
+                <!-- ИКОНКА -->
+                <div>
+                    <!--                <a th:href="'/notebook/' + 99">-->
+                    <img class="img_border"
+                         src="http://localhost:8080/images/notebook/100" width="250" height="200">
+                    <!--                </a>-->
+                </div>
+
+                <div class="product_container">
+                    <div class="flex_">
+                        <div>
+                            <h4>Ноутбук</h4>
+                            <div class="product_full_name">Acer NITROAn515-55</div>
+                        </div>
+                        <div class="product_full_name"></div>
+
+                        <div class="price_config">
+                            <div class="price_text">Цена:&#160;</div>
+                            <div class="price">84000</div>
+                            <div class="price_text">&#160;₽</div>
+                        </div>
+                    </div>
+                    <div class="product_container3">
+                        <div class="product_option_inner ">
+                            <div class="option_product">
+                                <h5>Характеристики</h5>
+                                <div>Процессор:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Intel Core-I5-10300H 8 ядер
+                                    4.5ghz
+                                </div>
+                                <div>Видеокарта:&nbsp;&nbsp;Nvidia GeForce RTX 3060 6Gb
+                                </div>
+                                <div>Объём ОП:&nbsp;&nbsp;&nbsp;&nbsp; 16 ГБ</div>
+                            </div>
+                        </div>
+                        <div class="price_and_buy mt-4">
+                            <div class="flex_">
+                                <div class="left_">
+                                    <a href="#"> <img class="image_user" src="/images/products/heart_.png"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="element_right">
+                                <!--                            <a th:href="'/notebook/99'">-->
+                                <button class="text-field__btn_fav"
+                                        type="button">Подробнее
+                                </button>
+                                <!--                            </a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Продукты внутри-->
+            </div>
+        </div>
+        <div class="first1">
+            <button type="button" class="btn mt-2 btn-outline-danger second2">Удалить из
+                корзины
+            </button>
+            <button type="button" class="btn mt-2 btn-outline-primary second2">Оформить
+                только данный товар
+            </button>
+        </div>
+    </div>
+
+    <div class="flex_">
+        <div class="elements_group_basket">
+            <!-- Продукты внутри-->
+            <div class="flex_">
+                <!-- ИКОНКА -->
+                <div>
+                    <!--                <a th:href="'/notebook/173'">-->
+                    <img class="img_border"
+                         src="http://localhost:8080/images/notebook/174" width="250" height="200">
+                    <!--                </a>-->
+                </div>
+
+                <div class="product_container">
+                    <div class="flex_">
+                        <div>
+                            <h4>Компьютер</h4>
+                            <div class="product_full_name">MacMini A1347</div>
+                        </div>
+
+                        <div class="price_config">
+                            <div class="price_text">Цена:&#160;</div>
+                            <div class="price">22500</div>
+                            <div class="price_text">&#160;₽</div>
+                        </div>
+                    </div>
+                    <div class="product_container3">
+                        <div class="product_option_inner ">
+                            <div class="option_product">
+                                <h5>Характеристики</h5>
+                                <div>Процессор:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intel Core i5 2.7 TurboBoost</div>
+                                <div>Объём ОП:&nbsp;&nbsp;&nbsp;&nbsp; 4 ГБ</div>
+                            </div>
+                        </div>
+                        <div class="price_and_buy mt-4">
+                            <div class="flex_">
+                                <div class="left_">
+                                    <a href="#">
+                                        <img class="image_user" src="/images/products/heart_.png"/>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="element_right">
+                                <!--                            <a th:href="'/notebook/173'">-->
+                                <button class="text-field__btn_fav"
+                                        type="button">Подробнее
+                                </button>
+                                <!--                            </a>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Продукты внутри-->
+            </div>
+        </div>
+        <div class="first1">
+            <button type="button" class="btn mt-2 btn-outline-danger second2">Удалить из
+                корзины
+            </button>
+            <button type="button" class="btn mt-2 btn-outline-primary second2">Оформить
+                только данный товар
+            </button>
+        </div>
+    </div>
 </div>
 
 <header th:insert="blocks/bottom :: bottom"></header>
